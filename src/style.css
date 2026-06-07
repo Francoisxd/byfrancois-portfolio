@@ -33,9 +33,14 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
+}
+
+h1, h2, h3, h4, h5, h6, .hero-name, .section-title, .service-title, .project-title, .contact-title {
+  font-family: 'Syne', sans-serif;
 }
 
 /* Custom cursor */
@@ -1254,9 +1259,10 @@ section {
 .contact-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+  padding-bottom: 12px;
 }
 
 .contact-title span { color: var(--blue-light); }
