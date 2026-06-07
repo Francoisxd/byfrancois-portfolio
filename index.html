@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>By Francois — Connecting the Physical and Digital World</title>
+  <meta name="description" content="Jhon Kennedy Francois — Estudiante de Ingeniería de Sistemas y Desarrollador Maker especializado en automatización IoT, redes, electrónica y desarrollo de software con Python.">
+  <meta name="author" content="Jhon Kennedy Francois">
+  <meta name="keywords" content="IoT, Raspberry Pi, Home Assistant, Telecomunicaciones, Redes, Electrónica, Python, Automatización, Trujillo, Perú">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:8000/">
+  <meta property="og:title" content="By Francois — Connecting the Physical and Digital World">
+  <meta property="og:description" content="Desarrollador Maker enfocado en automatización de Smart Offices, soluciones electrónicas e integraciones IoT.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="By Francois — Connecting the Physical and Digital World">
+  <meta property="twitter:description" content="Desarrollador Maker enfocado en automatización de Smart Offices, soluciones electrónicas e integraciones IoT.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<!-- Preloader Overlay -->
+<div class="preloader" id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-logo">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,4 76,22 76,58 40,76 4,58 4,22" stroke="#1a6aff" stroke-width="1.5" fill="none"/>
+        <polygon points="40,16 64,29 64,51 40,64 16,51 16,29" stroke="#4a9eff" stroke-width="1" fill="none"/>
+        <polygon points="40,28 52,35 52,45 40,52 28,45 28,35" fill="#1a6aff"/>
+      </svg>
+    </div>
+    <div class="loading-bar-container">
+      <div class="loading-bar" id="loadBar"></div>
+    </div>
+    <div class="preloader-text" id="loadText">Inicializando...</div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="40,4 76,22 76,58 40,76 4,58 4,22" stroke="#1a6aff" stroke-width="1.5" fill="none"/>
+      <polygon points="40,16 64,29 64,51 40,64 16,51 16,29" stroke="#4a9eff" stroke-width="1" fill="none"/>
+      <polygon points="40,28 52,35 52,45 40,52 28,45 28,35" fill="#1a6aff"/>
+    </svg>
+    <span class="nav-brand">BY FRANCOIS</span>
+  </a>
+  
+  <ul class="nav-links">
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+  </ul>
+  
+  <div class="nav-right-container">
+    <!-- Language Switcher Toggle Buttons -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="#contact" class="nav-cta" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-tag" data-i18n="hero_tag">Available for work</div>
+    <h1 class="hero-name">
+      <span data-i18n="hero_title_1">By</span><br>
+      <span class="hero-span-glow" data-i18n="hero_title_2"><span>Francois</span></span>
+    </h1>
+    <p class="hero-tagline" data-i18n="hero_tagline">Connecting the physical and digital world.<br>Telecomunicaciones · Redes · Electrónica · Programación</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects">Ver proyectos</a>
+      <a href="#contact" class="btn-secondary" data-i18n="hero_btn_contact">Contactar</a>
+    </div>
+  </div>
+
+  <div class="hero-logo">
+    <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g class="spin-slow" style="transform-origin:160px 160px">
+        <polygon points="160,20 280,80 280,240 160,300 40,240 40,80" stroke="rgba(26,106,255,0.2)" stroke-width="1" fill="none"/>
+      </g>
+      <g class="spin-reverse" style="transform-origin:160px 160px">
+        <polygon points="160,50 255,102 255,218 160,270 65,218 65,102" stroke="rgba(74,158,255,0.15)" stroke-width="1" fill="none"/>
+      </g>
+      <polygon points="160,80 236,122 236,198 160,240 84,198 84,122" stroke="#1a6aff" stroke-width="1.5" fill="none"/>
+      <polygon points="160,108 212,138 212,182 160,212 108,182 108,138" stroke="#4a9eff" stroke-width="1" fill="none"/>
+      <polygon points="160,136 188,153 188,167 160,184 132,167 132,153" fill="#1a6aff"/>
+
+      <circle cx="160" cy="80" r="4" fill="#4a9eff"/>
+      <circle cx="236" cy="122" r="4" fill="#4a9eff"/>
+      <circle cx="236" cy="198" r="4" fill="#4a9eff"/>
+      <circle cx="160" cy="240" r="4" fill="#4a9eff"/>
+      <circle cx="84" cy="198" r="4" fill="#4a9eff"/>
+      <circle cx="84" cy="122" r="4" fill="#4a9eff"/>
+
+      <line x1="160" y1="80" x2="160" y2="108" stroke="#4a9eff" stroke-width="1.5"/>
+      <line x1="236" y1="122" x2="212" y2="138" stroke="#4a9eff" stroke-width="1.5"/>
+      <line x1="236" y1="198" x2="212" y2="182" stroke="#4a9eff" stroke-width="1.5"/>
+      <line x1="160" y1="240" x2="160" y2="212" stroke="#4a9eff" stroke-width="1.5"/>
+      <line x1="84" y1="198" x2="108" y2="182" stroke="#4a9eff" stroke-width="1.5"/>
+      <line x1="84" y1="122" x2="108" y2="138" stroke="#4a9eff" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-label" data-i18n="about_label">About</div>
+      <h2 class="section-title" data-i18n="about_title">Estudiante.<br>Builder.<br>Maker.</h2>
+      <p data-i18n="about_p1">Soy <strong>Jhon Kennedy Francois</strong>, estudiante de Ingeniería de Sistemas con 24 años y una pasión genuina por construir cosas que conectan el mundo físico con el digital.</p>
+      <p data-i18n="about_p2">Me muevo entre el hardware y el software con la misma comodidad: desde diseñar circuitos electrónicos y configurar redes hasta programar soluciones IoT y automatizar procesos. Si tiene un cable o una línea de código, me interesa.</p>
+      <p data-i18n="about_p3">Actualmente construyendo proyectos reales que demuestran que la tecnología bien aplicada puede resolver problemas concretos.</p>
+      <div class="skills-grid">
+        <span class="skill-tag">Telecomunicaciones</span>
+        <span class="skill-tag">Redes</span>
+        <span class="skill-tag">Electrónica</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">IoT</span>
+        <span class="skill-tag">Raspberry Pi</span>
+        <span class="skill-tag">Home Assistant</span>
+        <span class="skill-tag">Automatización</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">WiFi / Redes</span>
+      </div>
+    </div>
+
+    <div class="about-stats reveal">
+      <div class="stat">
+        <span class="stat-num">2+</span>
+        <span class="stat-label" data-i18n="about_stat_projects">Proyectos reales</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">30%</span>
+        <span class="stat-label" data-i18n="about_stat_savings">Reducción energética en Smart Office</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label" data-i18n="about_stat_opensource">Proyectos open source</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">4+</span>
+        <span class="stat-label" data-i18n="about_stat_skills">Áreas de especialidad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-label reveal" data-i18n="services_label">Servicios</div>
+  <h2 class="section-title reveal" data-i18n="services_title">¿En qué puedo<br>ayudarte?</h2>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_1_title">Automatización IoT</h3>
+      <p class="service-desc" data-i18n="service_1_desc">Diseño e implementación de sistemas inteligentes con Raspberry Pi, Home Assistant, sensores y actuadores. Oficinas, hogares y espacios inteligentes.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_2_title">Redes y Telecomunicaciones</h3>
+      <p class="service-desc" data-i18n="service_2_desc">Configuración, diseño y optimización de infraestructura de redes alámbricas e inalámbricas para empresas y hogares.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_3_title">Desarrollo de Software</h3>
+      <p class="service-desc" data-i18n="service_3_desc">Aplicaciones de escritorio y herramientas de automatización en Python. Scripts, bots, automatizadores y utilidades para productividad.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_4_title">Electrónica y Hardware</h3>
+      <p class="service-desc" data-i18n="service_4_desc">Diseño de circuitos, instalación de dispositivos electrónicos, integración de sensores y sistemas embebidos.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_5_title">Soporte TI</h3>
+      <p class="service-desc" data-i18n="service_5_desc">Mantenimiento preventivo y correctivo, configuración de equipos, diagnóstico de fallas y soporte técnico especializado.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">06</div>
+      <span class="service-icon">⬡</span>
+      <h3 class="service-title" data-i18n="service_6_title">Consultoría Tecnológica</h3>
+      <p class="service-desc" data-i18n="service_6_desc">Asesoría para digitalizar y modernizar procesos usando tecnología accesible. Análisis costo-beneficio y propuestas de implementación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="projects-inner">
+    <div class="section-label reveal" data-i18n="projects_label">Proyectos</div>
+    <h2 class="section-title reveal" data-i18n="projects_title">Lo que he<br>construido</h2>
+
+    <div class="projects-grid">
+
+      <!-- Smart Office Project with Simulator -->
+      <div class="project-card reveal" style="grid-column: 1 / -1;">
+        <div class="project-type" data-i18n="project_1_type">IoT · Hardware · Automatización</div>
+        <h3 class="project-title" data-i18n="project_1_title">Smart Office — Nanotechnology SAC</h3>
+        <p class="project-desc" data-i18n="project_1_desc">Sistema completo de oficina inteligente para Nanotechnology SAC en Trujillo, Perú. Centraliza el control de iluminación, climatización y consumo eléctrico usando Raspberry Pi 4 como servidor central y Home Assistant como plataforma de gestión.</p>
+
+        <!-- Smart Office Home Assistant Interactive Simulator -->
+        <div class="simulator-box">
+          <div class="simulator-header">
+            <h4 data-i18n="sim_title">Simulador de Smart Office (Home Assistant)</h4>
+            <span data-i18n="sim_subtitle">Controla y monitorea la oficina en tiempo real para ver el ahorro energético.</span>
+          </div>
+          <div class="simulator-grid">
+            <!-- Control Panel -->
+            <div class="simulator-section">
+              <div class="simulator-section-title" data-i18n="sim_panel_control">Panel de Control</div>
+              <div class="sim-controls-flex">
+                
+                <div class="sim-control-card">
+                  <div class="sim-control-info">
+                    <h5 data-i18n="sim_lights">Iluminación Principal</h5>
+                    <p>SONOFF Basic R2 (Tasmota)</p>
+                  </div>
+                  <button class="switch-btn active" id="btnLights">ENCENDIDO</button>
+                </div>
+
+                <div class="sim-control-card">
+                  <div class="sim-control-info">
+                    <h5 data-i18n="sim_ac">Climatizador (Aire Acondicionado)</h5>
+                    <p>IR Transceiver / Control IR</p>
+                  </div>
+                  <button class="switch-btn" id="btnAC">APAGADO</button>
+                </div>
+
+                <div class="sim-control-card">
+                  <div class="sim-control-info">
+                    <h5 data-i18n="sim_pir">Sensor de Movimiento (PIR)</h5>
+                    <p>GPIO Motion Sensor</p>
+                  </div>
+                  <div class="pir-btn-group">
+                    <button class="pir-btn active" id="btnMotionYes" data-i18n="sim_pir_detect">SÍ</button>
+                    <button class="pir-btn" id="btnMotionNo" data-i18n="sim_pir_none">NO</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+            <!-- Metrics -->
+            <div class="simulator-section">
+              <div class="simulator-section-title" data-i18n="sim_metrics">Métricas del Servidor</div>
+              <div class="sim-metrics-grid">
+                
+                <div class="sim-metric-card">
+                  <span class="sim-led-indicator active-blue" id="ledLights"></span>
+                  <span class="sim-metric-label" data-i18n="sim_power_curr">Consumo de Potencia</span>
+                  <span class="sim-metric-val glow-active" id="valPower">200 W</span>
+                </div>
+
+                <div class="sim-metric-card">
+                  <span class="sim-metric-label" data-i18n="sim_daily_curr">Consumo Diario Estimado</span>
+                  <span class="sim-metric-val" id="valDaily">4.80 kWh</span>
+                </div>
+
+                <div class="sim-metric-card">
+                  <span class="sim-led-indicator" id="ledAC"></span>
+                  <span class="sim-metric-label" data-i18n="sim_temp">Temperatura</span>
+                  <span class="sim-metric-val" id="valTemp">24.5 °C</span>
+                </div>
+
+                <div class="sim-metric-card">
+                  <span class="sim-metric-label" data-i18n="sim_humidity">Humedad</span>
+                  <span class="sim-metric-val" id="valHumidity">58 %</span>
+                </div>
+
+                <div class="sim-metric-card" style="grid-column: 1 / -1;">
+                  <span class="sim-led-indicator active-green" id="ledMotion"></span>
+                  <span class="sim-metric-label" data-i18n="sim_savings">Ahorro Energético Logrado</span>
+                  <span class="sim-metric-val green" id="valSavings">0.000 kWh</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="sim-footer-alert" id="simAlert" style="display:none;">
+            <span class="sim-alert-message"></span>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Raspberry Pi 4</span>
+          <span class="project-tag">Home Assistant</span>
+          <span class="project-tag">Sonoff R2</span>
+          <span class="project-tag">Sonoff POW Elite</span>
+          <span class="project-tag">IoT</span>
+          <span class="project-tag">WiFi</span>
+          <span class="project-tag">Automatización</span>
+          <span class="project-tag">Trujillo, Perú</span>
+        </div>
+        <button class="ctk-btn" id="btnOpenOfficeModal" style="margin-right: 12px; font-family: 'Space Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">Detalles de Proyecto</button>
+        <a href="#contact" class="project-link" data-i18n="project_1_btn">Solicitar proyecto similar</a>
+      </div>
+
+      <!-- Abre Cursos Pro Project with Simulator -->
+      <div class="project-card reveal" style="grid-column: 1 / -1;">
+        <div class="project-type" data-i18n="project_2_type">Python · Desktop · Automatización</div>
+        <h3 class="project-title" data-i18n="project_2_title">Abre Cursos Pro</h3>
+        <p class="project-desc" data-i18n="project_2_desc">Automatizador y planificador inteligente de clases virtuales para estudiantes. Monitorea el horario en segundo plano y abre automáticamente los enlaces de clases (Zoom, Teams, Canvas) a la hora exacta con notificaciones de Windows.</p>
+
+        <!-- Dynamic CustomTkinter Simulator Wrapper -->
+        <div class="ac-app">
+          <!-- Window Header Bar -->
+          <div class="ac-header">
+            <div class="ac-header-title">
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="#1a6aff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.5 1a1.5 1.5 0 0 1 1.5 1.5V14a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 14V2.5A1.5 1.5 0 0 1 4.5 1h7zM4.5 2a.5.5 0 0 0-.5.5v11.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V2.5a.5.5 0 0 0-.5-.5h-7z"/>
+              </svg>
+              Abre-Cursos Pro <span>v2.1.9</span>
+            </div>
+            <div class="ac-win-controls">
+              <span class="ac-win-btn min"></span>
+              <span class="ac-win-btn max"></span>
+              <span class="ac-win-btn close"></span>
+            </div>
+          </div>
+
+          <!-- CTk Nav/Header Control Bar -->
+          <div class="ac-app-bar">
+            <div class="ac-tabs">
+              <button class="ac-tab active" data-tab="horario" data-i18n="nav_projects">Horario</button>
+              <button class="ac-tab" data-tab="historial" data-i18n="sim_metrics">Historial</button>
+              <button class="ac-tab" data-tab="ajustes" data-i18n="nav_about">Ajustes</button>
+            </div>
+            <div class="ac-app-clock" id="acClockDisplay">Lunes 19:20</div>
+          </div>
+
+          <!-- CTk Body Area -->
+          <div class="ac-body">
+            <!-- Vacation Banner -->
+            <div class="ac-vacation-banner" id="acVacationBanner">
+              🏖️ MODO VACACIONES ACTIVO - Los cursos automáticos están pausados temporalmente.
+            </div>
+
+            <!-- Tab 1: Horario (Form + Courses cards) -->
+            <div class="ac-tab-pane active" id="acTab-horario">
+              <!-- Inline Add Form -->
+              <form id="acFormCourse" class="ac-form-grid">
+                <div class="ac-field" style="grid-column: 1 / -1;">
+                  <label for="acInNombre">Nombre de Asignatura</label>
+                  <input type="text" id="acInNombre" class="ac-input" placeholder="Ej: Cálculo 2" required>
+                </div>
+                
+                <div class="ac-field" style="grid-column: 1 / -1;">
+                  <label for="acInUrl">Enlace de Clase (URL)</label>
+                  <input type="url" id="acInUrl" class="ac-input" placeholder="https://zoom.us/j/... o link de Teams" required>
+                </div>
+
+                <div class="ac-field">
+                  <label>Hora de Programación (24h)</label>
+                  <div class="ac-time-flex">
+                    <select id="acInHora" class="ac-select" style="width: 70px;">
+                      <option value="07">07</option><option value="08">08</option><option value="09">09</option>
+                      <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                      <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+                      <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+                      <option value="19" selected>19</option><option value="20">20</option><option value="21">21</option>
+                      <option value="22">22</option>
+                    </select>
+                    <span style="color:#fff">:</span>
+                    <select id="acInMin" class="ac-select" style="width: 70px;">
+                      <option value="00">00</option><option value="10">10</option><option value="20">20</option>
+                      <option value="30" selected>30</option><option value="40">40</option><option value="50">50</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="ac-field">
+                  <label>Días de Clase</label>
+                  <div class="ac-days-checkboxes">
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="1"> Lun</label>
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="2"> Mar</label>
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="3"> Mie</label>
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="4"> Jue</label>
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="5"> Vie</label>
+                    <label class="ac-checkbox-label"><input type="checkbox" class="ac-day-check" value="6"> Sab</label>
+                  </div>
+                </div>
+
+                <div style="grid-column: 1 / -1; text-align: right; margin-top: 5px;">
+                  <button type="submit" class="ctk-btn green" id="acBtnAdd">Agregar Curso</button>
+                </div>
+              </form>
+
+              <!-- Course cards container -->
+              <div class="ac-list-header">
+                <span>Cursos Programados</span>
+                <span>Estado / Acciones</span>
+              </div>
+              <div class="ac-card-list" id="acCardList">
+                <!-- Javascript will inject here -->
+              </div>
+            </div>
+
+            <!-- Tab 2: Historial (Stats cards + Logs terminal) -->
+            <div class="ac-tab-pane" id="acTab-historial">
+              <div class="ac-stats-row">
+                <div class="ac-stat-box green">
+                  <span class="ac-stat-title">Asistencias</span>
+                  <div class="ac-stat-value" id="acStatAsis">0</div>
+                </div>
+                <div class="ac-stat-box blue">
+                  <span class="ac-stat-title">Retrasos</span>
+                  <div class="ac-stat-value" id="acStatRetr">0</div>
+                </div>
+                <div class="ac-stat-box orange">
+                  <span class="ac-stat-title">Omitidos</span>
+                  <div class="ac-stat-value" id="acStatOmit">0</div>
+                </div>
+              </div>
+              <div class="ac-textbox" id="acLogBox"></div>
+            </div>
+
+            <!-- Tab 3: Ajustes (Configuration options) -->
+            <div class="ac-tab-pane" id="acTab-ajustes">
+              <div class="ac-adjustments-grid">
+                
+                <div class="ac-adj-row">
+                  <div class="ac-adj-info">
+                    <h5>🏖️ Modo Vacaciones</h5>
+                    <p>Desactiva temporalmente el inicio de clases</p>
+                  </div>
+                  <input type="checkbox" id="acSetVacation" style="width:18px; height:18px; cursor:pointer;">
+                </div>
+
+                <div class="ac-adj-row">
+                  <div class="ac-adj-info">
+                    <h5>⏳ Tolerancia de Retraso</h5>
+                    <p>Tiempo máximo permitido para abrir una clase tarde</p>
+                  </div>
+                  <select id="acSetTolerancia" class="ac-select">
+                    <option value="10">10 min</option>
+                    <option value="20">20 min</option>
+                    <option value="30" selected>30 min</option>
+                    <option value="60">60 min</option>
+                  </select>
+                </div>
+
+                <div class="ac-adj-row">
+                  <div class="ac-adj-info">
+                    <h5>🔔 Notificación Anticipada</h5>
+                    <p>Recibir aviso minutos antes de la hora</p>
+                  </div>
+                  <select id="acSetAnticipacion" class="ac-select">
+                    <option value="0">Desactivado</option>
+                    <option value="1">1 min antes</option>
+                    <option value="5" selected>5 min antes</option>
+                    <option value="10">10 min antes</option>
+                  </select>
+                </div>
+
+                <div class="ac-adj-row">
+                  <div class="ac-adj-info">
+                    <h5>🎵 Sonido de Notificación</h5>
+                    <p>Tono de alerta de Windows a reproducir</p>
+                  </div>
+                  <select id="acSetSonido" class="ac-select">
+                    <option value="Reminder" selected>Reminder (Tono suave)</option>
+                    <option value="Alarm">Alarm (Bip rápido)</option>
+                    <option value="SMS">SMS (Ding doble)</option>
+                    <option value="Mail">Mail (Chime ascendente)</option>
+                    <option value="Silencioso">Silencioso (Sin sonido)</option>
+                  </select>
+                </div>
+
+                <div class="ac-adj-row">
+                  <div class="ac-adj-info">
+                    <h5>🌐 Navegador de Apertura</h5>
+                    <p>Navegador predeterminado para abrir links</p>
+                  </div>
+                  <select id="acSetBrowser" class="ac-select">
+                    <option value="Predeterminado">Predeterminado del sistema</option>
+                    <option value="Chrome" selected>Google Chrome</option>
+                    <option value="Edge">Microsoft Edge</option>
+                    <option value="Firefox">Mozilla Firefox</option>
+                    <option value="Brave">Brave Browser</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Simulated Time control bar -->
+          <div class="sim-controls-bar">
+            <span>Controles del Simulador Temporal</span>
+            <div class="sim-controls-buttons">
+              <button class="ctk-btn" id="btnAcAdvance1">+1 Min</button>
+              <button class="ctk-btn" id="btnAcAdvance10">+10 Min</button>
+              <button class="ctk-btn green" id="btnAcJumpClass">Saltar a Clase</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Windows</span>
+          <span class="project-tag">Zoom</span>
+          <span class="project-tag">MS Teams</span>
+          <span class="project-tag">Canvas</span>
+          <span class="project-tag">Automatización</span>
+          <span class="project-tag">Desktop App</span>
+          <span class="project-tag">Open Source</span>
+        </div>
+        <button class="ctk-btn" id="btnOpenCursosModal" style="margin-right: 12px; font-family: 'Space Mono', monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">Guía & Descargas</button>
+        <a href="https://github.com/Francoisxd/abre-cursos" class="project-link" target="_blank" data-i18n="project_2_btn">Ver en GitHub</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-label" style="justify-content:center" data-i18n="contact_label">Contacto</div>
+  <h2 class="contact-title reveal" data-i18n="contact_title">¿Tienes un proyecto<br>en <span>mente</span>?</h2>
+  <p class="contact-sub reveal" data-i18n="contact_sub">Estoy disponible para proyectos freelance, colaboraciones y oportunidades de trabajo. Hablemos.</p>
+
+  <!-- Interactive Contact Form via Web3Forms -->
+  <div class="contact-form-container reveal">
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <input type="hidden" name="subject" value="Nuevo Mensaje de Portafolio - By Francois">
+      <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+      <div class="form-group">
+        <label for="name" data-i18n="contact_form_name">Nombre</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre" data-i18n-placeholder="contact_form_placeholder_name" data-i18n required>
+      </div>
+
+      <div class="form-group">
+        <label for="email" data-i18n="contact_form_email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="tu@correo.com" data-i18n-placeholder="contact_form_placeholder_email" data-i18n required>
+      </div>
+
+      <div class="form-group">
+        <label for="message" data-i18n="contact_form_message">Mensaje</label>
+        <textarea id="message" name="message" class="form-control" placeholder="¿En qué puedo ayudarte?" data-i18n-placeholder="contact_form_placeholder_message" data-i18n required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width: 100%;" data-i18n="contact_form_btn">Enviar Mensaje</button>
+      
+      <div id="formStatus" class="form-status"></div>
+    </form>
+  </div>
+
+  <div class="contact-links reveal">
+    <a href="mailto:byfrancois.dev@gmail.com" class="contact-item">
+      ✉ byfrancois.dev@gmail.com
+    </a>
+    <a href="https://github.com/Francoisxd" target="_blank" class="contact-item">
+      ⌥ github.com/Francoisxd
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 By Francois — All rights reserved</p>
+  <p>Connecting the physical and digital world</p>
+</footer>
+
+<!-- Project Detail Modal -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3 id="modalProjectTitle">Detalles del Proyecto</h3>
+      <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+    </div>
+    <div class="modal-nav-tabs">
+      <button class="modal-nav-btn active" id="btnModalTabDesc" data-tab="desc">INFORMACIÓN GENERAL</button>
+      <button class="modal-nav-btn" id="btnModalTabExtra" data-tab="extra">PRESUPUESTO / PLANOS</button>
+    </div>
+    <div class="modal-body" id="modalBodyContent">
+      <!-- Contenido inyectado dinámicamente por JS -->
+    </div>
+  </div>
+</div>
+
+<!-- Windows Toast Simulation Element -->
+<div class="toast-container" id="winToast">
+  <div class="toast-header">
+    <span>Notificación de Windows</span>
+    <span style="cursor: pointer;" onclick="document.getElementById('winToast').classList.remove('show')">✕</span>
+  </div>
+  <div class="toast-title" id="winToastTitle">Clase próxima</div>
+  <div class="toast-msg" id="winToastMsg">Tu curso empezará en unos minutos.</div>
+</div>
+
+<!-- Scripts -->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
