@@ -908,226 +908,343 @@ const modalData = {
         <h4 style="margin-top:2.5rem;">Plano de Distribución y Conectividad IoT (Nanotechnology SAC)</h4>
         <p>Distribución de dispositivos inteligentes y sus conexiones al Router principal en la planta de la oficina:</p>
         <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 690 530" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano Smart Office — Nanotechnology SAC</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano de planta de la oficina inteligente con distribución de dispositivos IoT: Sonoff, cámaras, Raspberry Pi y router</desc>
-<defs>
-  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-<mask id="imagine-text-gaps-o8e4t8" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="690" height="530" fill="white"/><rect x="39" y="461" width="90.921875" height="14" fill="black" rx="2"/><rect x="54" y="480" width="95.01318359375" height="14" fill="black" rx="2"/><rect x="156" y="480" width="56.609375" height="14" fill="black" rx="2"/><rect x="232" y="480" width="41.00439453125" height="14" fill="black" rx="2"/><rect x="312" y="480" width="68.0087890625" height="14" fill="black" rx="2"/><rect x="400" y="480" width="68.0087890625" height="14" fill="black" rx="2"/><rect x="478" y="480" width="94.421875" height="14" fill="black" rx="2"/><rect x="570" y="480" width="62.60791015625" height="14" fill="black" rx="2"/><rect x="73.2421875" y="244" width="76.515625" height="16" fill="black" rx="2"/><rect x="206.9921875" y="351" width="39.015625" height="16" fill="black" rx="2"/><rect x="291.9921875" y="351" width="39.015625" height="16" fill="black" rx="2"/><rect x="192.4921875" y="69" width="114.015625" height="16" fill="black" rx="2"/><rect x="349.7421875" y="70" width="60.515625" height="15" fill="black" rx="2"/><rect x="493.2421875" y="69" width="76.515625" height="16" fill="black" rx="2"/><rect x="468.4921875" y="220" width="53.015625" height="15" fill="black" rx="2"/><rect x="474.9921875" y="317" width="39.015625" height="16" fill="black" rx="2"/><rect x="430.4921875" y="387" width="114.015625" height="16" fill="black" rx="2"/><rect x="244.984375" y="201" width="139.818603515625" height="13" fill="black" rx="2"/><rect x="284.390625" y="239" width="40.003875732421875" height="13" fill="black" rx="2"/><rect x="512.1953125" y="109" width="50.4053955078125" height="13" fill="black" rx="2"/><rect x="506.9921875" y="118" width="60.8070068359375" height="13" fill="black" rx="2"/><rect x="208.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="202.9921875" y="121" width="34.015625" height="13" fill="black" rx="2"/><rect x="222.59375" y="113" width="54.8125" height="13" fill="black" rx="2"/><rect x="268.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="207.9921875" y="149" width="34.8031005859375" height="13" fill="black" rx="2"/><rect x="207.9921875" y="157" width="34.015625" height="13" fill="black" rx="2"/><rect x="252.9921875" y="149" width="34.015625" height="13" fill="black" rx="2"/><rect x="322.59375" y="113" width="54.8125" height="13" fill="black" rx="2"/><rect x="378.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="343.1953125" y="149" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="61" y="293" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="72.59375" y="317" width="54.8125" height="13" fill="black" rx="2"/><rect x="468" y="69" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="462.59375" y="127" width="54.8125" height="13" fill="black" rx="2"/><rect x="376" y="389" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="552.390625" y="389" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="306.1953125" y="273" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="447.9921875" y="231" width="34.015625" height="13" fill="black" rx="2"/><rect x="404.9921875" y="159" width="60.015625" height="13" fill="black" rx="2"/><rect x="158.9765625" y="19" width="361.046875" height="16" fill="black" rx="2"/><rect x="191.9765625" y="34" width="296.046875" height="13" fill="black" rx="2"/></mask></defs>
+          <svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+  <defs>
+    <!-- Grid pattern -->
+    <pattern id="isoGrid" width="30" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path d="M 30 0 L 0 7.5 L 30 15 L 60 7.5 Z" fill="none" stroke="rgba(26, 106, 255, 0.05)" stroke-width="0.8"/>
+    </pattern>
+    <!-- Glow filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <!-- Tooltip background filter -->
+    <filter id="blurBg">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
 
+  <style>
+    /* Reset & core transitions */
+    .iso-wall { stroke: #1e3a8a; stroke-width: 1.5; fill: rgba(30, 58, 138, 0.08); transition: all 0.3s; }
+    .iso-wall-top { stroke: #3b82f6; stroke-width: 2; fill: none; }
+    .iso-floor { fill: rgba(10, 17, 40, 0.8); stroke: rgba(59, 130, 246, 0.2); stroke-width: 1; }
+    .iso-desk { fill: rgba(15, 23, 42, 0.9); stroke: rgba(100, 116, 139, 0.4); stroke-width: 1; }
+    .iso-chair { fill: #3b82f6; opacity: 0.7; }
+    
+    /* Device group styles */
+    .dev-group { cursor: pointer; }
+    .dev-line { stroke: #3b82f6; stroke-width: 1.2; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
+    .dev-icon-bg { fill: #0f172a; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3)); }
+    .dev-icon-symbol { fill: #60a5fa; transition: all 0.3s; }
+    .dev-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #94a3b8; text-anchor: middle; transition: all 0.3s; opacity: 0.85; }
+    
+    /* Target highlights */
+    .dev-target-glow { fill: none; stroke: #00ffcc; stroke-width: 1.5; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
+    .dev-tooltip { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); transform-origin: center; }
+    
+    /* Hover effects triggered by dev-group */
+    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.8; animation: dashMove 0.5s infinite linear; }
+    .dev-group:hover .dev-icon-bg { stroke: #00ffcc; fill: #0b1e36; filter: drop-shadow(0 0 8px #00ffcc); transform: translateY(-3px); }
+    .dev-group:hover .dev-icon-symbol { fill: #00ffcc; }
+    .dev-group:hover .dev-label { fill: #00ffcc; font-weight: bold; transform: translateY(-3px); }
+    .dev-group:hover .dev-target-glow { opacity: 1; }
+    .dev-group:hover .dev-tooltip { opacity: 1; transform: translateY(0); }
 
+    @keyframes dashMove {
+      to { stroke-dashoffset: -8; }
+    }
+  </style>
 
-<rect width="680" height="520" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="10" y="10" width="660" height="500" fill="#060b18" stroke="rgba(26,106,255,0.15)" stroke-width="0.5" rx="4" style="fill:rgb(6, 11, 24);stroke:rgba(26, 106, 255, 0.15);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="url(#isoGrid)" />
 
-<!-- ═══ PERÍMETRO EXTERIOR DE LA OFICINA ═══ -->
-<rect x="40" y="50" width="580" height="390" rx="2" fill="none" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="6 3" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-dasharray:6px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Title & Legend -->
+  <text x="40" y="40" font-family="'Syne', sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.1em">14. IMPLEMENTACIÓN E INTERCONEXIÓN FÍSICA</text>
+  <text x="40" y="55" font-family="'Space Mono', monospace" font-size="8.5" fill="#4b5a7a" letter-spacing="0.05em">MAPA INTERACTIVO 3D DE DISPOSITIVOS - PASA EL CURSOR SOBRE CADA NODO</text>
 
-<!-- ═══ LEYENDA DE DISPOSITIVOS ═══ -->
-<text x="44" y="470" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:700;text-anchor:start;dominant-baseline:auto">DISPOSITIVOS:</text>
+  <!-- ════════ 3D ISOMETRIC OFFICE MODEL ════════ -->
+  <g transform="translate(100, 120)">
+    
+    <!-- Floor Polygon (Overall Office Footprint) -->
+    <!-- Front corner: (300, 260), Right corner: (580, 120), Back corner: (280, -10), Left corner: (0, 130) -->
+    <polygon points="300,260 580,120 280,-10 0,130" class="iso-floor" />
 
-<!-- Sonoff POW -->
-<rect x="44" y="480" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="58" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sonoff POW Elite</text>
+    <!-- Room Division Floor Lines & Floor Highlights -->
+    <!-- Lab: (0,130) to (150, 195) to (100, 80) to (50, 105) -->
+    <!-- Kitchen: near middle -->
+    
+    <!-- 1. Lab (Laboratorio/Computo) Floor Highlight -->
+    <polygon points="120,180 210,135 150,80 60,125" id="hl-lab" class="dev-target-glow" />
+    
+    <!-- 2. Central Corridor Highlight -->
+    <polygon points="210,135 300,90 240,40 150,80" id="hl-corridor" class="dev-target-glow" />
 
-<!-- Sonoff R2 -->
-<circle cx="150" cy="485" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="150" cy="485" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="160" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sonoff R2</text>
+    <!-- 3. IT Support Room Highlight -->
+    <polygon points="340,180 430,135 370,80 280,125" id="hl-support" class="dev-target-glow" />
 
-<!-- Cámara -->
-<polygon points="225,482 231,479 231,491 225,488" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="218" y="482" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="236" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Cámara</text>
+    <!-- 4. Meeting Room Highlight -->
+    <polygon points="460,120 550,75 490,25 400,70" id="hl-meetings" class="dev-target-glow" />
 
-<!-- Power strip -->
-<rect x="300" y="481" width="12" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="304" cy="485" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="308" cy="485" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="316" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Power Strip</text>
+    <!-- Inner Furniture Outlines (Isometric projection) -->
+    <!-- Lab Computer Desks -->
+    <polygon points="80,140 105,127 95,110 70,123" class="iso-desk" />
+    <polygon points="95,147 120,135 110,118 85,130" class="iso-desk" />
+    <polygon points="110,155 135,142 125,125 100,138" class="iso-desk" />
+    
+    <!-- Meeting Room Table -->
+    <polygon points="450,85 510,55 490,40 430,70" class="iso-desk" />
 
-<!-- Router -->
-<rect x="390" y="480" width="10" height="10" rx="1" fill="#1a6aff" opacity="0.6" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="393" y1="480" x2="391" y2="475" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="395" y1="480" x2="395" y2="474" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="397" y1="480" x2="399" y2="475" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="404" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Router WiFi</text>
+    <!-- Server Rack in IT Support -->
+    <polygon points="350,110 370,100 365,90 345,100" class="iso-desk" style="fill:#1e293b; stroke:#00ffcc;" />
+    <!-- 3D wall lines -->
+    <path d="M 345,100 L 345,75 M 365,90 L 365,65 M 370,100 L 370,75 M 350,110 L 350,85" stroke="#00ffcc" stroke-width="0.8" />
+    <polygon points="350,85 370,75 365,65 345,75" fill="#111" stroke="#00ffcc" stroke-width="0.8" />
 
-<!-- Servidor RPi -->
-<rect x="468" y="480" width="10" height="10" rx="1" fill="#1a6aff" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="470" y="482" width="6" height="6" rx="0.5" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="482" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Servidor (RPi 4)</text>
+    <!-- ═══ 3D WALLS ═══ -->
+    <!-- Outer back wall -->
+    <path d="M 0,130 L 0,60 L 280,-80 L 580,50 L 580,120 M 280,-80 L 280,-10" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3" />
+    
+    <!-- Front Outer walls (lowered transparency to see inside) -->
+    <polygon points="0,130 300,260 300,190 0,60" class="iso-wall" />
+    <polygon points="300,260 580,120 580,50 300,190" class="iso-wall" />
+    
+    <!-- Wall tops (bright blue outline) -->
+    <path d="M 0,60 L 300,190 L 580,50" class="iso-wall-top" />
 
-<!-- Gleco Plug -->
-<circle cx="566" cy="485" r="5" fill="#2ecc71" opacity="0.8" style="fill:rgb(46, 204, 113);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="574" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Gleco Plug</text>
+    <!-- Inner division walls -->
+    <!-- Lab / Kitchen partition -->
+    <polygon points="120,180 120,110 210,65 210,135" class="iso-wall" />
+    <path d="M 120,110 L 210,65" class="iso-wall-top" />
+    
+    <!-- Corridor / Support partition -->
+    <polygon points="280,125 280,55 370,10 370,80" class="iso-wall" />
+    <path d="M 280,55 L 370,10" class="iso-wall-top" />
+  </g>
 
-<!-- ═══ DIVISIONES INTERIORES ═══ -->
+  <!-- ════════ INTERACTIVE DEVICE NODES (FLOATING) ════════ -->
 
-<!-- ALMACÉN 1 — izquierda grande -->
-<rect x="40" y="230" width="145" height="210" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="112" y="255" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Almacén 1</text>
+  <!-- 1. Raspberry Pi 4 Server Node -->
+  <g class="dev-group">
+    <!-- Highlight target on IT Server Rack (x=450, y=200) -->
+    <circle cx="450" cy="200" r="18" class="dev-target-glow" stroke="#ef4444" />
+    <circle cx="450" cy="200" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="450" y1="90" x2="450" y2="200" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="450" cy="90" r="18" class="dev-icon-bg" />
+      <!-- Stylized Raspberry Pi leaf/icon -->
+      <path d="M 446,84 C 446,84 450,80 454,84 C 458,80 462,84 462,84 C 462,84 458,94 454,90 C 450,94 446,84 446,84 Z" fill="#c084fc" class="dev-icon-symbol" />
+      <circle cx="454" cy="85" r="2.5" fill="#ef4444" />
+      <circle cx="454" cy="92" r="3.5" fill="#22c55e" />
+      <!-- Label -->
+      <text x="450" y="118" class="dev-label">Raspberry Pi 4</text>
+    </g>
 
-<!-- BAÑO 1 y BAÑO 2 — parte inferior izquierda -->
-<rect x="185" y="340" width="85" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="227" y="362" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Baño</text>
+    <!-- Tooltip Card -->
+    <g class="dev-tooltip" transform="translate(450, 50)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#00ffcc" font-weight="bold" text-anchor="middle">Servidor Central</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Raspberry Pi 4 (4GB RAM)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Home Assistant & MQTT Broker</text>
+    </g>
+  </g>
 
-<rect x="270" y="340" width="85" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="312" y="362" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Baño</text>
+  <!-- 2. Sonoff POW Elite Node -->
+  <g class="dev-group">
+    <!-- Highlight target on kitchen/corridor wall panel (x=300, y=210) -->
+    <circle cx="300" cy="210" r="15" class="dev-target-glow" />
+    <circle cx="300" cy="210" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="300" y1="110" x2="300" y2="210" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="300" cy="110" r="16" class="dev-icon-bg" />
+      <!-- POW Box icon -->
+      <rect x="294" y="103" width="12" height="14" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <line x1="297" y1="110" x2="303" y2="110" stroke="#60a5fa" stroke-width="1" class="dev-icon-symbol" />
+      <!-- Label -->
+      <text x="300" y="136" class="dev-label">Sonoff POW</text>
+    </g>
 
-<!-- ADMINISTRACIÓN -->
-<rect x="185" y="50" width="130" height="140" fill="rgba(26,106,255,0.05)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.05);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="250" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Administración</text>
+    <!-- Tooltip Card -->
+    <g class="dev-tooltip" transform="translate(300, 70)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Medidor de Consumo</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff POW Elite (20A)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Monitoreo de kWh de la Oficina</text>
+    </g>
+  </g>
 
-<!-- SOPORTE -->
-<rect x="315" y="50" width="130" height="140" fill="rgba(26,106,255,0.05)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.05);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="380" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Soporte</text>
+  <!-- 3. Sonoff R2 Relays (Lab/Computo) -->
+  <g class="dev-group">
+    <!-- Highlight target in Lab (x=210, y=240) -->
+    <circle cx="210" cy="240" r="15" class="dev-target-glow" />
+    <circle cx="210" cy="240" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="200" y1="130" x2="210" y2="240" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="200" cy="130" r="16" class="dev-icon-bg" />
+      <!-- Switch icon -->
+      <circle cx="200" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="200" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="200" y="156" class="dev-label">Sonoff R2 (L1)</text>
+    </g>
 
-<!-- ALMACÉN 2 — derecha superior -->
-<rect x="445" y="50" width="175" height="155" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="532" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Almacén 2</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(200, 90)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Computo</text>
+    </g>
+  </g>
 
-<!-- COCINA — derecha media -->
-<rect x="445" y="205" width="100" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="495" y="230" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Cocina</text>
+  <!-- 4. Sonoff R2 Relays (Oficina Central) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=380, y=220) -->
+    <circle cx="380" cy="220" r="15" class="dev-target-glow" />
+    <circle cx="380" cy="220" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="370" y1="130" x2="380" y2="220" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="370" cy="130" r="16" class="dev-icon-bg" />
+      <circle cx="370" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="370" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="370" y="156" class="dev-label">Sonoff R2 (L2)</text>
+    </g>
 
-<!-- BAÑO 3 — derecha media -->
-<rect x="445" y="305" width="100" height="65" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="495" y="328" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Baño</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(370, 90)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Oficina Central</text>
+    </g>
+  </g>
 
-<!-- ÁREA COMERCIAL — franja inferior -->
-<rect x="355" y="370" width="265" height="70" fill="rgba(26,106,255,0.06)" stroke="#1a6aff" stroke-width="1" style="fill:rgba(26, 106, 255, 0.06);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="488" y="398" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Área Comercial</text>
+  <!-- 5. Smart Power Strip Node (Regleta Lab) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=160, y=280) -->
+    <circle cx="160" cy="280" r="15" class="dev-target-glow" />
+    <circle cx="160" cy="280" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="120" y1="100" x2="160" y2="280" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="120" cy="100" r="16" class="dev-icon-bg" />
+      <!-- Power strip icon -->
+      <rect x="114" y="96" width="12" height="8" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="117" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
+      <circle cx="121" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="120" y="126" class="dev-label">Regleta Wi-Fi</text>
+    </g>
 
-<!-- PASILLO CENTRAL -->
-<rect x="185" y="190" width="260" height="150" fill="rgba(26,106,255,0.02)" stroke="rgba(26,106,255,0.3)" stroke-width="0.5" stroke-dasharray="3 3" style="fill:rgba(26, 106, 255, 0.02);stroke:rgba(26, 106, 255, 0.3);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-dasharray:3px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="315" y="210" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">— PASILLO / CIRCULACIÓN —</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(120, 60)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Regleta Inteligente</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Regleta Wi-Fi con medidor</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Apagado de Computadoras de noche</text>
+    </g>
+  </g>
 
-<!-- ═══ DISPOSITIVOS ═══ -->
+  <!-- 6. Smart Plug Node (Enchufe Central/Pasillo) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=330, y=270) -->
+    <circle cx="330" cy="270" r="15" class="dev-target-glow" />
+    <circle cx="330" cy="270" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="250" y1="120" x2="330" y2="270" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="250" cy="120" r="16" class="dev-icon-bg" />
+      <!-- Plug icon -->
+      <circle cx="250" cy="120" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <line x1="248" y1="118" x2="248" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
+      <line x1="252" y1="118" x2="252" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
+      <text x="250" y="146" class="dev-label">Tomacorriente</text>
+    </g>
 
-<!-- ROUTER WiFi — centro pasillo -->
-<rect x="298" y="230" width="12" height="12" rx="1" fill="#1a6aff" opacity="0.6" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="302" y1="230" x2="300" y2="223" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="304" y2="222" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="306" y1="230" x2="308" y2="223" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="304" y="248" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ROUTER</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(250, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Enchufe Inteligente</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Enchufe Wi-Fi inteligente</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Climatizador Auxiliar</text>
+    </g>
+  </g>
 
-<!-- SERVIDOR Raspberry Pi 4 — cerca almacén 2 -->
-<rect x="530" y="95" width="14" height="12" rx="1" fill="#1a6aff" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="532" y="97" width="10" height="8" rx="0.5" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="533" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="536" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="539" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="537" y="118" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SERVIDOR</text>
-<text x="537" y="127" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">RPi 4 + HA</text>
+  <!-- 7. Sonoff R2 Relays (Reuniones/Meetings) -->
+  <g class="dev-group">
+    <!-- Highlight target in Meeting Room (x=600, y=210) -->
+    <circle cx="600" cy="210" r="15" class="dev-target-glow" />
+    <circle cx="600" cy="210" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="590" y1="120" x2="600" y2="210" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="590" cy="120" r="16" class="dev-icon-bg" />
+      <circle cx="590" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="590" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="590" y="146" class="dev-label">Sonoff R2 (L3)</text>
+    </g>
 
-<!-- SONOFF POW ELITE — Administración -->
-<rect x="215" y="100" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="220" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POW</text>
-<text x="220" y="130" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ELITE</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(590, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Reuniones</text>
+    </g>
+  </g>
 
-<!-- SONOFF R2 — Administración -->
-<circle cx="250" cy="105" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="250" cy="105" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="250" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
+  <!-- 8. Sonoff R2 (Almacén 2 / TI) -->
+  <g class="dev-group">
+    <!-- Highlight target in Support area (x=520, y=180) -->
+    <circle cx="520" cy="180" r="15" class="dev-target-glow" />
+    <circle cx="520" cy="180" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="680" y1="120" x2="520" y2="180" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="680" cy="120" r="16" class="dev-icon-bg" />
+      <circle cx="680" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="680" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="680" y="146" class="dev-label">Sonoff R2 (L4)</text>
+    </g>
 
-<!-- CÁMARA Administración -->
-<polygon points="280,103 286,100 286,112 280,109" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="273" y="103" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="280" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">CAM</text>
-
-<!-- POWER STRIP — Administración -->
-<rect x="218" y="138" width="14" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="223" cy="142" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="228" cy="142" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="225" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POWER</text>
-<text x="225" y="166" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">STRIP</text>
-
-<!-- GLECO PLUG — Administración -->
-<circle cx="270" cy="142" r="5" fill="#2ecc71" opacity="0.8" style="fill:rgb(46, 204, 113);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="270" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">GLECO</text>
-
-<!-- SONOFF R2 — Soporte -->
-<circle cx="350" cy="105" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="350" cy="105" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="350" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Soporte -->
-<polygon points="390,103 396,100 396,112 390,109" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="383" y="103" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="390" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF POW — Soporte -->
-<rect x="350" y="138" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="355" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POW</text>
-
-<!-- CÁMARA Almacén 1 -->
-<polygon points="55,290 61,287 61,299 55,296" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="48" y="290" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="65" y="302" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF R2 — Almacén 1 -->
-<circle cx="100" cy="310" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="100" cy="310" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="100" y="326" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Almacén 2 -->
-<polygon points="455,65 461,62 461,74 455,71" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="448" y="65" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="472" y="78" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF R2 — Almacén 2 -->
-<circle cx="490" cy="120" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="490" cy="120" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="490" y="136" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Área Comercial izq -->
-<polygon points="365,385 371,382 371,394 365,391" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="358" y="385" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="380" y="398" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- CÁMARA Área Comercial der -->
-<polygon points="590,385 596,382 596,394 590,391" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="583" y="385" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="572" y="398" text-anchor="end" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">CAM</text>
-
-<!-- SENSOR PIR — pasillo central -->
-<polygon points="312,268 318,260 324,268" fill="rgba(74,158,255,0.6)" stroke="#4a9eff" stroke-width="0.8" style="fill:rgba(74, 158, 255, 0.6);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="318" y="282" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">PIR</text>
-
-<!-- IR Transceiver (AC) — Cocina -->
-<rect x="460" y="220" width="10" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="463" y2="214" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="465" y2="213" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="467" y2="214" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="465" y="240" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">IR/AC</text>
-
-<!-- ═══ LÍNEAS WIFI DASHED AL ROUTER ═══ -->
-<line x1="304" y1="230" x2="250" y2="145" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="355" y2="145" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="490" y2="130" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="100" y2="318" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="465" y2="226" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-
-<!-- Línea Servidor → Router -->
-<line x1="530" y1="101" x2="314" y2="230" stroke="#4a9eff" stroke-width="1" stroke-dasharray="5 3" opacity="0.7" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:5px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="435" y="168" text-anchor="middle" transform="rotate(-25, 435, 168)" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">LAN / WiFi</text>
-
-<!-- TÍTULO -->
-<text x="340" y="30" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#4a9eff" letter-spacing="0.2em" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">NANOTECHNOLOGY SAC — SMART OFFICE LAYOUT</text>
-<text x="340" y="43" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#4a5a7a" letter-spacing="0.15em" style="fill:rgb(74, 90, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TRUJILLO, PERÚ — HOME ASSISTANT + RASPBERRY PI 4</text>
-
-
-<!-- WiFi connection to CAMs (Cámaras) -->
-<line x1="304" y1="230" x2="280" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="385" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="61" y2="290" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="455" y2="76" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="365" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="583" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(680, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces en TI y Soporte</text>
+    </g>
+  </g>
 </svg>
         </div>
 `,
@@ -1228,226 +1345,343 @@ const modalData = {
         <h4 style="margin-top:2.5rem;">IoT Distribution and Connectivity Plan (Nanotechnology SAC)</h4>
         <p>Distribution of smart devices and their connectivity links to the main Router inside the office floor plan:</p>
         <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 690 530" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano Smart Office — Nanotechnology SAC</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano de planta de la oficina inteligente con distribución de dispositivos IoT: Sonoff, cámaras, Raspberry Pi y router</desc>
-<defs>
-  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </marker>
-<mask id="imagine-text-gaps-o8e4t8" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="690" height="530" fill="white"/><rect x="39" y="461" width="90.921875" height="14" fill="black" rx="2"/><rect x="54" y="480" width="95.01318359375" height="14" fill="black" rx="2"/><rect x="156" y="480" width="56.609375" height="14" fill="black" rx="2"/><rect x="232" y="480" width="41.00439453125" height="14" fill="black" rx="2"/><rect x="312" y="480" width="68.0087890625" height="14" fill="black" rx="2"/><rect x="400" y="480" width="68.0087890625" height="14" fill="black" rx="2"/><rect x="478" y="480" width="94.421875" height="14" fill="black" rx="2"/><rect x="570" y="480" width="62.60791015625" height="14" fill="black" rx="2"/><rect x="73.2421875" y="244" width="76.515625" height="16" fill="black" rx="2"/><rect x="206.9921875" y="351" width="39.015625" height="16" fill="black" rx="2"/><rect x="291.9921875" y="351" width="39.015625" height="16" fill="black" rx="2"/><rect x="192.4921875" y="69" width="114.015625" height="16" fill="black" rx="2"/><rect x="349.7421875" y="70" width="60.515625" height="15" fill="black" rx="2"/><rect x="493.2421875" y="69" width="76.515625" height="16" fill="black" rx="2"/><rect x="468.4921875" y="220" width="53.015625" height="15" fill="black" rx="2"/><rect x="474.9921875" y="317" width="39.015625" height="16" fill="black" rx="2"/><rect x="430.4921875" y="387" width="114.015625" height="16" fill="black" rx="2"/><rect x="244.984375" y="201" width="139.818603515625" height="13" fill="black" rx="2"/><rect x="284.390625" y="239" width="40.003875732421875" height="13" fill="black" rx="2"/><rect x="512.1953125" y="109" width="50.4053955078125" height="13" fill="black" rx="2"/><rect x="506.9921875" y="118" width="60.8070068359375" height="13" fill="black" rx="2"/><rect x="208.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="202.9921875" y="121" width="34.015625" height="13" fill="black" rx="2"/><rect x="222.59375" y="113" width="54.8125" height="13" fill="black" rx="2"/><rect x="268.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="207.9921875" y="149" width="34.8031005859375" height="13" fill="black" rx="2"/><rect x="207.9921875" y="157" width="34.015625" height="13" fill="black" rx="2"/><rect x="252.9921875" y="149" width="34.015625" height="13" fill="black" rx="2"/><rect x="322.59375" y="113" width="54.8125" height="13" fill="black" rx="2"/><rect x="378.1953125" y="113" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="343.1953125" y="149" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="61" y="293" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="72.59375" y="317" width="54.8125" height="13" fill="black" rx="2"/><rect x="468" y="69" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="462.59375" y="127" width="54.8125" height="13" fill="black" rx="2"/><rect x="376" y="389" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="552.390625" y="389" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="306.1953125" y="273" width="24.40155029296875" height="13" fill="black" rx="2"/><rect x="447.9921875" y="231" width="34.015625" height="13" fill="black" rx="2"/><rect x="404.9921875" y="159" width="60.015625" height="13" fill="black" rx="2"/><rect x="158.9765625" y="19" width="361.046875" height="16" fill="black" rx="2"/><rect x="191.9765625" y="34" width="296.046875" height="13" fill="black" rx="2"/></mask></defs>
+          <svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+  <defs>
+    <!-- Grid pattern -->
+    <pattern id="isoGrid" width="30" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path d="M 30 0 L 0 7.5 L 30 15 L 60 7.5 Z" fill="none" stroke="rgba(26, 106, 255, 0.05)" stroke-width="0.8"/>
+    </pattern>
+    <!-- Glow filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <!-- Tooltip background filter -->
+    <filter id="blurBg">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
 
+  <style>
+    /* Reset & core transitions */
+    .iso-wall { stroke: #1e3a8a; stroke-width: 1.5; fill: rgba(30, 58, 138, 0.08); transition: all 0.3s; }
+    .iso-wall-top { stroke: #3b82f6; stroke-width: 2; fill: none; }
+    .iso-floor { fill: rgba(10, 17, 40, 0.8); stroke: rgba(59, 130, 246, 0.2); stroke-width: 1; }
+    .iso-desk { fill: rgba(15, 23, 42, 0.9); stroke: rgba(100, 116, 139, 0.4); stroke-width: 1; }
+    .iso-chair { fill: #3b82f6; opacity: 0.7; }
+    
+    /* Device group styles */
+    .dev-group { cursor: pointer; }
+    .dev-line { stroke: #3b82f6; stroke-width: 1.2; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
+    .dev-icon-bg { fill: #0f172a; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3)); }
+    .dev-icon-symbol { fill: #60a5fa; transition: all 0.3s; }
+    .dev-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #94a3b8; text-anchor: middle; transition: all 0.3s; opacity: 0.85; }
+    
+    /* Target highlights */
+    .dev-target-glow { fill: none; stroke: #00ffcc; stroke-width: 1.5; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
+    .dev-tooltip { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); transform-origin: center; }
+    
+    /* Hover effects triggered by dev-group */
+    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.8; animation: dashMove 0.5s infinite linear; }
+    .dev-group:hover .dev-icon-bg { stroke: #00ffcc; fill: #0b1e36; filter: drop-shadow(0 0 8px #00ffcc); transform: translateY(-3px); }
+    .dev-group:hover .dev-icon-symbol { fill: #00ffcc; }
+    .dev-group:hover .dev-label { fill: #00ffcc; font-weight: bold; transform: translateY(-3px); }
+    .dev-group:hover .dev-target-glow { opacity: 1; }
+    .dev-group:hover .dev-tooltip { opacity: 1; transform: translateY(0); }
 
+    @keyframes dashMove {
+      to { stroke-dashoffset: -8; }
+    }
+  </style>
 
-<rect width="680" height="520" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="10" y="10" width="660" height="500" fill="#060b18" stroke="rgba(26,106,255,0.15)" stroke-width="0.5" rx="4" style="fill:rgb(6, 11, 24);stroke:rgba(26, 106, 255, 0.15);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="url(#isoGrid)" />
 
-<!-- ═══ PERÍMETRO EXTERIOR DE LA OFICINA ═══ -->
-<rect x="40" y="50" width="580" height="390" rx="2" fill="none" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="6 3" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-dasharray:6px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Title & Legend -->
+  <text x="40" y="40" font-family="'Syne', sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.1em">14. PHYSICAL IMPLEMENTATION & INTERCONNECTION</text>
+  <text x="40" y="55" font-family="'Space Mono', monospace" font-size="8.5" fill="#4b5a7a" letter-spacing="0.05em">INTERACTIVE 3D DEVICE MAP - HOVER OVER EACH NODE TO INTERACT</text>
 
-<!-- ═══ LEYENDA DE DISPOSITIVOS ═══ -->
-<text x="44" y="470" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:700;text-anchor:start;dominant-baseline:auto">DEVICES:</text>
+  <!-- ════════ 3D ISOMETRIC OFFICE MODEL ════════ -->
+  <g transform="translate(100, 120)">
+    
+    <!-- Floor Polygon (Overall Office Footprint) -->
+    <!-- Front corner: (300, 260), Right corner: (580, 120), Back corner: (280, -10), Left corner: (0, 130) -->
+    <polygon points="300,260 580,120 280,-10 0,130" class="iso-floor" />
 
-<!-- Sonoff POW -->
-<rect x="44" y="480" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="58" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sonoff POW Elite</text>
+    <!-- Room Division Floor Lines & Floor Highlights -->
+    <!-- Lab: (0,130) to (150, 195) to (100, 80) to (50, 105) -->
+    <!-- Kitchen: near middle -->
+    
+    <!-- 1. Lab (Laboratorio/Computo) Floor Highlight -->
+    <polygon points="120,180 210,135 150,80 60,125" id="hl-lab" class="dev-target-glow" />
+    
+    <!-- 2. Central Corridor Highlight -->
+    <polygon points="210,135 300,90 240,40 150,80" id="hl-corridor" class="dev-target-glow" />
 
-<!-- Sonoff R2 -->
-<circle cx="150" cy="485" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="150" cy="485" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="160" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sonoff R2</text>
+    <!-- 3. IT Support Room Highlight -->
+    <polygon points="340,180 430,135 370,80 280,125" id="hl-support" class="dev-target-glow" />
 
-<!-- Camera -->
-<polygon points="225,482 231,479 231,491 225,488" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="218" y="482" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="236" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Camera</text>
+    <!-- 4. Meeting Room Highlight -->
+    <polygon points="460,120 550,75 490,25 400,70" id="hl-meetings" class="dev-target-glow" />
 
-<!-- Power strip -->
-<rect x="300" y="481" width="12" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="304" cy="485" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="308" cy="485" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="316" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Power Strip</text>
+    <!-- Inner Furniture Outlines (Isometric projection) -->
+    <!-- Lab Computer Desks -->
+    <polygon points="80,140 105,127 95,110 70,123" class="iso-desk" />
+    <polygon points="95,147 120,135 110,118 85,130" class="iso-desk" />
+    <polygon points="110,155 135,142 125,125 100,138" class="iso-desk" />
+    
+    <!-- Meeting Room Table -->
+    <polygon points="450,85 510,55 490,40 430,70" class="iso-desk" />
 
-<!-- Router -->
-<rect x="390" y="480" width="10" height="10" rx="1" fill="#1a6aff" opacity="0.6" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="393" y1="480" x2="391" y2="475" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="395" y1="480" x2="395" y2="474" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="397" y1="480" x2="399" y2="475" stroke="#4a9eff" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="404" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Router WiFi</text>
+    <!-- Server Rack in IT Support -->
+    <polygon points="350,110 370,100 365,90 345,100" class="iso-desk" style="fill:#1e293b; stroke:#00ffcc;" />
+    <!-- 3D wall lines -->
+    <path d="M 345,100 L 345,75 M 365,90 L 365,65 M 370,100 L 370,75 M 350,110 L 350,85" stroke="#00ffcc" stroke-width="0.8" />
+    <polygon points="350,85 370,75 365,65 345,75" fill="#111" stroke="#00ffcc" stroke-width="0.8" />
 
-<!-- Servidor RPi -->
-<rect x="468" y="480" width="10" height="10" rx="1" fill="#1a6aff" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="470" y="482" width="6" height="6" rx="0.5" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="482" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Servidor (RPi 4)</text>
+    <!-- ═══ 3D WALLS ═══ -->
+    <!-- Outer back wall -->
+    <path d="M 0,130 L 0,60 L 280,-80 L 580,50 L 580,120 M 280,-80 L 280,-10" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3" />
+    
+    <!-- Front Outer walls (lowered transparency to see inside) -->
+    <polygon points="0,130 300,260 300,190 0,60" class="iso-wall" />
+    <polygon points="300,260 580,120 580,50 300,190" class="iso-wall" />
+    
+    <!-- Wall tops (bright blue outline) -->
+    <path d="M 0,60 L 300,190 L 580,50" class="iso-wall-top" />
 
-<!-- Gleco Plug -->
-<circle cx="566" cy="485" r="5" fill="#2ecc71" opacity="0.8" style="fill:rgb(46, 204, 113);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="574" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Gleco Plug</text>
+    <!-- Inner division walls -->
+    <!-- Lab / Kitchen partition -->
+    <polygon points="120,180 120,110 210,65 210,135" class="iso-wall" />
+    <path d="M 120,110 L 210,65" class="iso-wall-top" />
+    
+    <!-- Corridor / Support partition -->
+    <polygon points="280,125 280,55 370,10 370,80" class="iso-wall" />
+    <path d="M 280,55 L 370,10" class="iso-wall-top" />
+  </g>
 
-<!-- ═══ DIVISIONES INTERIORES ═══ -->
+  <!-- ════════ INTERACTIVE DEVICE NODES (FLOATING) ════════ -->
 
-<!-- ALMACÉN 1 — izquierda grande -->
-<rect x="40" y="230" width="145" height="210" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="112" y="255" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Warehouse 1</text>
+  <!-- 1. Raspberry Pi 4 Server Node -->
+  <g class="dev-group">
+    <!-- Highlight target on IT Server Rack (x=450, y=200) -->
+    <circle cx="450" cy="200" r="18" class="dev-target-glow" stroke="#ef4444" />
+    <circle cx="450" cy="200" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="450" y1="90" x2="450" y2="200" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="450" cy="90" r="18" class="dev-icon-bg" />
+      <!-- Stylized Raspberry Pi leaf/icon -->
+      <path d="M 446,84 C 446,84 450,80 454,84 C 458,80 462,84 462,84 C 462,84 458,94 454,90 C 450,94 446,84 446,84 Z" fill="#c084fc" class="dev-icon-symbol" />
+      <circle cx="454" cy="85" r="2.5" fill="#ef4444" />
+      <circle cx="454" cy="92" r="3.5" fill="#22c55e" />
+      <!-- Label -->
+      <text x="450" y="118" class="dev-label">Raspberry Pi 4</text>
+    </g>
 
-<!-- BAÑO 1 y BAÑO 2 — parte inferior izquierda -->
-<rect x="185" y="340" width="85" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="227" y="362" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Restroom</text>
+    <!-- Tooltip Card -->
+    <g class="dev-tooltip" transform="translate(450, 50)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#00ffcc" font-weight="bold" text-anchor="middle">Central Server</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Raspberry Pi 4 (4GB RAM)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Home Assistant & MQTT Broker</text>
+    </g>
+  </g>
 
-<rect x="270" y="340" width="85" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="312" y="362" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Restroom</text>
+  <!-- 2. Sonoff POW Elite Node -->
+  <g class="dev-group">
+    <!-- Highlight target on kitchen/corridor wall panel (x=300, y=210) -->
+    <circle cx="300" cy="210" r="15" class="dev-target-glow" />
+    <circle cx="300" cy="210" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="300" y1="110" x2="300" y2="210" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="300" cy="110" r="16" class="dev-icon-bg" />
+      <!-- POW Box icon -->
+      <rect x="294" y="103" width="12" height="14" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <line x1="297" y1="110" x2="303" y2="110" stroke="#60a5fa" stroke-width="1" class="dev-icon-symbol" />
+      <!-- Label -->
+      <text x="300" y="136" class="dev-label">Sonoff POW</text>
+    </g>
 
-<!-- ADMINISTRACIÓN -->
-<rect x="185" y="50" width="130" height="140" fill="rgba(26,106,255,0.05)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.05);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="250" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Administration</text>
+    <!-- Tooltip Card -->
+    <g class="dev-tooltip" transform="translate(300, 70)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Energy Meter</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff POW Elite (20A)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Office Real-time kWh Monitor</text>
+    </g>
+  </g>
 
-<!-- SOPORTE -->
-<rect x="315" y="50" width="130" height="140" fill="rgba(26,106,255,0.05)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.05);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="380" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Support</text>
+  <!-- 3. Sonoff R2 Relays (Lab/Computo) -->
+  <g class="dev-group">
+    <!-- Highlight target in Lab (x=210, y=240) -->
+    <circle cx="210" cy="240" r="15" class="dev-target-glow" />
+    <circle cx="210" cy="240" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="200" y1="130" x2="210" y2="240" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="200" cy="130" r="16" class="dev-icon-bg" />
+      <!-- Switch icon -->
+      <circle cx="200" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="200" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="200" y="156" class="dev-label">Sonoff R2 (L1)</text>
+    </g>
 
-<!-- ALMACÉN 2 — derecha superior -->
-<rect x="445" y="50" width="175" height="155" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="532" y="80" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Warehouse 2</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(200, 90)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Computer Lab Lights</text>
+    </g>
+  </g>
 
-<!-- COCINA — derecha media -->
-<rect x="445" y="205" width="100" height="100" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="495" y="230" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Kitchen</text>
+  <!-- 4. Sonoff R2 Relays (Oficina Central) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=380, y=220) -->
+    <circle cx="380" cy="220" r="15" class="dev-target-glow" />
+    <circle cx="380" cy="220" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="370" y1="130" x2="380" y2="220" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="370" cy="130" r="16" class="dev-icon-bg" />
+      <circle cx="370" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="370" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="370" y="156" class="dev-label">Sonoff R2 (L2)</text>
+    </g>
 
-<!-- BAÑO 3 — derecha media -->
-<rect x="445" y="305" width="100" height="65" fill="rgba(26,106,255,0.04)" stroke="#1a6aff" stroke-width="0.8" style="fill:rgba(26, 106, 255, 0.04);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="495" y="328" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Restroom</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(370, 90)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Main Office Lights</text>
+    </g>
+  </g>
 
-<!-- ÁREA COMERCIAL — franja inferior -->
-<rect x="355" y="370" width="265" height="70" fill="rgba(26,106,255,0.06)" stroke="#1a6aff" stroke-width="1" style="fill:rgba(26, 106, 255, 0.06);stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="488" y="398" text-anchor="middle" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Commercial Area</text>
+  <!-- 5. Smart Power Strip Node (Regleta Lab) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=160, y=280) -->
+    <circle cx="160" cy="280" r="15" class="dev-target-glow" />
+    <circle cx="160" cy="280" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="120" y1="100" x2="160" y2="280" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="120" cy="100" r="16" class="dev-icon-bg" />
+      <!-- Power strip icon -->
+      <rect x="114" y="96" width="12" height="8" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="117" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
+      <circle cx="121" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="120" y="126" class="dev-label">Wi-Fi Strip</text>
+    </g>
 
-<!-- PASILLO CENTRAL -->
-<rect x="185" y="190" width="260" height="150" fill="rgba(26,106,255,0.02)" stroke="rgba(26,106,255,0.3)" stroke-width="0.5" stroke-dasharray="3 3" style="fill:rgba(26, 106, 255, 0.02);stroke:rgba(26, 106, 255, 0.3);color:rgb(0, 0, 0);stroke-width:0.5px;stroke-dasharray:3px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="315" y="210" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">— HALLWAY / CIRCULATION —</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(120, 60)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Smart Power Strip</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Smart Wi-Fi Strip with metering</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Shutdown PCs overnight</text>
+    </g>
+  </g>
 
-<!-- ═══ DISPOSITIVOS ═══ -->
+  <!-- 6. Smart Plug Node (Enchufe Central/Pasillo) -->
+  <g class="dev-group">
+    <!-- Highlight target (x=330, y=270) -->
+    <circle cx="330" cy="270" r="15" class="dev-target-glow" />
+    <circle cx="330" cy="270" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="250" y1="120" x2="330" y2="270" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="250" cy="120" r="16" class="dev-icon-bg" />
+      <!-- Plug icon -->
+      <circle cx="250" cy="120" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <line x1="248" y1="118" x2="248" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
+      <line x1="252" y1="118" x2="252" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
+      <text x="250" y="146" class="dev-label">Wall Outlet</text>
+    </g>
 
-<!-- ROUTER WiFi — centro pasillo -->
-<rect x="298" y="230" width="12" height="12" rx="1" fill="#1a6aff" opacity="0.6" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="302" y1="230" x2="300" y2="223" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="304" y2="222" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="306" y1="230" x2="308" y2="223" stroke="#4a9eff" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="304" y="248" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ROUTER</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(250, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Smart Plug</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Smart Wi-Fi wall plug</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls auxiliary A/C units</text>
+    </g>
+  </g>
 
-<!-- SERVER Raspberry Pi 4 — cerca almacén 2 -->
-<rect x="530" y="95" width="14" height="12" rx="1" fill="#1a6aff" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="532" y="97" width="10" height="8" rx="0.5" fill="#060b18" style="fill:rgb(6, 11, 24);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="533" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="536" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="539" y="98" width="2" height="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="537" y="118" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SERVER</text>
-<text x="537" y="127" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">RPi 4 + HA</text>
+  <!-- 7. Sonoff R2 Relays (Reuniones/Meetings) -->
+  <g class="dev-group">
+    <!-- Highlight target in Meeting Room (x=600, y=210) -->
+    <circle cx="600" cy="210" r="15" class="dev-target-glow" />
+    <circle cx="600" cy="210" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="590" y1="120" x2="600" y2="210" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="590" cy="120" r="16" class="dev-icon-bg" />
+      <circle cx="590" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="590" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="590" y="146" class="dev-label">Sonoff R2 (L3)</text>
+    </g>
 
-<!-- SONOFF POW ELITE — Administration -->
-<rect x="215" y="100" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="220" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POW</text>
-<text x="220" y="130" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ELITE</text>
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(590, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Meeting Room Lights</text>
+    </g>
+  </g>
 
-<!-- SONOFF R2 — Administration -->
-<circle cx="250" cy="105" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="250" cy="105" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="250" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
+  <!-- 8. Sonoff R2 (Almacén 2 / TI) -->
+  <g class="dev-group">
+    <!-- Highlight target in Support area (x=520, y=180) -->
+    <circle cx="520" cy="180" r="15" class="dev-target-glow" />
+    <circle cx="520" cy="180" r="4" fill="#00ffcc" />
+    
+    <!-- Connection Line -->
+    <line x1="680" y1="120" x2="520" y2="180" class="dev-line" />
+    
+    <!-- Floating Icon Group -->
+    <g transform="translate(0, 0)">
+      <circle cx="680" cy="120" r="16" class="dev-icon-bg" />
+      <circle cx="680" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
+      <circle cx="680" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
+      <text x="680" y="146" class="dev-label">Sonoff R2 (L4)</text>
+    </g>
 
-<!-- CÁMARA Administration -->
-<polygon points="280,103 286,100 286,112 280,109" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="273" y="103" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="280" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">CAM</text>
-
-<!-- POWER STRIP — Administration -->
-<rect x="218" y="138" width="14" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="223" cy="142" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="228" cy="142" r="1.5" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="225" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POWER</text>
-<text x="225" y="166" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">STRIP</text>
-
-<!-- GLECO PLUG — Administration -->
-<circle cx="270" cy="142" r="5" fill="#2ecc71" opacity="0.8" style="fill:rgb(46, 204, 113);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="270" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">GLECO</text>
-
-<!-- SONOFF R2 — Support -->
-<circle cx="350" cy="105" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="350" cy="105" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="350" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Support -->
-<polygon points="390,103 396,100 396,112 390,109" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="383" y="103" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="390" y="122" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF POW — Support -->
-<rect x="350" y="138" width="10" height="10" rx="2" fill="#1a6aff" opacity="0.9" style="fill:rgb(26, 106, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="355" y="158" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POW</text>
-
-<!-- CÁMARA Warehouse 1 -->
-<polygon points="55,290 61,287 61,299 55,296" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="48" y="290" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="65" y="302" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF R2 — Warehouse 1 -->
-<circle cx="100" cy="310" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="100" cy="310" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="100" y="326" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Warehouse 2 -->
-<polygon points="455,65 461,62 461,74 455,71" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="448" y="65" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="472" y="78" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- SONOFF R2 — Warehouse 2 -->
-<circle cx="490" cy="120" r="5" fill="none" stroke="#4a9eff" stroke-width="1.5" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<circle cx="490" cy="120" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="490" y="136" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">SONOFF R2</text>
-
-<!-- CÁMARA Commercial Area izq -->
-<polygon points="365,385 371,382 371,394 365,391" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="358" y="385" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="380" y="398" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">CAM</text>
-
-<!-- CÁMARA Commercial Area der -->
-<polygon points="590,385 596,382 596,394 590,391" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="583" y="385" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="572" y="398" text-anchor="end" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">CAM</text>
-
-<!-- SENSOR PIR — pasillo central -->
-<polygon points="312,268 318,260 324,268" fill="rgba(74,158,255,0.6)" stroke="#4a9eff" stroke-width="0.8" style="fill:rgba(74, 158, 255, 0.6);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="318" y="282" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">PIR</text>
-
-<!-- IR Transceiver (AC) — Kitchen -->
-<rect x="460" y="220" width="10" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="463" y2="214" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="465" y2="213" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="465" y1="220" x2="467" y2="214" stroke="#4a9eff" stroke-width="0.8" stroke-dasharray="2 1" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:2px, 1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="465" y="240" text-anchor="middle" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">IR/AC</text>
-
-<!-- ═══ LÍNEAS WIFI DASHED AL ROUTER ═══ -->
-<line x1="304" y1="230" x2="250" y2="145" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="355" y2="145" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="490" y2="130" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="100" y2="318" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="304" y1="230" x2="465" y2="226" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);color:rgb(0, 0, 0);stroke-width:0.8px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-
-<!-- Línea Servidor → Router -->
-<line x1="530" y1="101" x2="314" y2="230" stroke="#4a9eff" stroke-width="1" stroke-dasharray="5 3" opacity="0.7" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-o8e4t8)" style="fill:rgb(0, 0, 0);stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:5px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="435" y="168" text-anchor="middle" transform="rotate(-25, 435, 168)" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">LAN / WiFi</text>
-
-<!-- TÍTULO -->
-<text x="340" y="30" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#4a9eff" letter-spacing="0.2em" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">NANOTECHNOLOGY SAC — SMART OFFICE LAYOUT</text>
-<text x="340" y="43" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#4a5a7a" letter-spacing="0.15em" style="fill:rgb(74, 90, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TRUJILLO, PERU — HOME ASSISTANT + RASPBERRY PI 4</text>
-
-
-<!-- WiFi connection to CAMs (Cameras) -->
-<line x1="304" y1="230" x2="280" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="385" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="61" y2="290" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="455" y2="76" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="365" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-<line x1="304" y1="230" x2="583" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
-
+    <!-- Tooltip -->
+    <g class="dev-tooltip" transform="translate(680, 80)">
+      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
+      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
+      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls IT & Support Lights</text>
+    </g>
+  </g>
 </svg>
         </div>
 `
