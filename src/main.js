@@ -906,17 +906,153 @@ const modalData = {
           <li><strong>Tiempo de Recuperación:</strong> ~24 meses de retorno de inversión por completo.</li>
         </ul>
 
-        <h4 style="margin-top:2rem;">Plano de Distribución de Dispositivos (En Oficina)</h4>
-        <p>Mapa físico de distribución para sensores de movimiento (PIR), climatizador y actuadores en la oficina de Nanotechnology:</p>
-        <img src="/images/image61.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #060b18;" alt="Plano de Distribución">
+        <h4 style="margin-top:2.5rem;">Plano de Distribución de Dispositivos (SENATI)</h4>
+        <p>Distribución física de sensores de movimiento (PIR), climatizador y actuadores en la planta de la oficina:</p>
+        <div style="margin: 1rem 0 2rem 0;">
+          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <rect x="50" y="40" width="700" height="370" stroke="#1a6aff" stroke-width="3" stroke-opacity="0.8" />
+            <line x1="280" y1="40" x2="280" y2="410" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="4 2" />
+            <line x1="280" y1="200" x2="50" y2="200" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" />
+            <line x1="500" y1="40" x2="500" y2="410" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="4 2" />
+            <line x1="500" y1="220" x2="750" y2="220" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" />
+            <text x="165" y="120" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">RECEPCIÓN</text>
+            <text x="165" y="310" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">SALA DE ESPERA</text>
+            <text x="390" y="225" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">OFICINA CENTRAL</text>
+            <text x="625" y="130" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">TI / SOPORTE</text>
+            <text x="625" y="325" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">SALA REUNIONES</text>
+            <path d="M 280,120 A 40,40 0 0,1 240,160" stroke="#4a9eff" stroke-opacity="0.4" fill="none" stroke-width="1" />
+            <line x1="280" y1="120" x2="280" y2="160" stroke="#1a6aff" stroke-opacity="0.8" stroke-width="2" />
+            <path d="M 500,280 A 40,40 0 0,0 540,320" stroke="#4a9eff" stroke-opacity="0.4" fill="none" stroke-width="1" />
+            <line x1="500" y1="280" x2="500" y2="320" stroke="#1a6aff" stroke-opacity="0.8" stroke-width="2" />
+            
+            <g transform="translate(60, 360)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="12" y="4" fill="#8899bb" font-family="monospace" font-size="9">LUMINARIA SONOFF</text>
+              <rect x="-5" y="15" width="10" height="10" fill="#febc2e" />
+              <text x="12" y="24" fill="#8899bb" font-family="monospace" font-size="9">SENSOR PIR</text>
+              <polygon points="0,-27 5,-17 -5,-17" fill="#28c840" />
+              <text x="12" y="-20" fill="#8899bb" font-family="monospace" font-size="9">SERVIDOR PI 4</text>
+            </g>
+            <g transform="translate(625, 90)">
+              <polygon points="0,-12 12,-2 -12,-2" fill="#28c840" />
+              <circle cx="0" cy="5" r="8" stroke="#28c840" stroke-width="2" fill="none" />
+              <text x="0" y="25" fill="#28c840" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">PI 4 SERVER</text>
+            </g>
+            <g transform="translate(390, 80)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <path d="M -20,15 A 25,25 0 0,0 20,15" stroke="rgba(254,188,46,0.3)" stroke-width="1" fill="none" stroke-dasharray="2 2" />
+              <text x="0" y="-12" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="middle">PIR 1</text>
+            </g>
+            <g transform="translate(685, 260)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <text x="-18" y="4" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="end">PIR 2</text>
+            </g>
+            <g transform="translate(100, 260)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <text x="18" y="4" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="start">PIR 3</text>
+            </g>
+            <g transform="translate(340, 160)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Luz A</text>
+            </g>
+            <g transform="translate(440, 160)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Luz B</text>
+            </g>
+            <g transform="translate(165, 150)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Luz Rec</text>
+            </g>
+            <g transform="translate(625, 360)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Luz Meet</text>
+            </g>
+            <g transform="translate(390, 310)">
+              <rect x="-15" y="-6" width="30" height="12" stroke="#4a9eff" stroke-width="1.5" fill="none" />
+              <text x="0" y="3" fill="#4a9eff" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">A/C</text>
+            </g>
+          </svg>
+        </div>
 
         <h4>Arquitectura Lógica de Integración IoT</h4>
-        <p>Esquema conceptual de comunicación local y en la nube entre Home Assistant y los nodos inteligentes:</p>
-        <img src="/images/image62.jpg" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem;" alt="Arquitectura del Sistema">
+        <p>Flujo de comunicaciones locales y protocolos de integración del servidor central de control:</p>
+        <div style="margin: 1rem 0 2rem 0;">
+          <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <path d="M 400,200 L 180,95" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 180,200" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 180,305" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 620,95" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 620,200" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            
+            <g transform="translate(400, 200)">
+              <rect x="-85" y="-35" width="170" height="70" rx="6" fill="#0f1830" stroke="#28c840" stroke-width="2" />
+              <text x="0" y="-10" fill="#fff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">NÚCLEO CENTRAL</text>
+              <text x="0" y="8" fill="#28c840" font-family="monospace" font-size="10" text-anchor="middle">Raspberry Pi 4</text>
+              <text x="0" y="22" fill="#8899bb" font-family="monospace" font-size="9" text-anchor="middle">Home Assistant OS</text>
+            </g>
+            <g transform="translate(180, 95)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">ILUMINACIÓN (6x)</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+            </g>
+            <g transform="translate(180, 200)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">MONITOREO ELÉCTRICO</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Sonoff POW Elite (20A)</text>
+            </g>
+            <g transform="translate(180, 305)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">SENSORES DE MOVIMIENTO</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">PIR HC-SR501 (GPIO)</text>
+            </g>
+            <g transform="translate(620, 95)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">CLIMATIZADOR (AIRE)</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Broadlink RM4 Mini (IR)</text>
+            </g>
+            <g transform="translate(620, 200)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">INTERFAZ DE USUARIO</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">App Dashboard Móvil / Web</text>
+            </g>
+          </svg>
+        </div>
 
-        <h4>Esquema de Conexiones de los Sensores y Relés</h4>
-        <p>Planos eléctricos del cableado físico de relés inteligentes Sonoff Basic R2 instalados en luminarias:</p>
-        <img src="/images/image33.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #fff; padding: 10px;" alt="Esquema eléctrico de conexiones">
+        <h4>Esquema de Conexiones Eléctricas (Luminarias)</h4>
+        <p>Diagrama unifilar de conexionado y alimentación del relé Sonoff Basic R2 con el interruptor y la carga:</p>
+        <div style="margin: 1rem 0 1rem 0;">
+          <svg viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <line x1="80" y1="100" x2="280" y2="100" stroke="#ff5f57" stroke-width="2.5" />
+            <text x="70" y="104" fill="#ff5f57" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">Fase L (220V AC)</text>
+            <line x1="80" y1="250" x2="280" y2="250" stroke="#4a9eff" stroke-width="2.5" />
+            <line x1="280" y1="250" x2="520" y2="250" stroke="#4a9eff" stroke-width="2" />
+            <text x="70" y="254" fill="#4a9eff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">Neutro N</text>
+            
+            <rect x="280" y="60" width="240" height="210" rx="8" fill="#151515" stroke="rgba(74,158,255,0.4)" stroke-width="2" />
+            <text x="400" y="85" fill="#fff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SONOFF BASIC R2</text>
+            <rect x="300" y="105" width="200" height="110" fill="#2b2b2b" rx="4" />
+            <text x="400" y="135" fill="#aaaaaa" font-family="monospace" font-size="10" text-anchor="middle">Módulo Relé IoT</text>
+            <text x="400" y="160" fill="#28c840" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">Flasheado con Tasmota</text>
+            <text x="400" y="190" fill="#8899bb" font-family="monospace" font-size="8" text-anchor="middle">Protocolo Local MQTT</text>
+
+            <circle cx="280" cy="100" r="5" fill="#ff5f57" />
+            <circle cx="280" cy="250" r="5" fill="#4a9eff" />
+            <circle cx="520" cy="100" r="5" fill="#ff5f57" />
+            <circle cx="520" cy="250" r="5" fill="#4a9eff" />
+
+            <line x1="520" y1="100" x2="650" y2="100" stroke="#ff5f57" stroke-width="2" />
+            <path d="M 520,250 L 600,250 L 600,280 L 650,280" stroke="#4a9eff" stroke-width="2" fill="none" />
+            <g transform="translate(680, 190)">
+              <circle cx="0" cy="0" r="30" stroke="#febc2e" stroke-width="2" fill="#0f1830" />
+              <line x1="-20" y1="-20" x2="20" y2="20" stroke="#febc2e" stroke-width="2" />
+              <line x1="-20" y1="20" x2="20" y2="-20" stroke="#febc2e" stroke-width="2" />
+              <text x="0" y="45" fill="#febc2e" font-family="monospace" font-size="10" text-anchor="middle" font-weight="bold">PANEL LED (Luminaria)</text>
+            </g>
+          </svg>
+        </div>
       `,
       en: `
         <h4>Project Budget and Material Bill (SENATI)</h4>
@@ -1013,17 +1149,153 @@ const modalData = {
           <li><strong>Payback Period:</strong> ~24 months to fully amortize the initial hardware cost.</li>
         </ul>
 
-        <h4 style="margin-top:2rem;">Device Layout and Distribution Plan (In Office)</h4>
+        <h4 style="margin-top:2.5rem;">Device Layout and Distribution Plan (SENATI)</h4>
         <p>Physical distribution maps showing motion sensors (PIR), climate remote, and switches inside Nanotechnology Office:</p>
-        <img src="/images/image61.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #060b18;" alt="Layout Plan">
+        <div style="margin: 1rem 0 2rem 0;">
+          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <rect x="50" y="40" width="700" height="370" stroke="#1a6aff" stroke-width="3" stroke-opacity="0.8" />
+            <line x1="280" y1="40" x2="280" y2="410" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="4 2" />
+            <line x1="280" y1="200" x2="50" y2="200" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" />
+            <line x1="500" y1="40" x2="500" y2="410" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="4 2" />
+            <line x1="500" y1="220" x2="750" y2="220" stroke="#1a6aff" stroke-width="2" stroke-opacity="0.6" />
+            <text x="165" y="120" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">RECEPTION</text>
+            <text x="165" y="310" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">WAITING ROOM</text>
+            <text x="390" y="225" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">MAIN OFFICE</text>
+            <text x="625" y="130" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">IT / SUPPORT</text>
+            <text x="625" y="325" fill="#4a9eff" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="2">MEETING ROOM</text>
+            <path d="M 280,120 A 40,40 0 0,1 240,160" stroke="#4a9eff" stroke-opacity="0.4" fill="none" stroke-width="1" />
+            <line x1="280" y1="120" x2="280" y2="160" stroke="#1a6aff" stroke-opacity="0.8" stroke-width="2" />
+            <path d="M 500,280 A 40,40 0 0,0 540,320" stroke="#4a9eff" stroke-opacity="0.4" fill="none" stroke-width="1" />
+            <line x1="500" y1="280" x2="500" y2="320" stroke="#1a6aff" stroke-opacity="0.8" stroke-width="2" />
+            
+            <g transform="translate(60, 360)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="12" y="4" fill="#8899bb" font-family="monospace" font-size="9">SONOFF RELAY</text>
+              <rect x="-5" y="15" width="10" height="10" fill="#febc2e" />
+              <text x="12" y="24" fill="#8899bb" font-family="monospace" font-size="9">PIR SENSOR</text>
+              <polygon points="0,-27 5,-17 -5,-17" fill="#28c840" />
+              <text x="12" y="-20" fill="#8899bb" font-family="monospace" font-size="9">PI 4 SERVER</text>
+            </g>
+            <g transform="translate(625, 90)">
+              <polygon points="0,-12 12,-2 -12,-2" fill="#28c840" />
+              <circle cx="0" cy="5" r="8" stroke="#28c840" stroke-width="2" fill="none" />
+              <text x="0" y="25" fill="#28c840" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">PI 4 SERVER</text>
+            </g>
+            <g transform="translate(390, 80)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <path d="M -20,15 A 25,25 0 0,0 20,15" stroke="rgba(254,188,46,0.3)" stroke-width="1" fill="none" stroke-dasharray="2 2" />
+              <text x="0" y="-12" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="middle">PIR 1</text>
+            </g>
+            <g transform="translate(685, 260)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <text x="-18" y="4" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="end">PIR 2</text>
+            </g>
+            <g transform="translate(100, 260)">
+              <rect x="-6" y="-6" width="12" height="12" fill="#febc2e" />
+              <text x="18" y="4" fill="#febc2e" font-family="monospace" font-size="8" text-anchor="start">PIR 3</text>
+            </g>
+            <g transform="translate(340, 160)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Light A</text>
+            </g>
+            <g transform="translate(440, 160)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Light B</text>
+            </g>
+            <g transform="translate(165, 150)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Light Rec</text>
+            </g>
+            <g transform="translate(625, 360)">
+              <circle cx="0" cy="0" r="5" fill="#1a6aff" />
+              <text x="0" y="-10" fill="#8899bb" font-family="monospace" font-size="7" text-anchor="middle">Light Meet</text>
+            </g>
+            <g transform="translate(390, 310)">
+              <rect x="-15" y="-6" width="30" height="12" stroke="#4a9eff" stroke-width="1.5" fill="none" />
+              <text x="0" y="3" fill="#4a9eff" font-family="monospace" font-size="8" text-anchor="middle" font-weight="bold">A/C</text>
+            </g>
+          </svg>
+        </div>
 
         <h4>Logical IoT Integration Architecture</h4>
-        <p>Conceptual integration diagram between Home Assistant and peripheral smart nodes:</p>
-        <img src="/images/image62.jpg" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem;" alt="System Architecture">
+        <p>Conceptual integration diagram showing communication links between the central server and peripheral nodes:</p>
+        <div style="margin: 1rem 0 2rem 0;">
+          <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <path d="M 400,200 L 180,95" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 180,200" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 180,305" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 620,95" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            <path d="M 400,200 L 620,200" stroke="#1a6aff" stroke-width="1.5" stroke-dasharray="5 3" />
+            
+            <g transform="translate(400, 200)">
+              <rect x="-85" y="-35" width="170" height="70" rx="6" fill="#0f1830" stroke="#28c840" stroke-width="2" />
+              <text x="0" y="-10" fill="#fff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">CENTRAL NODE</text>
+              <text x="0" y="8" fill="#28c840" font-family="monospace" font-size="10" text-anchor="middle">Raspberry Pi 4</text>
+              <text x="0" y="22" fill="#8899bb" font-family="monospace" font-size="9" text-anchor="middle">Home Assistant OS</text>
+            </g>
+            <g transform="translate(180, 95)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">LIGHTING NODES (6x)</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
+            </g>
+            <g transform="translate(180, 200)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">POWER MONITORING</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Sonoff POW Elite (20A)</text>
+            </g>
+            <g transform="translate(180, 305)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">MOTION SENSING</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">PIR HC-SR501 (GPIO)</text>
+            </g>
+            <g transform="translate(620, 95)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">CLIMATE CONTROLLER</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Broadlink RM4 Mini (IR)</text>
+            </g>
+            <g transform="translate(620, 200)">
+              <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#0a1020" stroke="#1a6aff" stroke-width="1.5" />
+              <text x="0" y="-4" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">USER DASHBOARD</text>
+              <text x="0" y="12" fill="#4a9eff" font-family="monospace" font-size="9" text-anchor="middle">Mobile App / Web UI</text>
+            </g>
+          </svg>
+        </div>
 
         <h4>Sensors and Relays Wiring Schematics</h4>
-        <p>Electrical wiring layouts for smart relays Sonoff Basic R2 installed on light fixtures:</p>
-        <img src="/images/image33.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #fff; padding: 10px;" alt="Electrical Schematics">
+        <p>Electrical wiring connection diagram of the smart relays Sonoff Basic R2 with the lamp and switches:</p>
+        <div style="margin: 1rem 0 1rem 0;">
+          <svg viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:8px; background:#060b18; padding: 1rem;">
+            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
+            <line x1="80" y1="100" x2="280" y2="100" stroke="#ff5f57" stroke-width="2.5" />
+            <text x="70" y="104" fill="#ff5f57" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">Phase L (220V AC)</text>
+            <line x1="80" y1="250" x2="280" y2="250" stroke="#4a9eff" stroke-width="2.5" />
+            <line x1="280" y1="250" x2="520" y2="250" stroke="#4a9eff" stroke-width="2" />
+            <text x="70" y="254" fill="#4a9eff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">Neutral N</text>
+            
+            <rect x="280" y="60" width="240" height="210" rx="8" fill="#151515" stroke="rgba(74,158,255,0.4)" stroke-width="2" />
+            <text x="400" y="85" fill="#fff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SONOFF BASIC R2</text>
+            <rect x="300" y="105" width="200" height="110" fill="#2b2b2b" rx="4" />
+            <text x="400" y="135" fill="#aaaaaa" font-family="monospace" font-size="10" text-anchor="middle">Relay Control Module</text>
+            <text x="400" y="160" fill="#28c840" font-family="monospace" font-size="9" text-anchor="middle" font-weight="bold">Flashed with Tasmota</text>
+            <text x="400" y="190" fill="#8899bb" font-family="monospace" font-size="8" text-anchor="middle">Local MQTT Protocol</text>
+
+            <circle cx="280" cy="100" r="5" fill="#ff5f57" />
+            <circle cx="280" cy="250" r="5" fill="#4a9eff" />
+            <circle cx="520" cy="100" r="5" fill="#ff5f57" />
+            <circle cx="520" cy="250" r="5" fill="#4a9eff" />
+
+            <line x1="520" y1="100" x2="650" y2="100" stroke="#ff5f57" stroke-width="2" />
+            <path d="M 520,250 L 600,250 L 600,280 L 650,280" stroke="#4a9eff" stroke-width="2" fill="none" />
+            <g transform="translate(680, 190)">
+              <circle cx="0" cy="0" r="30" stroke="#febc2e" stroke-width="2" fill="#0f1830" />
+              <line x1="-20" y1="-20" x2="20" y2="20" stroke="#febc2e" stroke-width="2" />
+              <line x1="-20" y1="20" x2="20" y2="-20" stroke="#febc2e" stroke-width="2" />
+              <text x="0" y="45" fill="#febc2e" font-family="monospace" font-size="10" text-anchor="middle" font-weight="bold">LED PANEL (Load)</text>
+            </g>
+          </svg>
+        </div>
       `
     }
   },
