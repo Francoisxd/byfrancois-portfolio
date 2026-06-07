@@ -743,6 +743,29 @@ const btnTabDesc = document.getElementById('btnModalTabDesc');
 const btnTabExtra = document.getElementById('btnModalTabExtra');
 const modalCloseBtn = document.getElementById('modalCloseBtn');
 
+// Github API Releases dynamic cache
+let latestRelease = {
+  tag_name: 'v2.1.9',
+  download_url: 'https://github.com/Francoisxd/abre-cursos/releases'
+};
+
+const fetchLatestRelease = async () => {
+  try {
+    const response = await fetch('https://api.github.com/repos/Francoisxd/abre-cursos/releases/latest');
+    if (response.ok) {
+      const data = await response.json();
+      latestRelease.tag_name = data.tag_name;
+      const exeAsset = data.assets && data.assets.find(asset => asset.name.endsWith('.exe'));
+      latestRelease.download_url = exeAsset ? exeAsset.browser_download_url : data.html_url;
+      console.log("Latest release fetched successfully from GitHub:", latestRelease);
+    }
+  } catch (err) {
+    console.error("Failed to fetch latest GitHub release for Abre Cursos Pro:", err);
+  }
+};
+// Trigger GitHub API Fetch
+fetchLatestRelease();
+
 const modalData = {
   office: {
     title: {
@@ -879,9 +902,21 @@ const modalData = {
         <h4>Análisis de Retorno de Inversión (ROI)</h4>
         <ul>
           <li><strong>Consumo Eléctrico Inicial:</strong> 357 kWh mensuales (Equivalente aproximado a <strong>S/. 400.00</strong> al mes).</li>
-          <li><strong>Ahorro Estimado:</strong> Reducción garantizada de <strong>S/. 120.00 mensuales</strong> (Ahorro del 30% en consumo innecesario).</li>
+          <li><strong>Ahorro Estimado:</strong> Reducción de <strong>S/. 120.00 mensuales</strong> (Ahorro del 30% en consumo innecesario).</li>
           <li><strong>Tiempo de Recuperación:</strong> ~24 meses de retorno de inversión por completo.</li>
         </ul>
+
+        <h4 style="margin-top:2rem;">Plano de Distribución de Dispositivos (En Oficina)</h4>
+        <p>Mapa físico de distribución para sensores de movimiento (PIR), climatizador y actuadores en la oficina de Nanotechnology:</p>
+        <img src="/images/image61.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #060b18;" alt="Plano de Distribución">
+
+        <h4>Arquitectura Lógica de Integración IoT</h4>
+        <p>Esquema conceptual de comunicación local y en la nube entre Home Assistant y los nodos inteligentes:</p>
+        <img src="/images/image62.jpg" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem;" alt="Arquitectura del Sistema">
+
+        <h4>Esquema de Conexiones de los Sensores y Relés</h4>
+        <p>Planos eléctricos del cableado físico de relés inteligentes Sonoff Basic R2 instalados en luminarias:</p>
+        <img src="/images/image33.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #fff; padding: 10px;" alt="Esquema eléctrico de conexiones">
       `,
       en: `
         <h4>Project Budget and Material Bill (SENATI)</h4>
@@ -977,6 +1012,18 @@ const modalData = {
           <li><strong>Estimated Savings:</strong> Guaranteed reduction of <strong>S/. 120.00 monthly</strong> (30% savings by preventing waste).</li>
           <li><strong>Payback Period:</strong> ~24 months to fully amortize the initial hardware cost.</li>
         </ul>
+
+        <h4 style="margin-top:2rem;">Device Layout and Distribution Plan (In Office)</h4>
+        <p>Physical distribution maps showing motion sensors (PIR), climate remote, and switches inside Nanotechnology Office:</p>
+        <img src="/images/image61.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #060b18;" alt="Layout Plan">
+
+        <h4>Logical IoT Integration Architecture</h4>
+        <p>Conceptual integration diagram between Home Assistant and peripheral smart nodes:</p>
+        <img src="/images/image62.jpg" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem;" alt="System Architecture">
+
+        <h4>Sensors and Relays Wiring Schematics</h4>
+        <p>Electrical wiring layouts for smart relays Sonoff Basic R2 installed on light fixtures:</p>
+        <img src="/images/image33.png" style="width:100%; border:1px solid var(--border); border-radius:4px; margin-bottom:1.5rem; background: #fff; padding: 10px;" alt="Electrical Schematics">
       `
     }
   },
@@ -1023,6 +1070,8 @@ const modalData = {
     },
     extra: {
       es: `
+        <!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->
+
         <h4>Guía de Instalación y Requisitos</h4>
         <p>Sigue las siguientes instrucciones para configurar y compilar el proyecto en tu entorno local:</p>
         
@@ -1047,6 +1096,8 @@ pyinstaller --noconsole --onefile --icon=resources/logo.ico --add-data "resource
         <p>El ejecutable se generará en la carpeta <code>dist/</code> de tu directorio raíz y está listo para ser programado al inicio de Windows.</p>
       `,
       en: `
+        <!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->
+
         <h4>Installation Guide and Requirements</h4>
         <p>Follow these steps to download, install, and compile the desktop client locally:</p>
         
@@ -1080,7 +1131,24 @@ const renderModalContent = () => {
   if (!project) return;
   
   modalTitle.innerText = project.title[currentLang] || project.title['es'];
-  modalBody.innerHTML = project[activeModalTab][currentLang] || project[activeModalTab]['es'];
+  
+  let html = project[activeModalTab][currentLang] || project[activeModalTab]['es'];
+  
+  // Inject GitHub release link dynamically
+  if (activeProjectId === 'cursos' && activeModalTab === 'extra') {
+    const downloadLabel = currentLang === 'es' ? 'Descargar Ejecutable .EXE' : 'Download Executable .EXE';
+    const releaseText = currentLang === 'es' ? `Versión oficial disponible: <strong>${latestRelease.tag_name}</strong>` : `Official version available: <strong>${latestRelease.tag_name}</strong>`;
+    
+    const dynamicBtnHtml = `
+      <div style="background: rgba(26, 106, 255, 0.05); border: 1px solid rgba(26, 106, 255, 0.2); padding: 1.25rem; border-radius: 6px; margin-bottom: 2rem; text-align: center;">
+        <p style="margin-bottom: 0.75rem; font-size: 13px; font-family: 'Space Mono', monospace;">${releaseText}</p>
+        <a href="${latestRelease.download_url}" target="_blank" class="ctk-btn green" style="display: inline-block; text-decoration: none; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px;">🚀 ${downloadLabel}</a>
+      </div>
+    `;
+    html = html.replace('<!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->', dynamicBtnHtml);
+  }
+
+  modalBody.innerHTML = html;
   
   // Update tabs UI active states
   btnTabDesc.classList.toggle('active', activeModalTab === 'desc');
@@ -1089,7 +1157,7 @@ const renderModalContent = () => {
   // Custom headers localization inside the modal tabs
   if (activeProjectId === 'office') {
     btnTabDesc.innerText = currentLang === 'es' ? 'INFORMACIÓN GENERAL' : 'GENERAL INFO';
-    btnTabExtra.innerText = currentLang === 'es' ? 'PRESUPUESTO / PLANOS' : 'BUDGET & PLANS';
+    btnTabExtra.innerText = currentLang === 'es' ? 'PRESUPUESTO Y PLANOS' : 'BUDGET & PLANS';
   } else if (activeProjectId === 'cursos') {
     btnTabDesc.innerText = currentLang === 'es' ? 'INFORMACIÓN GENERAL' : 'GENERAL INFO';
     btnTabExtra.innerText = currentLang === 'es' ? 'GUÍA DE INSTALACIÓN' : 'INSTALLATION GUIDE';
@@ -1247,3 +1315,110 @@ const scrollspyObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => scrollspyObserver.observe(section));
 
+
+// --- 3D Hover Tilt & Spotlight Glow Effect for Project Cards ---
+if (projectCards) {
+  projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element
+      const y = e.clientY - rect.top;  // y position within the element
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+      
+      // 3D Tilt calculation
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -2.5; // Max 2.5 degrees tilt
+      const rotateY = ((x - centerX) / centerX) * 2.5;  // Max 2.5 degrees tilt
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+}
+
+
+// --- Constellation Particles Background for Hero Canvas ---
+const initParticlesCanvas = () => {
+  const canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  
+  let width = canvas.width = canvas.offsetWidth;
+  let height = canvas.height = canvas.offsetHeight;
+  
+  window.addEventListener('resize', () => {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  });
+  
+  const particles = [];
+  const maxParticles = 40;
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.35;
+      this.vy = (Math.random() - 0.5) * 0.35;
+      this.radius = Math.random() * 2 + 1;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(74, 158, 255, 0.35)';
+      ctx.fill();
+    }
+  }
+  
+  for (let i = 0; i < maxParticles; i++) {
+    particles.push(new Particle());
+  }
+  
+  const animate = () => {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw connections (constellation lines)
+    for (let i = 0; i < particles.length; i++) {
+      const p1 = particles[i];
+      p1.update();
+      p1.draw();
+      
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(26, 106, 255, ${0.12 * (1 - dist / 100)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    
+    requestAnimationFrame(animate);
+  };
+  
+  animate();
+};
+
+initParticlesCanvas();

@@ -579,10 +579,34 @@ section {
   padding: 2.5rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-.project-card:hover { border-color: var(--blue); }
+.project-card:hover { 
+  border-color: var(--blue); 
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(26, 106, 255, 0.08), transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
 
 .project-card::after {
   content: '';
