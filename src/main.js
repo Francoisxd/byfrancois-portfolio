@@ -811,15 +811,103 @@ const modalData = {
       `
     },
     extra: {
-      es: `
-        <div style="background: rgba(26, 106, 255, 0.05); border: 1px solid rgba(26, 106, 255, 0.2); padding: 1.25rem; border-radius: 6px; margin-bottom: 2.5rem; text-align: center;">
-          <p style="margin-bottom: 0.75rem; font-size: 13px; font-family: 'Space Mono', monospace; color: var(--white);">Esquema Completo del Sistema IoT en formato SVG (Vectorial)</p>
-          <a href="/plano_smart_office_nanotechnology.svg" download="plano_smart_office_nanotechnology.svg" class="project-link" style="display: inline-block; text-decoration: none; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; padding: 10px 20px; background: var(--blue-light); color: var(--bg); border-radius: 4px; font-weight: bold; transition: all 0.3s;">📥 Descargar Plano de Planta (SVG)</a>
-        </div>
+      es: `        <h4>Presupuesto y Lista de Materiales (SENATI)</h4>
+        <p>El presupuesto oficial extraído de las especificaciones del proyecto de innovación es el siguiente:</p>
+        <table class="modal-table">
+          <thead>
+            <tr>
+              <th>Componente / Ítem</th>
+              <th>Cant.</th>
+              <th>Costo Unitario</th>
+              <th>Total (S/.)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Servidor Raspberry Pi 4 Model B (4GB) + Fuente y Case</td>
+              <td>1</td>
+              <td>S/. 495.00</td>
+              <td>S/. 495.00</td>
+            </tr>
+            <tr>
+              <td>Interruptor inteligente SONOFF Basic R3 (Tasmota)</td>
+              <td>6</td>
+              <td>S/. 25.00</td>
+              <td>S/. 150.00</td>
+            </tr>
+            <tr>
+              <td>Interruptor con Monitoreo SONOFF POW Elite (20A)</td>
+              <td>1</td>
+              <td>S/. 85.00</td>
+              <td>S/. 85.00</td>
+            </tr>
+            <tr>
+              <td>Sensor de Movimiento PIR HC-SR501 (GPIO)</td>
+              <td>3</td>
+              <td>S/. 20.00</td>
+              <td>S/. 60.00</td>
+            </tr>
+            <tr>
+              <td>Canaletas plásticas, cables eléctricos y accesorios</td>
+              <td>-</td>
+              <td>S/. 120.00</td>
+              <td>S/. 120.00</td>
+            </tr>
+            <tr>
+              <td>Herramientas menores, fijaciones y fusibles</td>
+              <td>-</td>
+              <td>S/. 80.00</td>
+              <td>S/. 80.00</td>
+            </tr>
+            <tr>
+              <td>Paneles de Iluminación LED de alta eficiencia</td>
+              <td>4</td>
+              <td>S/. 95.00</td>
+              <td>S/. 380.00</td>
+            </tr>
+            <tr>
+              <td>Control de Aire Acondicionado IR Broadlink RM4 Mini</td>
+              <td>1</td>
+              <td>S/. 150.00</td>
+              <td>S/. 150.00</td>
+            </tr>
+            <tr>
+              <td>Regletas Inteligentes Wi-Fi (Protección de sobretensión)</td>
+              <td>2</td>
+              <td>S/. 180.00</td>
+              <td>S/. 360.00</td>
+            </tr>
+            <tr style="font-weight: bold; border-top: 2px solid var(--border);">
+              <td>Subtotal de Materiales y Equipos</td>
+              <td>-</td>
+              <td>-</td>
+              <td>S/. 1,720.00</td>
+            </tr>
+            <tr>
+              <td>Mano de Obra Calificada (Técnico TI, Electricista, Supervisor)</td>
+              <td>-</td>
+              <td>-</td>
+              <td>S/. 1,030.00</td>
+            </tr>
+            <tr style="font-weight: bold; background: var(--bg3); color: var(--blue-light);">
+              <td>TOTAL GENERAL DE INVERSIÓN</td>
+              <td>-</td>
+              <td>-</td>
+              <td>S/. 2,870.00</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h4>Análisis de Retorno de Inversión (ROI)</h4>
+        <ul>
+          <li><strong>Consumo Eléctrico Inicial:</strong> 357 kWh mensuales (Equivalente aproximado a <strong>S/. 400.00</strong> al mes).</li>
+          <li><strong>Ahorro Estimado:</strong> Reducción de <strong>S/. 120.00 mensuales</strong> (Ahorro del 30% en consumo innecesario).</li>
+          <li><strong>Tiempo de Recuperación:</strong> ~24 meses de retorno de inversión por completo.</li>
+        </ul>
 
         <h4 style="margin-top:2.5rem;">Plano de Distribución y Conectividad IoT (Nanotechnology SAC)</h4>
-        <p>Diagrama de planta de la oficina inteligente con la distribución de dispositivos IoT y sus líneas de conexión:</p>
-        <div style="margin: 1rem 0 2.5rem 0;">
+        <p>Distribución de dispositivos inteligentes y sus conexiones al Router principal en la planta de la oficina:</p>
+        <div style="margin: 1rem 0 2rem 0;">
           <svg viewBox="0 0 690 530" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
 <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano Smart Office — Nanotechnology SAC</title>
 <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano de planta de la oficina inteligente con distribución de dispositivos IoT: Sonoff, cámaras, Raspberry Pi y router</desc>
@@ -1031,89 +1119,98 @@ const modalData = {
 <text x="340" y="30" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#4a9eff" letter-spacing="0.2em" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">NANOTECHNOLOGY SAC — SMART OFFICE LAYOUT</text>
 <text x="340" y="43" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#4a5a7a" letter-spacing="0.15em" style="fill:rgb(74, 90, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TRUJILLO, PERÚ — HOME ASSISTANT + RASPBERRY PI 4</text>
 
+
+<!-- WiFi connection to CAMs (Cámaras) -->
+<line x1="304" y1="230" x2="280" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="385" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="61" y2="290" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="455" y2="76" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="365" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="583" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+
 </svg>
         </div>
-    
-        <h4>Presupuesto y Lista de Materiales (SENATI)</h4>
-        <p>El presupuesto oficial extraído de las especificaciones del proyecto de innovación es el siguiente:</p>
+`,
+      en: `        <h4>Project Budget and Material Bill (SENATI)</h4>
+        <p>The official budget extracted from the innovation project technical specifications is listed below:</p>
         <table class="modal-table">
           <thead>
             <tr>
-              <th>Componente / Ítem</th>
-              <th>Cant.</th>
-              <th>Costo Unitario</th>
+              <th>Component / Item</th>
+              <th>Qty</th>
+              <th>Unit Cost</th>
               <th>Total (S/.)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Servidor Raspberry Pi 4 Model B (4GB) + Fuente y Case</td>
+              <td>Raspberry Pi 4 Model B Server (4GB) + Power & Case</td>
               <td>1</td>
               <td>S/. 495.00</td>
               <td>S/. 495.00</td>
             </tr>
             <tr>
-              <td>Interruptor inteligente SONOFF Basic R3 (Tasmota)</td>
+              <td>SONOFF Basic R3 Smart Switch (Tasmota)</td>
               <td>6</td>
               <td>S/. 25.00</td>
               <td>S/. 150.00</td>
             </tr>
             <tr>
-              <td>Interruptor con Monitoreo SONOFF POW Elite (20A)</td>
+              <td>SONOFF POW Elite Energy Monitoring Switch (20A)</td>
               <td>1</td>
               <td>S/. 85.00</td>
               <td>S/. 85.00</td>
             </tr>
             <tr>
-              <td>Sensor de Movimiento PIR HC-SR501 (GPIO)</td>
+              <td>PIR Motion Sensor HC-SR501 (GPIO)</td>
               <td>3</td>
               <td>S/. 20.00</td>
               <td>S/. 60.00</td>
             </tr>
             <tr>
-              <td>Canaletas plásticas, cables eléctricos y accesorios</td>
+              <td>Plastic Conduits, Electrical Wiring and Accessories</td>
               <td>-</td>
               <td>S/. 120.00</td>
               <td>S/. 120.00</td>
             </tr>
             <tr>
-              <td>Herramientas menores, fijaciones y fusibles</td>
+              <td>Minor Tools, Fasteners and Fuses</td>
               <td>-</td>
               <td>S/. 80.00</td>
               <td>S/. 80.00</td>
             </tr>
             <tr>
-              <td>Paneles de Iluminación LED de alta eficiencia</td>
+              <td>High Efficiency LED Lighting Panels</td>
               <td>4</td>
               <td>S/. 95.00</td>
               <td>S/. 380.00</td>
             </tr>
             <tr>
-              <td>Control de Aire Acondicionado IR Broadlink RM4 Mini</td>
+              <td>Broadlink RM4 Mini IR Air Conditioning Control</td>
               <td>1</td>
               <td>S/. 150.00</td>
               <td>S/. 150.00</td>
             </tr>
             <tr>
-              <td>Regletas Inteligentes Wi-Fi (Protección de sobretensión)</td>
+              <td>Smart Wi-Fi Power Strips (Surge Protection)</td>
               <td>2</td>
               <td>S/. 180.00</td>
               <td>S/. 360.00</td>
             </tr>
             <tr style="font-weight: bold; border-top: 2px solid var(--border);">
-              <td>Subtotal de Materiales y Equipos</td>
+              <td>Materials and Equipment Subtotal</td>
               <td>-</td>
               <td>-</td>
               <td>S/. 1,720.00</td>
             </tr>
             <tr>
-              <td>Mano de Obra Calificada (Técnico TI, Electricista, Supervisor)</td>
+              <td>Skilled Labor (IT Technician, Electrician, Supervisor)</td>
               <td>-</td>
               <td>-</td>
               <td>S/. 1,030.00</td>
             </tr>
             <tr style="font-weight: bold; background: var(--bg3); color: var(--blue-light);">
-              <td>TOTAL GENERAL DE INVERSIÓN</td>
+              <td>GRAND TOTAL OF INVESTMENT</td>
               <td>-</td>
               <td>-</td>
               <td>S/. 2,870.00</td>
@@ -1121,446 +1218,16 @@ const modalData = {
           </tbody>
         </table>
         
-        <h4>Análisis de Retorno de Inversión (ROI)</h4>
+        <h4>Return on Investment (ROI) Analysis</h4>
         <ul>
-          <li><strong>Consumo Eléctrico Inicial:</strong> 357 kWh mensuales (Equivalente aproximado a <strong>S/. 400.00</strong> al mes).</li>
-          <li><strong>Ahorro Estimado:</strong> Reducción de <strong>S/. 120.00 mensuales</strong> (Ahorro del 30% en consumo innecesario).</li>
-          <li><strong>Tiempo de Recuperación:</strong> ~24 meses de retorno de inversión por completo.</li>
+          <li><strong>Initial Electric Consumption:</strong> 357 kWh monthly (Approximately equivalent to <strong>S/. 400.00</strong> per month).</li>
+          <li><strong>Estimated Savings:</strong> Guaranteed reduction of <strong>S/. 120.00 monthly</strong> (30% savings by preventing waste).</li>
+          <li><strong>Payback Period:</strong> ~24 months to fully amortize the initial hardware cost.</li>
         </ul>
 
-        <h4 style="margin-top:2.5rem;">Plano de Distribución de Dispositivos (SENATI)</h4>
-        <p>Distribución física de sensores de movimiento (PIR), climatizador y actuadores en la planta de la oficina:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
-              </linearGradient>
-              <linearGradient id="acAirGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes ledBlink {
-                0%, 100% { fill: #00ff66; filter: drop-shadow(0 0 3px #00ff66); }
-                50% { fill: #004411; filter: none; }
-              }
-              @keyframes ledBlinkRed {
-                0%, 100% { fill: #ff0055; filter: drop-shadow(0 0 3px #ff0055); }
-                50% { fill: #550011; filter: none; }
-              }
-              @keyframes radarPulse {
-                0% { r: 6; opacity: 1; stroke-width: 1.5; }
-                50% { opacity: 0.5; }
-                100% { r: 45; opacity: 0; stroke-width: 0.5; }
-              }
-              @keyframes fanRotation {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-              }
-              @keyframes airDrift {
-                0% { stroke-dashoffset: 0; opacity: 0; transform: translateY(0); }
-                30% { opacity: 0.8; }
-                100% { stroke-dashoffset: 24; opacity: 0; transform: translateY(25px); }
-              }
-              @keyframes lineFlow {
-                to { stroke-dashoffset: -20; }
-              }
-              .led-blink { animation: ledBlink 1s infinite steps(1); }
-              .led-blink-red { animation: ledBlinkRed 1.5s infinite steps(1); }
-              .radar-wave { animation: radarPulse 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1); transform-origin: center; }
-              .fan-spin { animation: fanRotation 0.8s infinite linear; transform-origin: 380px 340px; }
-              .air-flow { animation: airDrift 2s infinite linear; stroke-dasharray: 6, 6; }
-              .office-wall { stroke: #1e40af; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: url(#wallGrad); }
-              .office-wall-inner { stroke: #3b82f6; stroke-width: 1.5; stroke-opacity: 0.7; }
-              .door-arc { stroke: #3b82f6; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-              .furniture { fill: #0b1329; stroke: #1e293b; stroke-width: 1.5; }
-              .label-room { font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 700; fill: #60a5fa; letter-spacing: 1.5px; opacity: 0.85; }
-              .glow-node { filter: drop-shadow(0 0 4px #00e5ff); }
-            </style>
-
-            <!-- Grid Background -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
-
-            <!-- Room Furniture (Desks) -->
-            <rect x="70" y="80" width="40" height="70" rx="3" class="furniture" />
-            <path d="M 110,95 A 15,15 0 0,1 110,135" stroke="#1e293b" stroke-width="1.5" fill="none"/>
-            <rect x="70" y="240" width="30" height="30" rx="4" class="furniture" />
-            <rect x="70" y="290" width="30" height="30" rx="4" class="furniture" />
-            <rect x="70" y="340" width="30" height="30" rx="4" class="furniture" />
-            <rect x="340" y="80" width="100" height="40" rx="3" class="furniture" />
-            <rect x="340" y="160" width="100" height="40" rx="3" class="furniture" />
-            <path d="M 640,60 L 710,60 L 710,130 L 680,130 L 680,90 L 640,90 Z" class="furniture" />
-            <rect x="580" y="270" width="120" height="60" rx="30" class="furniture" />
-
-            <!-- Main Office Walls (Outer) -->
-            <rect x="50" y="40" width="700" height="370" class="office-wall" stroke-width="4" stroke="#1e3a8a"/>
-
-            <!-- Inner Walls -->
-            <line x1="50" y1="200" x2="210" y2="200" class="office-wall" />
-            <line x1="50" y1="200" x2="210" y2="200" class="office-wall-inner" />
-            <line x1="280" y1="40" x2="280" y2="130" class="office-wall" />
-            <line x1="280" y1="40" x2="280" y2="130" class="office-wall-inner" />
-            <line x1="280" y1="190" x2="280" y2="410" class="office-wall" />
-            <line x1="280" y1="190" x2="280" y2="410" class="office-wall-inner" />
-            
-            <line x1="520" y1="40" x2="520" y2="150" class="office-wall" />
-            <line x1="520" y1="40" x2="520" y2="150" class="office-wall-inner" />
-            <line x1="520" y1="210" x2="520" y2="410" class="office-wall" />
-            <line x1="520" y1="210" x2="520" y2="410" class="office-wall-inner" />
-            <line x1="520" y1="220" x2="750" y2="220" class="office-wall" />
-            <line x1="520" y1="220" x2="750" y2="220" class="office-wall-inner" />
-
-            <!-- Doors arcs -->
-            <path d="M 280,130 A 60,60 0 0,1 220,190" class="door-arc" />
-            <line x1="280" y1="130" x2="220" y2="130" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 280,190 A 60,60 0 0,0 220,130" class="door-arc" />
-            <line x1="280" y1="190" x2="220" y2="190" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 520,150 A 60,60 0 0,1 580,210" class="door-arc" />
-            <line x1="520" y1="150" x2="520" y2="210" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 520,210 A 60,60 0 0,0 580,150" class="door-arc" />
-            <line x1="520" y1="210" x2="520" y2="150" stroke="#3b82f6" stroke-width="2" />
-
-            <!-- Room Labels -->
-            <text x="165" y="115" class="label-room" text-anchor="middle">RECEPCIÓN</text>
-            <text x="165" y="315" class="label-room" text-anchor="middle">SALA DE ESPERA</text>
-            <text x="400" y="225" class="label-room" text-anchor="middle" font-size="13">OFICINA CENTRAL</text>
-            <text x="635" y="150" class="label-room" text-anchor="middle">TI / SOPORTE</text>
-            <text x="635" y="360" class="label-room" text-anchor="middle">SALA REUNIONES</text>
-
-            <!-- Raspberry Pi 4 Model B -->
-            <g transform="translate(635, 95) scale(0.95)">
-              <rect x="-22" y="-30" width="44" height="60" rx="5" fill="#0d4e24" stroke="#10b981" stroke-width="1.5" />
-              <rect x="-12" y="-12" width="15" height="15" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-              <rect x="-8" y="-8" width="7" height="7" fill="#0f172a" />
-              <line x1="-18" y1="-26" x2="18" y2="-26" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="1.8 1" />
-              <rect x="5" y="-18" width="12" height="10" rx="0.5" fill="#111" />
-              <rect x="-18" y="25" width="8" height="8" fill="#475569" rx="1" />
-              <rect x="-5" y="25" width="8" height="8" fill="#475569" rx="1" />
-              <rect x="8" y="23" width="9" height="10" fill="#334155" rx="1" />
-              <rect x="-24" y="-15" width="3" height="7" fill="#334155" />
-              <circle cx="17" cy="18" r="2" fill="#ef4444" />
-              <circle cx="17" cy="12" r="2" fill="#10b981" class="led-blink" />
-              <text x="0" y="-34" fill="#10b981" font-family="monospace" font-size="7" font-weight="bold" text-anchor="middle">PI4 SERVER</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 1 -->
-            <g transform="translate(400, 75)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 0.6s;" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 1.2s;" />
-              <text x="0" y="-12" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">PIR 1</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 2 -->
-            <g transform="translate(685, 250)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 1s;" />
-              <text x="-18" y="4" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold" text-anchor="end">PIR 2</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 3 -->
-            <g transform="translate(110, 280)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 0.4s;" />
-              <text x="18" y="4" fill="#f59e0b" font-family="monospace" font-size="8" text-anchor="start">PIR 3</text>
-            </g>
-
-            <!-- Sonoff Actuators (Lights) -->
-            <g transform="translate(165, 150)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-Rec</text>
-            </g>
-
-            <g transform="translate(350, 140)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-A</text>
-            </g>
-
-            <g transform="translate(450, 140)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-B</text>
-            </g>
-
-            <g transform="translate(640, 310)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-Meet</text>
-            </g>
-
-            <!-- Broadlink IR Blaster -->
-            <g transform="translate(425, 290)">
-              <path d="M -10,6 L 0,-10 L 10,6 Z" fill="#111" stroke="#ef4444" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="1.5" fill="#ef4444" class="led-blink-red" />
-              <text x="0" y="16" fill="#fca5a5" font-family="monospace" font-size="7" font-weight="bold" text-anchor="middle">BROADLINK IR</text>
-            </g>
-
-            <!-- Air Conditioning Unit -->
-            <g transform="translate(400, 340)">
-              <rect x="-35" y="-12" width="70" height="24" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.8" />
-              <line x1="-25" y1="2" x2="25" y2="2" stroke="#1e293b" stroke-width="1" />
-              <line x1="-25" y1="6" x2="25" y2="6" stroke="#1e293b" stroke-width="1" />
-              <rect x="25" y="-8" width="4" height="2" fill="#00ff66" />
-              <g transform="translate(-20, 0)">
-                <circle cx="0" cy="0" r="8" stroke="#334155" stroke-width="1" fill="#020617"/>
-                <g class="fan-spin">
-                  <path d="M 0,0 L 0,-6 A 2,2 0 0,1 2,-6 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L 6,0 A 2,2 0 0,1 6,2 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L 0,6 A 2,2 0 0,1 -2,6 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L -6,0 A 2,2 0 0,1 -6,-2 Z" fill="#60a5fa" />
-                </g>
-              </g>
-              <path d="M -20,16 Q -10,24 0,16 T 20,16" stroke="url(#acAirGrad)" stroke-width="2" fill="none" class="air-flow" />
-              <path d="M -20,24 Q -10,32 0,24 T 20,24" stroke="url(#acAirGrad)" stroke-width="2" fill="none" class="air-flow" style="animation-delay: 1s;" />
-              <text x="12" y="4" fill="#60a5fa" font-family="monospace" font-size="8" font-weight="bold">A/C</text>
-            </g>
-
-            <!-- Map Legend -->
-            <g transform="translate(65, 345)" opacity="0.95">
-              <rect x="0" y="0" width="145" height="50" rx="4" fill="#0b1329" stroke="#1e293b" stroke-width="1" />
-              <circle cx="15" cy="12" r="4" fill="#3b82f6" />
-              <text x="26" y="15" fill="#94a3b8" font-family="monospace" font-size="8">LUMINARIA SONOFF</text>
-              <rect x="10" y="22" width="10" height="6" fill="#f8fafc" stroke="#f59e0b" stroke-width="1" />
-              <text x="26" y="27" fill="#94a3b8" font-family="monospace" font-size="8">SENSOR PIR</text>
-              <rect x="10" y="34" width="10" height="10" fill="#0d4e24" stroke="#10b981" stroke-width="1" />
-              <text x="26" y="41" fill="#94a3b8" font-family="monospace" font-size="8">SERVIDOR PI 4</text>
-            </g>
-          </svg>
-        </div>
-
-        <h4>Arquitectura Lógica de Integración IoT</h4>
-        <p>Flujo de comunicaciones locales y protocolos de integración del servidor central de control:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid2" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="glowLineBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#3b82f6" stop-opacity="1" />
-                <stop offset="100%" stop-color="#00e5ff" stop-opacity="1" />
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes lineSignal {
-                to { stroke-dashoffset: -40; }
-              }
-              @keyframes nodePulse {
-                0%, 100% { filter: drop-shadow(0 0 2px #00e5ff); }
-                50% { filter: drop-shadow(0 0 8px #00e5ff); }
-              }
-              .comm-line { stroke: url(#glowLineBlue); stroke-width: 2; stroke-dasharray: 6 4; animation: lineSignal 1.5s infinite linear; }
-              .comm-line-reverse { stroke: url(#glowLineBlue); stroke-width: 2; stroke-dasharray: 6 4; animation: lineSignal 1.5s infinite linear; animation-direction: reverse; }
-              .arch-card { fill: #0b1329; stroke: #1e293b; stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4)); transition: stroke 0.3s; }
-              .arch-card:hover { stroke: #3b82f6; }
-              .arch-title { font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 700; fill: #fff; letter-spacing: 1px; }
-              .arch-sub { font-family: "Outfit", sans-serif; font-size: 9px; fill: #60a5fa; }
-              .arch-desc { font-family: monospace; font-size: 8px; fill: #94a3b8; }
-            </style>
-
-            <!-- Grid -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid2)" />
-
-            <!-- Communication Lines -->
-            <path d="M 400,200 L 180,95" class="comm-line-reverse" />
-            <path d="M 400,200 L 180,200" class="comm-line-reverse" />
-            <path d="M 400,200 L 180,305" class="comm-line" />
-            <path d="M 400,200 L 620,95" class="comm-line" />
-            <path d="M 400,200 L 620,200" class="comm-line" />
-
-            <!-- Central Core Card -->
-            <g transform="translate(400, 200)">
-              <rect x="-95" y="-50" width="190" height="100" rx="8" fill="#091424" stroke="#00e5ff" stroke-width="2" style="animation: nodePulse 3s infinite ease-in-out;" />
-              <g transform="translate(-55, 0) scale(0.7)">
-                <rect x="-22" y="-30" width="44" height="60" rx="5" fill="#0d4e24" stroke="#10b981" stroke-width="1.5" />
-                <rect x="-12" y="-12" width="15" height="15" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-                <line x1="-18" y1="-26" x2="18" y2="-26" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="1.8 1" />
-                <circle cx="17" cy="12" r="2" fill="#10b981" class="led-blink" />
-              </g>
-              <text x="35" y="-20" class="arch-title" text-anchor="middle">NÚCLEO CENTRAL</text>
-              <text x="35" y="-4" class="arch-sub" text-anchor="middle" font-weight="bold">Raspberry Pi 4</text>
-              <text x="35" y="10" class="arch-desc" text-anchor="middle">Home Assistant OS</text>
-              <text x="35" y="22" class="arch-desc" text-anchor="middle" fill="#00ff66" font-weight="bold">ONLINE</text>
-            </g>
-
-            <!-- Card 1: ILUMINACIÓN -->
-            <g transform="translate(180, 95)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-15" width="24" height="16" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <circle cx="-63" cy="-7" r="3" fill="#3b82f6" />
-              <circle cx="-57" cy="-11" r="1.5" fill="#00ff66" class="led-blink" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">ILUMINACIÓN (6x)</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Sonoff Basic R2 (Tasmota)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Firmware: Tasmota | MQTT</text>
-            </g>
-
-            <!-- Card 2: MONITOREO ELÉCTRICO -->
-            <g transform="translate(180, 200)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-18" width="24" height="24" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <rect x="-71" y="-14" width="16" height="10" fill="#0f172a" />
-              <text x="-63" y="-7" fill="#00e5ff" font-family="monospace" font-size="5" text-anchor="middle">1.85 kW</text>
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">MONITOREO ENERGÍA</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Sonoff POW Elite (20A)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Colecta kWh en Tiempo Real</text>
-            </g>
-
-            <!-- Card 3: SENSORES MOVIMIENTO -->
-            <g transform="translate(180, 305)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-14" width="24" height="16" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="-63" cy="-6" r="5" fill="#f8fafc" stroke="#f59e0b" stroke-width="0.5" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">SENSORES DE MOVIMIENTO</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">PIR HC-SR501 (3x)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Wired GPIO | Presencia</text>
-            </g>
-
-            <!-- Card 4: CLIMATIZADOR -->
-            <g transform="translate(620, 95)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <path d="M -73,-7 L -65,-21 L -57,-7 Z" fill="#1e293b" stroke="#ef4444" stroke-width="1.2" />
-              <circle cx="-65" cy="-12" r="1.5" fill="#ef4444" class="led-blink-red" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">CLIMATIZADOR (AIRE)</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Broadlink RM4 Mini (IR)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Emisor Infrarrojo (IR)</text>
-            </g>
-
-            <!-- Card 5: INTERFAZ DE USUARIO -->
-            <g transform="translate(620, 200)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-73" y="-20" width="16" height="28" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <line x1="-68" y1="-17" x2="-62" y2="-17" stroke="#3b82f6" stroke-width="1" />
-              <circle cx="-65" cy="5" r="1.5" fill="#3b82f6" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">INTERFAZ DE USUARIO</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">App Dashboard / Web UI</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Lovelace UI | Control Local</text>
-            </g>
-          </svg>
-        </div>
-
-        <h4>Esquema de Conexiones Eléctricas (Luminarias)</h4>
-        <p>Diagrama unifilar de conexionado y alimentación del relé Sonoff Basic R2 con el interruptor y la carga:</p>
-        <div style="margin: 1rem 0 1rem 0;">
-          <svg viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid3" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="lampGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
-                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes electricFlow {
-                to { stroke-dashoffset: -20; }
-              }
-              @keyframes switchAction {
-                0%, 100% { transform: rotate(0deg); }
-                50% { transform: rotate(-25deg); }
-              }
-              .cable-phase { stroke: #ef4444; stroke-width: 3; }
-              .cable-neutral { stroke: #3b82f6; stroke-width: 3; }
-              .cable-flow { stroke-dasharray: 6 4; animation: electricFlow 1s infinite linear; }
-              .terminal-block { fill: #1e293b; stroke: #475569; stroke-width: 1.5; }
-              .glow-lamp { filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6)); }
-              .wire-label { font-family: monospace; font-size: 10px; font-weight: bold; }
-            </style>
-
-            <!-- Grid -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid3)" />
-
-            <!-- Phase line -->
-            <path d="M 60,100 L 260,100" class="cable-phase cable-flow" />
-            <text x="60" y="88" fill="#ef4444" class="wire-label">Fase L (220V AC)</text>
-
-            <!-- Neutral line -->
-            <path d="M 60,250 L 260,250" class="cable-neutral cable-flow" />
-            <text x="60" y="238" fill="#3b82f6" class="wire-label">Neutro N</text>
-
-            <!-- SONOFF BASIC R2 Device Representation -->
-            <g transform="translate(260, 60)">
-              <rect x="0" y="0" width="280" height="210" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5" />
-              <rect x="5" y="5" width="270" height="200" rx="6" fill="#0b1329" stroke="#1e293b" stroke-width="1.5" />
-              <text x="140" y="32" fill="#fff" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">SONOFF BASIC R2</text>
-              <text x="140" y="48" fill="#60a5fa" font-family="'Outfit', sans-serif" font-size="9" text-anchor="middle" font-weight="bold">Interruptor Inteligente</text>
-
-              <!-- Input Side Terminals -->
-              <rect x="10" y="30" width="30" height="150" rx="4" class="terminal-block" />
-              <circle cx="25" cy="40" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="21" y1="40" x2="29" y2="40" stroke="#1e293b" stroke-width="1.5" />
-              <circle cx="25" cy="190" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="21" y1="190" x2="29" y2="190" stroke="#1e293b" stroke-width="1.5" />
-              <text x="48" y="44" fill="#94a3b8" font-family="monospace" font-size="9" font-weight="bold">L IN</text>
-              <text x="48" y="194" fill="#94a3b8" font-family="monospace" font-size="9" font-weight="bold">N IN</text>
-
-              <!-- Output Side Terminals -->
-              <rect x="240" y="30" width="30" height="150" rx="4" class="terminal-block" />
-              <circle cx="255" cy="40" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="251" y1="40" x2="259" y2="40" stroke="#1e293b" stroke-width="1.5" />
-              <circle cx="255" cy="190" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="251" y1="190" x2="259" y2="190" stroke="#1e293b" stroke-width="1.5" />
-              <text x="232" y="44" fill="#94a3b8" font-family="monospace" font-size="9" font-weight="bold" text-anchor="end">L OUT</text>
-              <text x="232" y="194" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="end">N OUT</text>
-
-              <!-- PCB Board design -->
-              <rect x="70" y="65" width="140" height="110" rx="4" fill="#0d4e24" stroke="#10b981" stroke-width="1.2" />
-              <rect x="90" y="110" width="22" height="22" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-              <text x="101" y="123" fill="#94a3b8" font-family="monospace" font-size="5" text-anchor="middle" font-weight="bold">ESP8266</text>
-              <circle cx="190" cy="85" r="3" fill="#10b981" class="led-blink" />
-              <text x="190" y="78" fill="#10b981" font-family="monospace" font-size="6" text-anchor="middle">STATUS</text>
-
-              <!-- Switch Schematic -->
-              <rect x="135" y="85" width="35" height="50" rx="2" fill="#1e1e1e" stroke="#888" stroke-width="0.8" />
-              <g transform="translate(152, 110)">
-                <circle cx="0" cy="15" r="2" fill="#ef4444" />
-                <circle cx="0" cy="-15" r="2" fill="#ef4444" />
-                <line x1="0" y1="15" x2="0" y2="-13" stroke="#ef4444" stroke-width="2" style="animation: switchAction 2.5s infinite ease-in-out; transform-origin: 0px 15px;" />
-              </g>
-            </g>
-
-            <!-- Output Connections to LED Panel -->
-            <path d="M 540,100 L 650,100" class="cable-phase cable-flow" />
-            <path d="M 540,250 L 600,250 L 600,180 L 650,180" class="cable-neutral cable-flow" />
-
-            <!-- LED Panel Fixture -->
-            <g transform="translate(650, 75)">
-              <rect x="0" y="0" width="90" height="130" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="2" class="glow-lamp" />
-              <rect x="5" y="5" width="80" height="120" rx="2" fill="#fff" opacity="0.95" />
-              <polygon points="5,-10 -50,140 140,140 85,-10" fill="url(#lampGlow)" opacity="0.6" style="transform: translateY(135px); pointer-events: none;" />
-              <text x="45" y="60" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" text-anchor="middle">PANEL LED</text>
-              <text x="45" y="74" fill="#64748b" font-family="monospace" font-size="8" text-anchor="middle">220V AC</text>
-            </g>
-          </svg>
-        </div>
-      `,
-      en: `
-        <div style="background: rgba(26, 106, 255, 0.05); border: 1px solid rgba(26, 106, 255, 0.2); padding: 1.25rem; border-radius: 6px; margin-bottom: 2.5rem; text-align: center;">
-          <p style="margin-bottom: 0.75rem; font-size: 13px; font-family: 'Space Mono', monospace; color: var(--white);">Complete IoT System Diagram in SVG (Vector) format</p>
-          <a href="/plano_smart_office_nanotechnology.svg" download="plano_smart_office_nanotechnology.svg" class="project-link" style="display: inline-block; text-decoration: none; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; padding: 10px 20px; background: var(--blue-light); color: var(--bg); border-radius: 4px; font-weight: bold; transition: all 0.3s;">📥 Download Floor Plan (SVG)</a>
-        </div>
-
         <h4 style="margin-top:2.5rem;">IoT Distribution and Connectivity Plan (Nanotechnology SAC)</h4>
-        <p>Smart office floor plan diagram showing the distribution of IoT devices and their connectivity paths:</p>
-        <div style="margin: 1rem 0 2.5rem 0;">
+        <p>Distribution of smart devices and their connectivity links to the main Router inside the office floor plan:</p>
+        <div style="margin: 1rem 0 2rem 0;">
           <svg viewBox="0 0 690 530" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
 <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano Smart Office — Nanotechnology SAC</title>
 <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Plano de planta de la oficina inteligente con distribución de dispositivos IoT: Sonoff, cámaras, Raspberry Pi y router</desc>
@@ -1590,10 +1257,10 @@ const modalData = {
 <circle cx="150" cy="485" r="2" fill="#4a9eff" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 <text x="160" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sonoff R2</text>
 
-<!-- Cámara -->
+<!-- Camera -->
 <polygon points="225,482 231,479 231,491 225,488" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 <rect x="218" y="482" width="7" height="6" rx="1" fill="#ffa500" opacity="0.9" style="fill:rgb(255, 165, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="236" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Cámara</text>
+<text x="236" y="489" style="fill:rgb(136, 153, 187);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Camera</text>
 
 <!-- Power strip -->
 <rect x="300" y="481" width="12" height="8" rx="1" fill="none" stroke="#4a9eff" stroke-width="1" style="fill:none;stroke:rgb(74, 158, 255);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
@@ -1772,527 +1439,18 @@ const modalData = {
 <text x="340" y="30" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#4a9eff" letter-spacing="0.2em" style="fill:rgb(74, 158, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">NANOTECHNOLOGY SAC — SMART OFFICE LAYOUT</text>
 <text x="340" y="43" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#4a5a7a" letter-spacing="0.15em" style="fill:rgb(74, 90, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TRUJILLO, PERU — HOME ASSISTANT + RASPBERRY PI 4</text>
 
+
+<!-- WiFi connection to CAMs (Cameras) -->
+<line x1="304" y1="230" x2="280" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="385" y2="114" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="61" y2="290" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="455" y2="76" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="365" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+<line x1="304" y1="230" x2="583" y2="380" marker-end="url(#arrow)" style="fill:none;stroke:rgb(26, 106, 255);stroke-width:0.8px;stroke-dasharray:4px, 3px;opacity:0.6;"/>
+
 </svg>
         </div>
-    
-        <h4>Project Budget and Material Bill (SENATI)</h4>
-        <p>The official budget extracted from the innovation project technical specifications is listed below:</p>
-        <table class="modal-table">
-          <thead>
-            <tr>
-              <th>Component / Item</th>
-              <th>Qty</th>
-              <th>Unit Cost</th>
-              <th>Total (S/.)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Raspberry Pi 4 Model B Server (4GB) + Case & Supply</td>
-              <td>1</td>
-              <td>S/. 495.00</td>
-              <td>S/. 495.00</td>
-            </tr>
-            <tr>
-              <td>SONOFF Basic R3 Smart Switches (Tasmota Flashed)</td>
-              <td>6</td>
-              <td>S/. 25.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>SONOFF POW Elite Power Monitor Switch (20A)</td>
-              <td>1</td>
-              <td>S/. 85.00</td>
-              <td>S/. 85.00</td>
-            </tr>
-            <tr>
-              <td>PIR Motion Sensors HC-SR501 (GPIO)</td>
-              <td>3</td>
-              <td>S/. 20.00</td>
-              <td>S/. 60.00</td>
-            </tr>
-            <tr>
-              <td>Plastic conduits, electric cables and wiring accessories</td>
-              <td>-</td>
-              <td>S/. 120.00</td>
-              <td>S/. 120.00</td>
-            </tr>
-            <tr>
-              <td>Minor tools, fasteners and fuses</td>
-              <td>-</td>
-              <td>S/. 80.00</td>
-              <td>S/. 80.00</td>
-            </tr>
-            <tr>
-              <td>High efficiency LED Light Panels</td>
-              <td>4</td>
-              <td>S/. 95.00</td>
-              <td>S/. 380.00</td>
-            </tr>
-            <tr>
-              <td>Broadlink RM4 Mini IR AC Controller</td>
-              <td>1</td>
-              <td>S/. 150.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>Smart Wi-Fi Power Strips (Surge Protection)</td>
-              <td>2</td>
-              <td>S/. 180.00</td>
-              <td>S/. 360.00</td>
-            </tr>
-            <tr style="font-weight: bold; border-top: 2px solid var(--border);">
-              <td>Subtotal Materials and Equipment</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,720.00</td>
-            </tr>
-            <tr>
-              <td>Qualified Labor (IT Tech, Electrician, Supervisor)</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,030.00</td>
-            </tr>
-            <tr style="font-weight: bold; background: var(--bg3); color: var(--blue-light);">
-              <td>TOTAL GENERAL INVESTMENT</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 2,870.00</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <h4>Return on Investment (ROI) Analysis</h4>
-        <ul>
-          <li><strong>Baseline Electrical Consumption:</strong> 357 kWh monthly (Approximately <strong>S/. 400.00</strong> per month).</li>
-          <li><strong>Estimated Savings:</strong> Guaranteed reduction of <strong>S/. 120.00 monthly</strong> (30% savings by preventing waste).</li>
-          <li><strong>Payback Period:</strong> ~24 months to fully amortize the initial hardware cost.</li>
-        </ul>
-
-                <h4 style="margin-top:2.5rem;">Device Layout and Distribution Plan (SENATI)</h4>
-        <p>Physical distribution maps showing motion sensors (PIR), climate remote, and switches inside Nanotechnology Office:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
-              </linearGradient>
-              <linearGradient id="acAirGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes ledBlink {
-                0%, 100% { fill: #00ff66; filter: drop-shadow(0 0 3px #00ff66); }
-                50% { fill: #004411; filter: none; }
-              }
-              @keyframes ledBlinkRed {
-                0%, 100% { fill: #ff0055; filter: drop-shadow(0 0 3px #ff0055); }
-                50% { fill: #550011; filter: none; }
-              }
-              @keyframes radarPulse {
-                0% { r: 6; opacity: 1; stroke-width: 1.5; }
-                50% { opacity: 0.5; }
-                100% { r: 45; opacity: 0; stroke-width: 0.5; }
-              }
-              @keyframes fanRotation {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-              }
-              @keyframes airDrift {
-                0% { stroke-dashoffset: 0; opacity: 0; transform: translateY(0); }
-                30% { opacity: 0.8; }
-                100% { stroke-dashoffset: 24; opacity: 0; transform: translateY(25px); }
-              }
-              @keyframes lineFlow {
-                to { stroke-dashoffset: -20; }
-              }
-              .led-blink { animation: ledBlink 1s infinite steps(1); }
-              .led-blink-red { animation: ledBlinkRed 1.5s infinite steps(1); }
-              .radar-wave { animation: radarPulse 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1); transform-origin: center; }
-              .fan-spin { animation: fanRotation 0.8s infinite linear; transform-origin: 380px 340px; }
-              .air-flow { animation: airDrift 2s infinite linear; stroke-dasharray: 6, 6; }
-              .office-wall { stroke: #1e40af; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: url(#wallGrad); }
-              .office-wall-inner { stroke: #3b82f6; stroke-width: 1.5; stroke-opacity: 0.7; }
-              .door-arc { stroke: #3b82f6; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-              .furniture { fill: #0b1329; stroke: #1e293b; stroke-width: 1.5; }
-              .label-room { font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 700; fill: #60a5fa; letter-spacing: 1.5px; opacity: 0.85; }
-              .glow-node { filter: drop-shadow(0 0 4px #00e5ff); }
-            </style>
-
-            <!-- Grid Background -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid)" />
-
-            <!-- Room Furniture (Desks) -->
-            <rect x="70" y="80" width="40" height="70" rx="3" class="furniture" />
-            <path d="M 110,95 A 15,15 0 0,1 110,135" stroke="#1e293b" stroke-width="1.5" fill="none"/>
-            <rect x="70" y="240" width="30" height="30" rx="4" class="furniture" />
-            <rect x="70" y="290" width="30" height="30" rx="4" class="furniture" />
-            <rect x="70" y="340" width="30" height="30" rx="4" class="furniture" />
-            <rect x="340" y="80" width="100" height="40" rx="3" class="furniture" />
-            <rect x="340" y="160" width="100" height="40" rx="3" class="furniture" />
-            <path d="M 640,60 L 710,60 L 710,130 L 680,130 L 680,90 L 640,90 Z" class="furniture" />
-            <rect x="580" y="270" width="120" height="60" rx="30" class="furniture" />
-
-            <!-- Main Office Walls (Outer) -->
-            <rect x="50" y="40" width="700" height="370" class="office-wall" stroke-width="4" stroke="#1e3a8a"/>
-
-            <!-- Inner Walls -->
-            <line x1="50" y1="200" x2="210" y2="200" class="office-wall" />
-            <line x1="50" y1="200" x2="210" y2="200" class="office-wall-inner" />
-            <line x1="280" y1="40" x2="280" y2="130" class="office-wall" />
-            <line x1="280" y1="40" x2="280" y2="130" class="office-wall-inner" />
-            <line x1="280" y1="190" x2="280" y2="410" class="office-wall" />
-            <line x1="280" y1="190" x2="280" y2="410" class="office-wall-inner" />
-            
-            <line x1="520" y1="40" x2="520" y2="150" class="office-wall" />
-            <line x1="520" y1="40" x2="520" y2="150" class="office-wall-inner" />
-            <line x1="520" y1="210" x2="520" y2="410" class="office-wall" />
-            <line x1="520" y1="210" x2="520" y2="410" class="office-wall-inner" />
-            <line x1="520" y1="220" x2="750" y2="220" class="office-wall" />
-            <line x1="520" y1="220" x2="750" y2="220" class="office-wall-inner" />
-
-            <!-- Doors arcs -->
-            <path d="M 280,130 A 60,60 0 0,1 220,190" class="door-arc" />
-            <line x1="280" y1="130" x2="220" y2="130" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 280,190 A 60,60 0 0,0 220,130" class="door-arc" />
-            <line x1="280" y1="190" x2="220" y2="190" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 520,150 A 60,60 0 0,1 580,210" class="door-arc" />
-            <line x1="520" y1="150" x2="520" y2="210" stroke="#3b82f6" stroke-width="2" />
-            <path d="M 520,210 A 60,60 0 0,0 580,150" class="door-arc" />
-            <line x1="520" y1="210" x2="520" y2="150" stroke="#3b82f6" stroke-width="2" />
-
-            <!-- Room Labels -->
-            <text x="165" y="115" class="label-room" text-anchor="middle">RECEPTION</text>
-            <text x="165" y="315" class="label-room" text-anchor="middle">WAITING ROOM</text>
-            <text x="400" y="225" class="label-room" text-anchor="middle" font-size="13">MAIN OFFICE</text>
-            <text x="635" y="150" class="label-room" text-anchor="middle">IT / SUPPORT</text>
-            <text x="635" y="360" class="label-room" text-anchor="middle">MEETING ROOM</text>
-
-            <!-- Raspberry Pi 4 Model B -->
-            <g transform="translate(635, 95) scale(0.95)">
-              <rect x="-22" y="-30" width="44" height="60" rx="5" fill="#0d4e24" stroke="#10b981" stroke-width="1.5" />
-              <rect x="-12" y="-12" width="15" height="15" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-              <rect x="-8" y="-8" width="7" height="7" fill="#0f172a" />
-              <line x1="-18" y1="-26" x2="18" y2="-26" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="1.8 1" />
-              <rect x="5" y="-18" width="12" height="10" rx="0.5" fill="#111" />
-              <rect x="-18" y="25" width="8" height="8" fill="#475569" rx="1" />
-              <rect x="-5" y="25" width="8" height="8" fill="#475569" rx="1" />
-              <rect x="8" y="23" width="9" height="10" fill="#334155" rx="1" />
-              <rect x="-24" y="-15" width="3" height="7" fill="#334155" />
-              <circle cx="17" cy="18" r="2" fill="#ef4444" />
-              <circle cx="17" cy="12" r="2" fill="#10b981" class="led-blink" />
-              <text x="0" y="-34" fill="#10b981" font-family="monospace" font-size="7" font-weight="bold" text-anchor="middle">PI4 SERVER</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 1 -->
-            <g transform="translate(400, 75)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 0.6s;" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 1.2s;" />
-              <text x="0" y="-12" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">PIR 1</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 2 -->
-            <g transform="translate(685, 250)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 1s;" />
-              <text x="-18" y="4" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold" text-anchor="end">PIR 2</text>
-            </g>
-
-            <!-- PIR HC-SR501 Sensor 3 -->
-            <g transform="translate(110, 280)">
-              <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="0" cy="0" r="7" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.5" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" />
-              <circle cx="0" cy="0" r="7" stroke="#f59e0b" stroke-width="0.8" fill="none" class="radar-wave" style="animation-delay: 0.4s;" />
-              <text x="18" y="4" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold" text-anchor="start">PIR 3</text>
-            </g>
-
-            <!-- Sonoff Actuators (Lights) -->
-            <g transform="translate(165, 150)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-Rec</text>
-            </g>
-
-            <g transform="translate(350, 140)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-A</text>
-            </g>
-
-            <g transform="translate(450, 140)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-B</text>
-            </g>
-
-            <g transform="translate(640, 310)">
-              <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="3" fill="#3b82f6" />
-              <circle cx="6" cy="-4" r="1" fill="#00ff66" class="led-blink" />
-              <text x="0" y="-12" fill="#93c5fd" font-family="monospace" font-size="8" text-anchor="middle">L-Meet</text>
-            </g>
-
-            <!-- Broadlink IR Blaster -->
-            <g transform="translate(425, 290)">
-              <path d="M -10,6 L 0,-10 L 10,6 Z" fill="#111" stroke="#ef4444" stroke-width="1.5" />
-              <circle cx="0" cy="0" r="1.5" fill="#ef4444" class="led-blink-red" />
-              <text x="0" y="16" fill="#fca5a5" font-family="monospace" font-size="7" font-weight="bold" text-anchor="middle">BROADLINK IR</text>
-            </g>
-
-            <!-- Air Conditioning Unit -->
-            <g transform="translate(400, 340)">
-              <rect x="-35" y="-12" width="70" height="24" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="1.8" />
-              <line x1="-25" y1="2" x2="25" y2="2" stroke="#1e293b" stroke-width="1" />
-              <line x1="-25" y1="6" x2="25" y2="6" stroke="#1e293b" stroke-width="1" />
-              <rect x="25" y="-8" width="4" height="2" fill="#00ff66" />
-              <g transform="translate(-20, 0)">
-                <circle cx="0" cy="0" r="8" stroke="#334155" stroke-width="1" fill="#020617"/>
-                <g class="fan-spin">
-                  <path d="M 0,0 L 0,-6 A 2,2 0 0,1 2,-6 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L 6,0 A 2,2 0 0,1 6,2 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L 0,6 A 2,2 0 0,1 -2,6 Z" fill="#60a5fa" />
-                  <path d="M 0,0 L -6,0 A 2,2 0 0,1 -6,-2 Z" fill="#60a5fa" />
-                </g>
-              </g>
-              <path d="M -20,16 Q -10,24 0,16 T 20,16" stroke="url(#acAirGrad)" stroke-width="2" fill="none" class="air-flow" />
-              <path d="M -20,24 Q -10,32 0,24 T 20,24" stroke="url(#acAirGrad)" stroke-width="2" fill="none" class="air-flow" style="animation-delay: 1s;" />
-              <text x="12" y="4" fill="#60a5fa" font-family="monospace" font-size="8" font-weight="bold">A/C</text>
-            </g>
-
-            <!-- Map Legend -->
-            <g transform="translate(65, 345)" opacity="0.95">
-              <rect x="0" y="0" width="145" height="50" rx="4" fill="#0b1329" stroke="#1e293b" stroke-width="1" />
-              <circle cx="15" cy="12" r="4" fill="#3b82f6" />
-              <text x="26" y="15" fill="#94a3b8" font-family="monospace" font-size="8">SONOFF SWITCH</text>
-              <rect x="10" y="22" width="10" height="6" fill="#f8fafc" stroke="#f59e0b" stroke-width="1" />
-              <text x="26" y="27" fill="#94a3b8" font-family="monospace" font-size="8">PIR SENSOR</text>
-              <rect x="10" y="34" width="10" height="10" fill="#0d4e24" stroke="#10b981" stroke-width="1" />
-              <text x="26" y="41" fill="#94a3b8" font-family="monospace" font-size="8">PI 4 SERVER</text>
-            </g>
-          </svg>
-        </div>
-
-        <h4>Logical IoT Integration Architecture</h4>
-        <p>Conceptual integration diagram showing communication links between the central server and peripheral nodes:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid2" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="glowLineBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#3b82f6" stop-opacity="1" />
-                <stop offset="100%" stop-color="#00e5ff" stop-opacity="1" />
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes lineSignal {
-                to { stroke-dashoffset: -40; }
-              }
-              @keyframes nodePulse {
-                0%, 100% { filter: drop-shadow(0 0 2px #00e5ff); }
-                50% { filter: drop-shadow(0 0 8px #00e5ff); }
-              }
-              .comm-line { stroke: url(#glowLineBlue); stroke-width: 2; stroke-dasharray: 6 4; animation: lineSignal 1.5s infinite linear; }
-              .comm-line-reverse { stroke: url(#glowLineBlue); stroke-width: 2; stroke-dasharray: 6 4; animation: lineSignal 1.5s infinite linear; animation-direction: reverse; }
-              .arch-card { fill: #0b1329; stroke: #1e293b; stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4)); transition: stroke 0.3s; }
-              .arch-card:hover { stroke: #3b82f6; }
-              .arch-title { font-family: "Outfit", sans-serif; font-size: 11px; font-weight: 700; fill: #fff; letter-spacing: 1px; }
-              .arch-sub { font-family: "Outfit", sans-serif; font-size: 9px; fill: #60a5fa; }
-              .arch-desc { font-family: monospace; font-size: 8px; fill: #94a3b8; }
-            </style>
-
-            <!-- Grid -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid2)" />
-
-            <!-- Communication Lines -->
-            <path d="M 400,200 L 180,95" class="comm-line-reverse" />
-            <path d="M 400,200 L 180,200" class="comm-line-reverse" />
-            <path d="M 400,200 L 180,305" class="comm-line" />
-            <path d="M 400,200 L 620,95" class="comm-line" />
-            <path d="M 400,200 L 620,200" class="comm-line" />
-
-            <!-- Central Core Card -->
-            <g transform="translate(400, 200)">
-              <rect x="-95" y="-50" width="190" height="100" rx="8" fill="#091424" stroke="#00e5ff" stroke-width="2" style="animation: nodePulse 3s infinite ease-in-out;" />
-              <g transform="translate(-55, 0) scale(0.7)">
-                <rect x="-22" y="-30" width="44" height="60" rx="5" fill="#0d4e24" stroke="#10b981" stroke-width="1.5" />
-                <rect x="-12" y="-12" width="15" height="15" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-                <line x1="-18" y1="-26" x2="18" y2="-26" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="1.8 1" />
-                <circle cx="17" cy="12" r="2" fill="#10b981" class="led-blink" />
-              </g>
-              <text x="35" y="-20" class="arch-title" text-anchor="middle">CENTRAL CORE</text>
-              <text x="35" y="-4" class="arch-sub" text-anchor="middle" font-weight="bold">Raspberry Pi 4</text>
-              <text x="35" y="10" class="arch-desc" text-anchor="middle">Home Assistant OS</text>
-              <text x="35" y="22" class="arch-desc" text-anchor="middle" fill="#00ff66" font-weight="bold">ONLINE</text>
-            </g>
-
-            <!-- Card 1: LIGHTING -->
-            <g transform="translate(180, 95)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-15" width="24" height="16" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <circle cx="-63" cy="-7" r="3" fill="#3b82f6" />
-              <circle cx="-57" cy="-11" r="1.5" fill="#00ff66" class="led-blink" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">LIGHTING (6x)</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Sonoff Basic R2 (Tasmota)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Firmware: Tasmota | MQTT</text>
-            </g>
-
-            <!-- Card 2: POWER MONITORING -->
-            <g transform="translate(180, 200)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-18" width="24" height="24" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <rect x="-71" y="-14" width="16" height="10" fill="#0f172a" />
-              <text x="-63" y="-7" fill="#00e5ff" font-family="monospace" font-size="5" text-anchor="middle">1.85 kW</text>
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">POWER MONITORING</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Sonoff POW Elite (20A)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Real-time kWh telemetry</text>
-            </g>
-
-            <!-- Card 3: MOTION SENSING -->
-            <g transform="translate(180, 305)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-75" y="-14" width="24" height="16" rx="2" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2" />
-              <circle cx="-63" cy="-6" r="5" fill="#f8fafc" stroke="#f59e0b" stroke-width="0.5" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">MOTION SENSING</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">PIR HC-SR501 (3x)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Wired GPIO | Presence logs</text>
-            </g>
-
-            <!-- Card 4: CLIMATE -->
-            <g transform="translate(620, 95)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <path d="M -73,-7 L -65,-21 L -57,-7 Z" fill="#1e293b" stroke="#ef4444" stroke-width="1.2" />
-              <circle cx="-65" cy="-12" r="1.5" fill="#ef4444" class="led-blink-red" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">CLIMATE CONTROLLER</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Broadlink RM4 Mini (IR)</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Infrared (IR) Transmitter</text>
-            </g>
-
-            <!-- Card 5: USER DASHBOARD -->
-            <g transform="translate(620, 200)">
-              <rect x="-90" y="-30" width="180" height="60" rx="6" class="arch-card" />
-              <rect x="-73" y="-20" width="16" height="28" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2" />
-              <line x1="-68" y1="-17" x2="-62" y2="-17" stroke="#3b82f6" stroke-width="1" />
-              <circle cx="-65" cy="5" r="1.5" fill="#3b82f6" />
-              <text x="-40" y="-10" class="arch-title" text-anchor="start">USER DASHBOARD</text>
-              <text x="-40" y="4" class="arch-sub" text-anchor="start">Mobile App / Web UI</text>
-              <text x="-40" y="16" class="arch-desc" text-anchor="start">Lovelace UI | Local Control</text>
-            </g>
-          </svg>
-        </div>
-
-        <h4>Sensors and Relays Wiring Schematics</h4>
-        <p>Electrical wiring connection diagram of the smart relays Sonoff Basic R2 with the lamp and switches:</p>
-        <div style="margin: 1rem 0 1rem 0;">
-          <svg viewBox="0 0 800 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-            <defs>
-              <pattern id="blueprintGrid3" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e172a" stroke-width="0.7" />
-              </pattern>
-              <linearGradient id="lampGlow" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
-                <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
-              </linearGradient>
-            </defs>
-            <style>
-              @keyframes electricFlow {
-                to { stroke-dashoffset: -20; }
-              }
-              @keyframes switchAction {
-                0%, 100% { transform: rotate(0deg); }
-                50% { transform: rotate(-25deg); }
-              }
-              .cable-phase { stroke: #ef4444; stroke-width: 3; }
-              .cable-neutral { stroke: #3b82f6; stroke-width: 3; }
-              .cable-flow { stroke-dasharray: 6 4; animation: electricFlow 1s infinite linear; }
-              .terminal-block { fill: #1e293b; stroke: #475569; stroke-width: 1.5; }
-              .glow-lamp { filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6)); }
-              .wire-label { font-family: monospace; font-size: 10px; font-weight: bold; }
-            </style>
-
-            <!-- Grid -->
-            <rect width="100%" height="100%" fill="url(#blueprintGrid3)" />
-
-            <!-- Phase line -->
-            <path d="M 60,100 L 260,100" class="cable-phase cable-flow" />
-            <text x="60" y="88" fill="#ef4444" class="wire-label">Phase L (220V AC)</text>
-
-            <!-- Neutral line -->
-            <path d="M 60,250 L 260,250" class="cable-neutral cable-flow" />
-            <text x="60" y="238" fill="#3b82f6" class="wire-label">Neutral N</text>
-
-            <!-- SONOFF BASIC R2 Device Representation -->
-            <g transform="translate(260, 60)">
-              <rect x="0" y="0" width="280" height="210" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5" />
-              <rect x="5" y="5" width="270" height="200" rx="6" fill="#0b1329" stroke="#1e293b" stroke-width="1.5" />
-              <text x="140" y="32" fill="#fff" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">SONOFF BASIC R2</text>
-              <text x="140" y="48" fill="#60a5fa" font-family="'Outfit', sans-serif" font-size="9" text-anchor="middle" font-weight="bold">Smart Switch</text>
-
-              <!-- Input Side Terminals -->
-              <rect x="10" y="30" width="30" height="150" rx="4" class="terminal-block" />
-              <circle cx="25" cy="40" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="21" y1="40" x2="29" y2="40" stroke="#1e293b" stroke-width="1.5" />
-              <circle cx="25" cy="190" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="21" y1="190" x2="29" y2="190" stroke="#1e293b" stroke-width="1.5" />
-              <text x="48" y="44" fill="#94a3b8" font-family="monospace" font-size="9" font-weight="bold">L IN</text>
-              <text x="48" y="194" fill="#94a3b8" font-family="monospace" font-size="9" font-weight="bold">N IN</text>
-
-              <!-- Output Side Terminals -->
-              <rect x="240" y="30" width="30" height="150" rx="4" class="terminal-block" />
-              <circle cx="255" cy="40" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="251" y1="40" x2="259" y2="40" stroke="#1e293b" stroke-width="1.5" />
-              <circle cx="255" cy="190" r="5" fill="#475569" stroke="#94a3b8" />
-              <line x1="251" y1="190" x2="259" y2="190" stroke="#1e293b" stroke-width="1.5" />
-              <text x="232" y="44" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="end">L OUT</text>
-              <text x="232" y="194" fill="#94a3b8" font-family="monospace" font-size="9" text-anchor="end">N OUT</text>
-
-              <!-- PCB Board design -->
-              <rect x="70" y="65" width="140" height="110" rx="4" fill="#0d4e24" stroke="#10b981" stroke-width="1.2" />
-              <rect x="90" y="110" width="22" height="22" rx="1" fill="#1e293b" stroke="#64748b" stroke-width="0.5" />
-              <text x="101" y="123" fill="#94a3b8" font-family="monospace" font-size="5" text-anchor="middle" font-weight="bold">ESP8266</text>
-              <circle cx="190" cy="85" r="3" fill="#10b981" class="led-blink" />
-              <text x="190" y="78" fill="#10b981" font-family="monospace" font-size="6" text-anchor="middle">STATUS</text>
-
-              <!-- Switch Schematic -->
-              <rect x="135" y="85" width="35" height="50" rx="2" fill="#1e1e1e" stroke="#888" stroke-width="0.8" />
-              <g transform="translate(152, 110)">
-                <circle cx="0" cy="15" r="2" fill="#ef4444" />
-                <circle cx="0" cy="-15" r="2" fill="#ef4444" />
-                <line x1="0" y1="15" x2="0" y2="-13" stroke="#ef4444" stroke-width="2" style="animation: switchAction 2.5s infinite ease-in-out; transform-origin: 0px 15px;" />
-              </g>
-            </g>
-
-            <!-- Output Connections to LED Panel -->
-            <path d="M 540,100 L 650,100" class="cable-phase cable-flow" />
-            <path d="M 540,250 L 600,250 L 600,180 L 650,180" class="cable-neutral cable-flow" />
-
-            <!-- LED Panel Fixture -->
-            <g transform="translate(650, 75)">
-              <rect x="0" y="0" width="90" height="130" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="2" class="glow-lamp" />
-              <rect x="5" y="5" width="80" height="120" rx="2" fill="#fff" opacity="0.95" />
-              <polygon points="5,-10 -50,140 140,140 85,-10" fill="url(#lampGlow)" opacity="0.6" style="transform: translateY(135px); pointer-events: none;" />
-              <text x="45" y="60" fill="#1e293b" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" text-anchor="middle">LED PANEL</text>
-              <text x="45" y="74" fill="#64748b" font-family="monospace" font-size="8" text-anchor="middle">220V AC</text>
-            </g>
-          </svg>
-        </div>
-      `
+`
     }
   },
   cursos: {
