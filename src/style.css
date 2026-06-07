@@ -574,18 +574,22 @@ section {
 }
 
 .project-card {
-  background: var(--bg);
+  background: rgba(10, 16, 32, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   padding: 2.5rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+  transition: border-color 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, background-color 0.3s;
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 
 .project-card:hover { 
-  border-color: var(--blue); 
+  border-color: var(--blue-light); 
+  background: rgba(15, 24, 48, 0.75);
+  box-shadow: 0 15px 35px rgba(26, 106, 255, 0.2);
 }
 
 .project-card::before {
@@ -1518,6 +1522,8 @@ footer p {
   font-size: 1.3rem;
   font-weight: 800;
   color: #fff;
+  line-height: 1.5;
+  padding-bottom: 8px;
 }
 .modal-close-btn {
   background: transparent;
