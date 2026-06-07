@@ -908,341 +908,434 @@ const modalData = {
         <h4 style="margin-top:2.5rem;">Plano de Distribución y Conectividad IoT (Nanotechnology SAC)</h4>
         <p>Distribución de dispositivos inteligentes y sus conexiones al Router principal en la planta de la oficina:</p>
         <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+          <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
   <defs>
-    <!-- Grid pattern -->
-    <pattern id="isoGrid" width="30" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
-      <path d="M 30 0 L 0 7.5 L 30 15 L 60 7.5 Z" fill="none" stroke="rgba(26, 106, 255, 0.05)" stroke-width="0.8"/>
-    </pattern>
     <!-- Glow filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
+    <filter id="neoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
-    <!-- Tooltip background filter -->
-    <filter id="blurBg">
-      <feGaussianBlur stdDeviation="5" />
-    </filter>
   </defs>
 
   <style>
-    /* Reset & core transitions */
-    .iso-wall { stroke: #1e3a8a; stroke-width: 1.5; fill: rgba(30, 58, 138, 0.08); transition: all 0.3s; }
-    .iso-wall-top { stroke: #3b82f6; stroke-width: 2; fill: none; }
-    .iso-floor { fill: rgba(10, 17, 40, 0.8); stroke: rgba(59, 130, 246, 0.2); stroke-width: 1; }
-    .iso-desk { fill: rgba(15, 23, 42, 0.9); stroke: rgba(100, 116, 139, 0.4); stroke-width: 1; }
-    .iso-chair { fill: #3b82f6; opacity: 0.7; }
+    /* Global styles */
+    .iso-grid { stroke: rgba(26, 106, 255, 0.04); stroke-width: 0.8; }
+    .iso-floor { fill: rgba(15, 23, 42, 0.9); stroke: rgba(26, 106, 255, 0.2); stroke-width: 1.5; }
+    .iso-wall-outer { stroke: #1e40af; stroke-width: 2.5; fill: rgba(30, 58, 138, 0.05); }
+    .iso-wall-inner { stroke: #3b82f6; stroke-width: 1.5; stroke-opacity: 0.6; }
+    .iso-furniture { fill: #0f172a; stroke: #475569; stroke-width: 1; }
+    .iso-chair { fill: #2563eb; opacity: 0.6; }
+    .iso-pc { fill: #00ffcc; opacity: 0.8; }
     
-    /* Device group styles */
+    /* Device links and nodes */
     .dev-group { cursor: pointer; }
-    .dev-line { stroke: #3b82f6; stroke-width: 1.2; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
-    .dev-icon-bg { fill: #0f172a; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3)); }
-    .dev-icon-symbol { fill: #60a5fa; transition: all 0.3s; }
-    .dev-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #94a3b8; text-anchor: middle; transition: all 0.3s; opacity: 0.85; }
+    .dev-line { stroke: #3b82f6; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
+    .dev-node-bg { fill: #0b1329; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; }
+    .dev-node-icon { fill: #60a5fa; transition: all 0.3s; }
+    .dev-node-label { font-family: 'Space Mono', monospace; font-size: 8px; fill: #64748b; text-anchor: middle; transition: all 0.3s; }
+    .room-highlight { fill: #3b82f6; fill-opacity: 0; transition: all 0.3s; }
     
-    /* Target highlights */
-    .dev-target-glow { fill: none; stroke: #00ffcc; stroke-width: 1.5; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
-    .dev-tooltip { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); transform-origin: center; }
+    /* Hover triggers */
+    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.5; animation: flowDash 0.5s infinite linear; }
+    .dev-group:hover .dev-node-bg { stroke: #00ffcc; fill: #0d2b45; filter: drop-shadow(0 0 6px #00ffcc); transform: translateY(-3px); }
+    .dev-group:hover .dev-node-icon { fill: #00ffcc; }
+    .dev-group:hover .dev-node-label { fill: #00ffcc; transform: translateY(-3px); }
+    .dev-group:hover .room-highlight { fill-opacity: 0.2; fill: #00ffcc; filter: url(#neonGlow); }
+    .dev-group:hover .tooltip-card { opacity: 1; transform: translateY(0); }
     
-    /* Hover effects triggered by dev-group */
-    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.8; animation: dashMove 0.5s infinite linear; }
-    .dev-group:hover .dev-icon-bg { stroke: #00ffcc; fill: #0b1e36; filter: drop-shadow(0 0 8px #00ffcc); transform: translateY(-3px); }
-    .dev-group:hover .dev-icon-symbol { fill: #00ffcc; }
-    .dev-group:hover .dev-label { fill: #00ffcc; font-weight: bold; transform: translateY(-3px); }
-    .dev-group:hover .dev-target-glow { opacity: 1; }
-    .dev-group:hover .dev-tooltip { opacity: 1; transform: translateY(0); }
+    .tooltip-card { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); }
 
-    @keyframes dashMove {
+    @keyframes flowDash {
       to { stroke-dashoffset: -8; }
     }
   </style>
 
-  <!-- Background Grid -->
-  <rect width="100%" height="100%" fill="url(#isoGrid)" />
+  <!-- Title background/grid -->
+  <g opacity="0.3">
+    <line x1="200" y1="0" x2="200" y2="500" stroke="#1e293b" stroke-width="1" />
+  </g>
 
-  <!-- Title & Legend -->
-  <text x="40" y="40" font-family="'Syne', sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.1em">14. IMPLEMENTACIÓN E INTERCONEXIÓN FÍSICA</text>
-  <text x="40" y="55" font-family="'Space Mono', monospace" font-size="8.5" fill="#4b5a7a" letter-spacing="0.05em">MAPA INTERACTIVO 3D DE DISPOSITIVOS - PASA EL CURSOR SOBRE CADA NODO</text>
+  <!-- ════════ LEFT LEGEND: DISPOSITIVOS (Matching Slide Panel) ════════ -->
+  <rect x="20" y="20" width="160" height="460" rx="6" fill="#0b1329" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1.5" stroke-dasharray="3 3" />
+  <text x="100" y="45" font-family="'Space Mono', monospace" font-size="12" font-weight="700" fill="#60a5fa" letter-spacing="0.1em" text-anchor="middle">DISPOSITIVOS</text>
+  <line x1="30" y1="55" x2="170" y2="55" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1" />
 
-  <!-- ════════ 3D ISOMETRIC OFFICE MODEL ════════ -->
-  <g transform="translate(100, 120)">
-    
-    <!-- Floor Polygon (Overall Office Footprint) -->
-    <!-- Front corner: (300, 260), Right corner: (580, 120), Back corner: (280, -10), Left corner: (0, 130) -->
-    <polygon points="300,260 580,120 280,-10 0,130" class="iso-floor" />
+  <!-- Legend Item 1: Raspberry Pi -->
+  <g transform="translate(35, 75)">
+    <!-- Pi circuit outline -->
+    <rect x="0" y="0" width="22" height="16" rx="2" fill="#0d4e24" stroke="#10b981" stroke-width="1" />
+    <circle cx="11" cy="8" r="4" fill="#ef4444" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">RASPBERRY PI</text>
+  </g>
 
-    <!-- Room Division Floor Lines & Floor Highlights -->
-    <!-- Lab: (0,130) to (150, 195) to (100, 80) to (50, 105) -->
-    <!-- Kitchen: near middle -->
-    
-    <!-- 1. Lab (Laboratorio/Computo) Floor Highlight -->
-    <polygon points="120,180 210,135 150,80 60,125" id="hl-lab" class="dev-target-glow" />
-    
-    <!-- 2. Central Corridor Highlight -->
-    <polygon points="210,135 300,90 240,40 150,80" id="hl-corridor" class="dev-target-glow" />
+  <!-- Legend Item 2: Sonoff POW -->
+  <g transform="translate(35, 125)">
+    <rect x="3" y="0" width="16" height="18" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <line x1="6" y1="8" x2="16" y2="8" stroke="#3b82f6" stroke-width="1" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">SONOFF POW ELITE</text>
+  </g>
 
-    <!-- 3. IT Support Room Highlight -->
-    <polygon points="340,180 430,135 370,80 280,125" id="hl-support" class="dev-target-glow" />
+  <!-- Legend Item 3: Sonoff R2 -->
+  <g transform="translate(35, 175)">
+    <circle cx="11" cy="9" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" />
+    <circle cx="11" cy="9" r="2.5" fill="#60a5fa" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">SONOFF R2</text>
+  </g>
 
-    <!-- 4. Meeting Room Highlight -->
-    <polygon points="460,120 550,75 490,25 400,70" id="hl-meetings" class="dev-target-glow" />
+  <!-- Legend Item 4: Regleta Wifi -->
+  <g transform="translate(35, 225)">
+    <rect x="0" y="4" width="22" height="10" rx="1.5" fill="none" stroke="#60a5fa" stroke-width="1.2" />
+    <circle cx="5" cy="9" r="1.5" fill="#60a5fa" />
+    <circle cx="11" cy="9" r="1.5" fill="#60a5fa" />
+    <circle cx="17" cy="9" r="1.5" fill="#60a5fa" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">REGLETA WIFI</text>
+  </g>
 
-    <!-- Inner Furniture Outlines (Isometric projection) -->
-    <!-- Lab Computer Desks -->
-    <polygon points="80,140 105,127 95,110 70,123" class="iso-desk" />
-    <polygon points="95,147 120,135 110,118 85,130" class="iso-desk" />
-    <polygon points="110,155 135,142 125,125 100,138" class="iso-desk" />
-    
-    <!-- Meeting Room Table -->
-    <polygon points="450,85 510,55 490,40 430,70" class="iso-desk" />
+  <!-- Legend Item 5: Plug -->
+  <g transform="translate(35, 275)">
+    <circle cx="11" cy="9" r="7" fill="none" stroke="#60a5fa" stroke-width="1.2" />
+    <line x1="9" y1="7" x2="9" y2="11" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="13" y1="7" x2="13" y2="11" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">ENCHUFE SMART</text>
+  </g>
 
-    <!-- Server Rack in IT Support -->
-    <polygon points="350,110 370,100 365,90 345,100" class="iso-desk" style="fill:#1e293b; stroke:#00ffcc;" />
-    <!-- 3D wall lines -->
-    <path d="M 345,100 L 345,75 M 365,90 L 365,65 M 370,100 L 370,75 M 350,110 L 350,85" stroke="#00ffcc" stroke-width="0.8" />
-    <polygon points="350,85 370,75 365,65 345,75" fill="#111" stroke="#00ffcc" stroke-width="0.8" />
+  <!-- ════════ MAIN VIEWPORT: 2.5D ISOMETRIC MAQUETTE ════════ -->
+  <g transform="translate(200, 40)">
 
-    <!-- ═══ 3D WALLS ═══ -->
-    <!-- Outer back wall -->
-    <path d="M 0,130 L 0,60 L 280,-80 L 580,50 L 580,120 M 280,-80 L 280,-10" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3" />
-    
-    <!-- Front Outer walls (lowered transparency to see inside) -->
-    <polygon points="0,130 300,260 300,190 0,60" class="iso-wall" />
-    <polygon points="300,260 580,120 580,50 300,190" class="iso-wall" />
-    
-    <!-- Wall tops (bright blue outline) -->
-    <path d="M 0,60 L 300,190 L 580,50" class="iso-wall-top" />
+    <!-- Isometric Coordinate Grid Base -->
+    <g opacity="0.15">
+      <path d="M 0,260 L 350,85 L 700,260 L 350,435 Z" fill="none" stroke="#3b82f6" stroke-width="1" />
+      <line x1="0" y1="260" x2="700" y2="260" stroke="#3b82f6" stroke-width="0.5" />
+      <line x1="350" y1="85" x2="350" y2="435" stroke="#3b82f6" stroke-width="0.5" />
+    </g>
+
+    <!-- ═══ FLOOR SLAB ═══ -->
+    <polygon points="30,280 340,435 670,270 360,115" class="iso-floor" />
+
+    <!-- ═══ ROOM FLOORS HIGHLIGHTS ═══ -->
+    <!-- Lab / Computo (Far Left Room) -->
+    <polygon points="30,280 170,350 250,310 110,240" id="floor-lab" class="room-highlight" />
+
+    <!-- Kitchen / Cocina -->
+    <polygon points="170,350 220,375 275,348 225,323" id="floor-kitchen" class="room-highlight" />
+
+    <!-- Corridor / Hallway -->
+    <polygon points="220,375 300,415 375,378 295,338" id="floor-corridor" class="room-highlight" />
+
+    <!-- IT Support Room (Pi 4 Server location) -->
+    <polygon points="300,415 450,340 375,302 295,338" id="floor-support" class="room-highlight" />
+
+    <!-- Meeting Room -->
+    <polygon points="450,340 600,265 525,227 375,302" id="floor-meetings" class="room-highlight" />
+
+    <!-- Warehouse / Storage (Far Right Room) -->
+    <polygon points="600,265 670,270 595,200 525,227" id="floor-warehouse" class="room-highlight" />
+
+
+    <!-- ═══ FURNITURE (High-fidelity matching slide layout) ═══ -->
+    <!-- Computer desks in Lab (Left) -->
+    <g transform="translate(60, 260)">
+      <!-- Desks Row 1 (Bottom Left) -->
+      <polygon points="10,20 30,30 20,40 0,30" class="iso-furniture" />
+      <polygon points="25,27 45,37 35,47 15,37" class="iso-furniture" />
+      <polygon points="40,35 60,45 50,55 30,45" class="iso-furniture" />
+      <!-- Laptops -->
+      <circle cx="15" cy="27" r="2" class="iso-pc" />
+      <circle cx="30" cy="37" r="2" class="iso-pc" />
+      <circle cx="45" cy="47" r="2" class="iso-pc" />
+
+      <!-- Desks Row 2 (Top Right in Lab) -->
+      <polygon points="35,-5 55,5 45,15 25,5" class="iso-furniture" />
+      <polygon points="50,2 70,12 60,22 40,12" class="iso-furniture" />
+      <polygon points="65,10 85,20 75,30 55,10" class="iso-furniture" />
+      <!-- Laptops -->
+      <circle cx="40" cy="2" r="2" class="iso-pc" />
+      <circle cx="55" cy="12" r="2" class="iso-pc" />
+      <circle cx="70" cy="22" r="2" class="iso-pc" />
+    </g>
+
+    <!-- Kitchen Furniture -->
+    <g transform="translate(190, 335)">
+      <polygon points="0,0 25,12 15,22 -10,10" class="iso-furniture" style="fill:#334155;" />
+      <rect x="5" y="3" width="8" height="6" fill="#f8fafc" opacity="0.7" /> <!-- Sink -->
+    </g>
+
+    <!-- Corridor Table & Chairs -->
+    <g transform="translate(260, 360)">
+      <polygon points="0,0 20,10 10,20 -10,10" class="iso-furniture" />
+      <circle cx="0" cy="15" r="2" class="iso-chair" />
+      <circle cx="10" cy="5" r="2" class="iso-chair" />
+    </g>
+
+    <!-- IT Support Desks & Rack -->
+    <g transform="translate(360, 340)">
+      <polygon points="0,0 40,-20 30,-30 -10,-10" class="iso-furniture" />
+      <rect x="15" y="-22" width="10" height="12" fill="#0d4e24" stroke="#10b981" /> <!-- Server Box -->
+    </g>
+
+    <!-- Meeting Table & Chairs -->
+    <g transform="translate(480, 270)">
+      <polygon points="0,0 60,-30 45,-45 -15,-15" class="iso-furniture" />
+      <!-- Blue chairs -->
+      <circle cx="-5" cy="-20" r="3.5" class="iso-chair" />
+      <circle cx="20" cy="-32" r="3.5" class="iso-chair" />
+      <circle cx="40" cy="-10" r="3.5" class="iso-chair" />
+    </g>
+
+    <!-- Storage Shelves (Far Right) -->
+    <g transform="translate(610, 225)">
+      <polygon points="0,0 30,15 15,30 -15,15" class="iso-furniture" />
+      <polygon points="0,-15 30,0 15,15 -15,0" class="iso-furniture" />
+      <!-- Post columns -->
+      <line x1="-15" y1="15" x2="-15" y2="-30" stroke="#475569" stroke-width="1.5" />
+      <line x1="15" y1="30" x2="15" y2="-15" stroke="#475569" stroke-width="1.5" />
+      <line x1="30" y1="15" x2="30" y2="-30" stroke="#475569" stroke-width="1.5" />
+    </g>
+
+    <!-- ═══ 3D WALLS (Isometric outlines) ═══ -->
+    <!-- Front/Bottom walls (opaque blue border) -->
+    <polygon points="30,280 340,435 340,380 30,225" class="iso-wall-outer" />
+    <polygon points="340,435 670,270 670,215 340,380" class="iso-wall-outer" />
 
     <!-- Inner division walls -->
-    <!-- Lab / Kitchen partition -->
-    <polygon points="120,180 120,110 210,65 210,135" class="iso-wall" />
-    <path d="M 120,110 L 210,65" class="iso-wall-top" />
-    
-    <!-- Corridor / Support partition -->
-    <polygon points="280,125 280,55 370,10 370,80" class="iso-wall" />
-    <path d="M 280,55 L 370,10" class="iso-wall-top" />
-  </g>
+    <!-- Lab partition -->
+    <polygon points="170,350 170,295 250,255 250,310" class="iso-wall-inner" fill="rgba(59, 130, 246, 0.03)" />
+    <!-- Kitchen partition -->
+    <polygon points="225,323 225,268 275,243 275,298" class="iso-wall-inner" fill="none" />
+    <!-- Support partition -->
+    <polygon points="300,415 300,360 375,322 375,378" class="iso-wall-inner" fill="none" />
+    <!-- Meetings partition -->
+    <polygon points="450,340 450,285 525,247 525,302" class="iso-wall-inner" fill="none" />
 
-  <!-- ════════ INTERACTIVE DEVICE NODES (FLOATING) ════════ -->
+    <!-- Wall Top Highlights (Cyan neon edge) -->
+    <path d="M 30,225 L 340,380 L 670,215" stroke="#00e5ff" stroke-width="1.8" fill="none" filter="url(#neonGlow)" />
 
-  <!-- 1. Raspberry Pi 4 Server Node -->
-  <g class="dev-group">
-    <!-- Highlight target on IT Server Rack (x=450, y=200) -->
-    <circle cx="450" cy="200" r="18" class="dev-target-glow" stroke="#ef4444" />
-    <circle cx="450" cy="200" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="450" y1="90" x2="450" y2="200" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="450" cy="90" r="18" class="dev-icon-bg" />
-      <!-- Stylized Raspberry Pi leaf/icon -->
-      <path d="M 446,84 C 446,84 450,80 454,84 C 458,80 462,84 462,84 C 462,84 458,94 454,90 C 450,94 446,84 446,84 Z" fill="#c084fc" class="dev-icon-symbol" />
-      <circle cx="454" cy="85" r="2.5" fill="#ef4444" />
-      <circle cx="454" cy="92" r="3.5" fill="#22c55e" />
-      <!-- Label -->
-      <text x="450" y="118" class="dev-label">Raspberry Pi 4</text>
+
+    <!-- ════════ INTERACTIVE DEVICE NODES & LINKS (Hoverable) ════════ -->
+
+    <!-- NODE 1: Regleta Lab (Far Left, points to Lab desks 1) -->
+    <g class="dev-group">
+      <!-- Target Highlight -->
+      <polygon points="40,290 85,312 60,335 15,312" class="room-highlight" />
+      <circle cx="85" cy="300" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <!-- Line -->
+      <line x1="85" y1="50" x2="85" y2="300" class="dev-line" />
+      <!-- Icon Node -->
+      <g transform="translate(85, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <!-- Strip icon -->
+        <rect x="-7" y="-4" width="14" height="8" rx="1" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <circle cx="-3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <circle cx="3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Regleta Wi-Fi</text>
+      </g>
+      <!-- Tooltip -->
+      <g class="tooltip-card" transform="translate(85, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta Lab Row 1</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Corta consumo fantasma de noche</text>
+      </g>
     </g>
 
-    <!-- Tooltip Card -->
-    <g class="dev-tooltip" transform="translate(450, 50)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#00ffcc" font-weight="bold" text-anchor="middle">Servidor Central</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Raspberry Pi 4 (4GB RAM)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Home Assistant & MQTT Broker</text>
-    </g>
-  </g>
-
-  <!-- 2. Sonoff POW Elite Node -->
-  <g class="dev-group">
-    <!-- Highlight target on kitchen/corridor wall panel (x=300, y=210) -->
-    <circle cx="300" cy="210" r="15" class="dev-target-glow" />
-    <circle cx="300" cy="210" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="300" y1="110" x2="300" y2="210" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="300" cy="110" r="16" class="dev-icon-bg" />
-      <!-- POW Box icon -->
-      <rect x="294" y="103" width="12" height="14" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <line x1="297" y1="110" x2="303" y2="110" stroke="#60a5fa" stroke-width="1" class="dev-icon-symbol" />
-      <!-- Label -->
-      <text x="300" y="136" class="dev-label">Sonoff POW</text>
+    <!-- NODE 2: Sonoff R2 (Lab Row 2) -->
+    <g class="dev-group">
+      <polygon points="85,260 130,282 105,305 60,282" class="room-highlight" />
+      <circle cx="125" cy="275" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="135" y1="80" x2="125" y2="275" class="dev-line" />
+      <g transform="translate(135, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(135, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Lab</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Control de luminarias de cómputo</text>
+      </g>
     </g>
 
-    <!-- Tooltip Card -->
-    <g class="dev-tooltip" transform="translate(300, 70)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Medidor de Consumo</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff POW Elite (20A)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Monitoreo de kWh de la Oficina</text>
-    </g>
-  </g>
-
-  <!-- 3. Sonoff R2 Relays (Lab/Computo) -->
-  <g class="dev-group">
-    <!-- Highlight target in Lab (x=210, y=240) -->
-    <circle cx="210" cy="240" r="15" class="dev-target-glow" />
-    <circle cx="210" cy="240" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="200" y1="130" x2="210" y2="240" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="200" cy="130" r="16" class="dev-icon-bg" />
-      <!-- Switch icon -->
-      <circle cx="200" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="200" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="200" y="156" class="dev-label">Sonoff R2 (L1)</text>
+    <!-- NODE 3: Sonoff R2 (Kitchen) -->
+    <g class="dev-group">
+      <polygon points="180,340 215,357 195,377 160,360" class="room-highlight" />
+      <circle cx="195" cy="355" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="205" y1="80" x2="195" y2="355" class="dev-line" />
+      <g transform="translate(205, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(205, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Cocina</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Control y apagado de luminaria</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(200, 90)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Computo</text>
-    </g>
-  </g>
-
-  <!-- 4. Sonoff R2 Relays (Oficina Central) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=380, y=220) -->
-    <circle cx="380" cy="220" r="15" class="dev-target-glow" />
-    <circle cx="380" cy="220" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="370" y1="130" x2="380" y2="220" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="370" cy="130" r="16" class="dev-icon-bg" />
-      <circle cx="370" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="370" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="370" y="156" class="dev-label">Sonoff R2 (L2)</text>
+    <!-- NODE 4: Sonoff POW Elite (Corridor/Panel) -->
+    <g class="dev-group">
+      <circle cx="250" cy="360" r="12" class="room-highlight" />
+      <circle cx="250" cy="360" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="270" y1="50" x2="250" y2="360" class="dev-line" />
+      <g transform="translate(270, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <rect x="-5" y="-6" width="10" height="12" rx="1.5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <line x1="-3" y1="0" x2="3" y2="0" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff POW</text>
+      </g>
+      <g class="tooltip-card" transform="translate(270, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">POW Elite - Panel</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Medición de consumo general kWh</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(370, 90)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Oficina Central</text>
-    </g>
-  </g>
-
-  <!-- 5. Smart Power Strip Node (Regleta Lab) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=160, y=280) -->
-    <circle cx="160" cy="280" r="15" class="dev-target-glow" />
-    <circle cx="160" cy="280" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="120" y1="100" x2="160" y2="280" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="120" cy="100" r="16" class="dev-icon-bg" />
-      <!-- Power strip icon -->
-      <rect x="114" y="96" width="12" height="8" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="117" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
-      <circle cx="121" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="120" y="126" class="dev-label">Regleta Wi-Fi</text>
+    <!-- NODE 5: Enchufe Smart (Corridor/Hallway) -->
+    <g class="dev-group">
+      <circle cx="310" cy="370" r="12" class="room-highlight" />
+      <circle cx="310" cy="370" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="330" y1="90" x2="310" y2="370" class="dev-line" />
+      <g transform="translate(330, 90)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="-2" y1="-2" x2="-2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="2" y1="-2" x2="2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Enchufe Smart</text>
+      </g>
+      <g class="tooltip-card" transform="translate(330, 60)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Enchufe Inteligente</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Control de climatizador y ventilación</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(120, 60)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Regleta Inteligente</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Regleta Wi-Fi con medidor</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Apagado de Computadoras de noche</text>
-    </g>
-  </g>
-
-  <!-- 6. Smart Plug Node (Enchufe Central/Pasillo) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=330, y=270) -->
-    <circle cx="330" cy="270" r="15" class="dev-target-glow" />
-    <circle cx="330" cy="270" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="250" y1="120" x2="330" y2="270" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="250" cy="120" r="16" class="dev-icon-bg" />
-      <!-- Plug icon -->
-      <circle cx="250" cy="120" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <line x1="248" y1="118" x2="248" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
-      <line x1="252" y1="118" x2="252" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
-      <text x="250" y="146" class="dev-label">Tomacorriente</text>
+    <!-- NODE 6: Servidor Central (Raspberry Pi 4) -->
+    <g class="dev-group">
+      <circle cx="380" cy="325" r="18" class="room-highlight" />
+      <circle cx="380" cy="325" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="385" y1="40" x2="380" y2="325" class="dev-line" />
+      <g transform="translate(385, 40)">
+        <circle cx="0" cy="0" r="16" class="dev-node-bg" style="stroke:#10b981;" />
+        <!-- Micro-Pi logo -->
+        <circle cx="0" cy="0" r="4" fill="#ef4444" />
+        <path d="M-4,-4 L4,-4 L4,4 L-4,4 Z" fill="none" stroke="#10b981" stroke-width="0.8" />
+        <text x="0" y="-20" class="dev-node-label" style="fill:#10b981;">Servidor RPi 4</text>
+      </g>
+      <g class="tooltip-card" transform="translate(385, 10)">
+        <rect x="-80" y="-45" width="160" height="40" rx="4" fill="#0b1329" stroke="#10b981" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#10b981" font-weight="bold" text-anchor="middle">Raspberry Pi 4 Server</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Cerebro de Home Assistant y MQTT</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(250, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Enchufe Inteligente</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Enchufe Wi-Fi inteligente</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Climatizador Auxiliar</text>
-    </g>
-  </g>
-
-  <!-- 7. Sonoff R2 Relays (Reuniones/Meetings) -->
-  <g class="dev-group">
-    <!-- Highlight target in Meeting Room (x=600, y=210) -->
-    <circle cx="600" cy="210" r="15" class="dev-target-glow" />
-    <circle cx="600" cy="210" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="590" y1="120" x2="600" y2="210" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="590" cy="120" r="16" class="dev-icon-bg" />
-      <circle cx="590" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="590" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="590" y="146" class="dev-label">Sonoff R2 (L3)</text>
+    <!-- NODE 7: Sonoff R2 (Support Corridor Light) -->
+    <g class="dev-group">
+      <circle cx="440" cy="330" r="12" class="room-highlight" />
+      <circle cx="440" cy="330" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="450" y1="80" x2="440" y2="330" class="dev-line" />
+      <g transform="translate(450, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(450, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Pasillo</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Apagado programado en recepción</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(590, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces de Reuniones</text>
-    </g>
-  </g>
-
-  <!-- 8. Sonoff R2 (Almacén 2 / TI) -->
-  <g class="dev-group">
-    <!-- Highlight target in Support area (x=520, y=180) -->
-    <circle cx="520" cy="180" r="15" class="dev-target-glow" />
-    <circle cx="520" cy="180" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="680" y1="120" x2="520" y2="180" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="680" cy="120" r="16" class="dev-icon-bg" />
-      <circle cx="680" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="680" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="680" y="146" class="dev-label">Sonoff R2 (L4)</text>
+    <!-- NODE 8: Enchufe Smart (Restroom area) -->
+    <g class="dev-group">
+      <circle cx="490" cy="310" r="12" class="room-highlight" />
+      <circle cx="490" cy="310" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="510" y1="90" x2="490" y2="310" class="dev-line" />
+      <g transform="translate(510, 90)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="-2" y1="-2" x2="-2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="2" y1="-2" x2="2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Enchufe Smart</text>
+      </g>
+      <g class="tooltip-card" transform="translate(510, 60)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Enchufe - Baños</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Apagado de dispensadores y extractores</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(680, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Relé de Iluminación</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Control de Luces en TI y Soporte</text>
+    <!-- NODE 9: Sonoff R2 (Meetings Area) -->
+    <g class="dev-group">
+      <polygon points="410,290 460,265 425,235 375,260" class="room-highlight" />
+      <circle cx="420" cy="270" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="565" y1="80" x2="420" y2="270" class="dev-line" />
+      <g transform="translate(565, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(565, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - TV</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Controla encendido de pantalla de TV</text>
+      </g>
+    </g>
+
+    <!-- NODE 10: Regleta Wifi (Meetings Table) -->
+    <g class="dev-group">
+      <polygon points="450,270 500,245 470,225 420,250" class="room-highlight" />
+      <circle cx="460" cy="250" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="620" y1="50" x2="460" y2="250" class="dev-line" />
+      <g transform="translate(620, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <rect x="-7" y="-4" width="14" height="8" rx="1" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <circle cx="-3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <circle cx="3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Regleta Wi-Fi</text>
+      </g>
+      <g class="tooltip-card" transform="translate(620, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta - Reuniones</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Apagado de proyectores y cargadores</text>
+      </g>
+    </g>
+
+    <!-- NODE 11: Sonoff R2 (Warehouse Shelves) -->
+    <g class="dev-group">
+      <polygon points="560,250 620,220 590,200 530,230" class="room-highlight" />
+      <circle cx="580" cy="225" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="675" y1="80" x2="580" y2="225" class="dev-line" />
+      <g transform="translate(675, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(675, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Almacén</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Control de luminarias en estanterías</text>
+      </g>
+    </g>
+
+    <!-- ═══ LOGOS AND BRANDING ═══ -->
+    <!-- Home Assistant Logo (Top Right) -->
+    <g transform="translate(620, -10)" opacity="0.8">
+      <path d="M0,8 L16,0 L32,8 L32,24 L16,32 L0,24 Z" fill="#03a9f4" />
+      <path d="M16,5 L26,10 L26,20 L16,25 L6,20 L6,10 Z M16,10 L16,20 M12,14 C12,14 16,16 16,16 M20,14 C20,14 16,16 16,16" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+
+    <!-- Tuya/SmartLife Logo (Bottom Right) -->
+    <g transform="translate(620, 360)" opacity="0.85">
+      <rect x="0" y="0" width="30" height="30" rx="6" fill="#ff5722" />
+      <circle cx="15" cy="15" r="8" fill="none" stroke="#fff" stroke-width="2.5" />
+      <circle cx="15" cy="15" r="3" fill="#fff" />
     </g>
   </g>
 </svg>
@@ -1345,341 +1438,434 @@ const modalData = {
         <h4 style="margin-top:2.5rem;">IoT Distribution and Connectivity Plan (Nanotechnology SAC)</h4>
         <p>Distribution of smart devices and their connectivity links to the main Router inside the office floor plan:</p>
         <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+          <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; padding: 1rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
   <defs>
-    <!-- Grid pattern -->
-    <pattern id="isoGrid" width="30" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
-      <path d="M 30 0 L 0 7.5 L 30 15 L 60 7.5 Z" fill="none" stroke="rgba(26, 106, 255, 0.05)" stroke-width="0.8"/>
-    </pattern>
     <!-- Glow filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
+    <filter id="neoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
-    <!-- Tooltip background filter -->
-    <filter id="blurBg">
-      <feGaussianBlur stdDeviation="5" />
-    </filter>
   </defs>
 
   <style>
-    /* Reset & core transitions */
-    .iso-wall { stroke: #1e3a8a; stroke-width: 1.5; fill: rgba(30, 58, 138, 0.08); transition: all 0.3s; }
-    .iso-wall-top { stroke: #3b82f6; stroke-width: 2; fill: none; }
-    .iso-floor { fill: rgba(10, 17, 40, 0.8); stroke: rgba(59, 130, 246, 0.2); stroke-width: 1; }
-    .iso-desk { fill: rgba(15, 23, 42, 0.9); stroke: rgba(100, 116, 139, 0.4); stroke-width: 1; }
-    .iso-chair { fill: #3b82f6; opacity: 0.7; }
+    /* Global styles */
+    .iso-grid { stroke: rgba(26, 106, 255, 0.04); stroke-width: 0.8; }
+    .iso-floor { fill: rgba(15, 23, 42, 0.9); stroke: rgba(26, 106, 255, 0.2); stroke-width: 1.5; }
+    .iso-wall-outer { stroke: #1e40af; stroke-width: 2.5; fill: rgba(30, 58, 138, 0.05); }
+    .iso-wall-inner { stroke: #3b82f6; stroke-width: 1.5; stroke-opacity: 0.6; }
+    .iso-furniture { fill: #0f172a; stroke: #475569; stroke-width: 1; }
+    .iso-chair { fill: #2563eb; opacity: 0.6; }
+    .iso-pc { fill: #00ffcc; opacity: 0.8; }
     
-    /* Device group styles */
+    /* Device links and nodes */
     .dev-group { cursor: pointer; }
-    .dev-line { stroke: #3b82f6; stroke-width: 1.2; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
-    .dev-icon-bg { fill: #0f172a; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3)); }
-    .dev-icon-symbol { fill: #60a5fa; transition: all 0.3s; }
-    .dev-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #94a3b8; text-anchor: middle; transition: all 0.3s; opacity: 0.85; }
+    .dev-line { stroke: #3b82f6; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.45; transition: all 0.3s; }
+    .dev-node-bg { fill: #0b1329; stroke: #3b82f6; stroke-width: 1.5; transition: all 0.3s; }
+    .dev-node-icon { fill: #60a5fa; transition: all 0.3s; }
+    .dev-node-label { font-family: 'Space Mono', monospace; font-size: 8px; fill: #64748b; text-anchor: middle; transition: all 0.3s; }
+    .room-highlight { fill: #3b82f6; fill-opacity: 0; transition: all 0.3s; }
     
-    /* Target highlights */
-    .dev-target-glow { fill: none; stroke: #00ffcc; stroke-width: 1.5; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
-    .dev-tooltip { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); transform-origin: center; }
+    /* Hover triggers */
+    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.5; animation: flowDash 0.5s infinite linear; }
+    .dev-group:hover .dev-node-bg { stroke: #00ffcc; fill: #0d2b45; filter: drop-shadow(0 0 6px #00ffcc); transform: translateY(-3px); }
+    .dev-group:hover .dev-node-icon { fill: #00ffcc; }
+    .dev-group:hover .dev-node-label { fill: #00ffcc; transform: translateY(-3px); }
+    .dev-group:hover .room-highlight { fill-opacity: 0.2; fill: #00ffcc; filter: url(#neonGlow); }
+    .dev-group:hover .tooltip-card { opacity: 1; transform: translateY(0); }
     
-    /* Hover effects triggered by dev-group */
-    .dev-group:hover .dev-line { stroke: #00ffcc; opacity: 1; stroke-dasharray: 4 2; stroke-width: 1.8; animation: dashMove 0.5s infinite linear; }
-    .dev-group:hover .dev-icon-bg { stroke: #00ffcc; fill: #0b1e36; filter: drop-shadow(0 0 8px #00ffcc); transform: translateY(-3px); }
-    .dev-group:hover .dev-icon-symbol { fill: #00ffcc; }
-    .dev-group:hover .dev-label { fill: #00ffcc; font-weight: bold; transform: translateY(-3px); }
-    .dev-group:hover .dev-target-glow { opacity: 1; }
-    .dev-group:hover .dev-tooltip { opacity: 1; transform: translateY(0); }
+    .tooltip-card { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); }
 
-    @keyframes dashMove {
+    @keyframes flowDash {
       to { stroke-dashoffset: -8; }
     }
   </style>
 
-  <!-- Background Grid -->
-  <rect width="100%" height="100%" fill="url(#isoGrid)" />
+  <!-- Title background/grid -->
+  <g opacity="0.3">
+    <line x1="200" y1="0" x2="200" y2="500" stroke="#1e293b" stroke-width="1" />
+  </g>
 
-  <!-- Title & Legend -->
-  <text x="40" y="40" font-family="'Syne', sans-serif" font-size="14" font-weight="800" fill="#fff" letter-spacing="0.1em">14. PHYSICAL IMPLEMENTATION & INTERCONNECTION</text>
-  <text x="40" y="55" font-family="'Space Mono', monospace" font-size="8.5" fill="#4b5a7a" letter-spacing="0.05em">INTERACTIVE 3D DEVICE MAP - HOVER OVER EACH NODE TO INTERACT</text>
+  <!-- ════════ LEFT LEGEND: DEVICES (Matching Slide Panel) ════════ -->
+  <rect x="20" y="20" width="160" height="460" rx="6" fill="#0b1329" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1.5" stroke-dasharray="3 3" />
+  <text x="100" y="45" font-family="'Space Mono', monospace" font-size="12" font-weight="700" fill="#60a5fa" letter-spacing="0.1em" text-anchor="middle">DEVICES</text>
+  <line x1="30" y1="55" x2="170" y2="55" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1" />
 
-  <!-- ════════ 3D ISOMETRIC OFFICE MODEL ════════ -->
-  <g transform="translate(100, 120)">
-    
-    <!-- Floor Polygon (Overall Office Footprint) -->
-    <!-- Front corner: (300, 260), Right corner: (580, 120), Back corner: (280, -10), Left corner: (0, 130) -->
-    <polygon points="300,260 580,120 280,-10 0,130" class="iso-floor" />
+  <!-- Legend Item 1: Raspberry Pi -->
+  <g transform="translate(35, 75)">
+    <!-- Pi circuit outline -->
+    <rect x="0" y="0" width="22" height="16" rx="2" fill="#0d4e24" stroke="#10b981" stroke-width="1" />
+    <circle cx="11" cy="8" r="4" fill="#ef4444" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">RASPBERRY PI</text>
+  </g>
 
-    <!-- Room Division Floor Lines & Floor Highlights -->
-    <!-- Lab: (0,130) to (150, 195) to (100, 80) to (50, 105) -->
-    <!-- Kitchen: near middle -->
-    
-    <!-- 1. Lab (Laboratorio/Computo) Floor Highlight -->
-    <polygon points="120,180 210,135 150,80 60,125" id="hl-lab" class="dev-target-glow" />
-    
-    <!-- 2. Central Corridor Highlight -->
-    <polygon points="210,135 300,90 240,40 150,80" id="hl-corridor" class="dev-target-glow" />
+  <!-- Legend Item 2: Sonoff POW -->
+  <g transform="translate(35, 125)">
+    <rect x="3" y="0" width="16" height="18" rx="2" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <line x1="6" y1="8" x2="16" y2="8" stroke="#3b82f6" stroke-width="1" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">SONOFF POW ELITE</text>
+  </g>
 
-    <!-- 3. IT Support Room Highlight -->
-    <polygon points="340,180 430,135 370,80 280,125" id="hl-support" class="dev-target-glow" />
+  <!-- Legend Item 3: Sonoff R2 -->
+  <g transform="translate(35, 175)">
+    <circle cx="11" cy="9" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" />
+    <circle cx="11" cy="9" r="2.5" fill="#60a5fa" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">SONOFF R2</text>
+  </g>
 
-    <!-- 4. Meeting Room Highlight -->
-    <polygon points="460,120 550,75 490,25 400,70" id="hl-meetings" class="dev-target-glow" />
+  <!-- Legend Item 4: Regleta Wifi -->
+  <g transform="translate(35, 225)">
+    <rect x="0" y="4" width="22" height="10" rx="1.5" fill="none" stroke="#60a5fa" stroke-width="1.2" />
+    <circle cx="5" cy="9" r="1.5" fill="#60a5fa" />
+    <circle cx="11" cy="9" r="1.5" fill="#60a5fa" />
+    <circle cx="17" cy="9" r="1.5" fill="#60a5fa" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">REGLETA WIFI</text>
+  </g>
 
-    <!-- Inner Furniture Outlines (Isometric projection) -->
-    <!-- Lab Computer Desks -->
-    <polygon points="80,140 105,127 95,110 70,123" class="iso-desk" />
-    <polygon points="95,147 120,135 110,118 85,130" class="iso-desk" />
-    <polygon points="110,155 135,142 125,125 100,138" class="iso-desk" />
-    
-    <!-- Meeting Room Table -->
-    <polygon points="450,85 510,55 490,40 430,70" class="iso-desk" />
+  <!-- Legend Item 5: Plug -->
+  <g transform="translate(35, 275)">
+    <circle cx="11" cy="9" r="7" fill="none" stroke="#60a5fa" stroke-width="1.2" />
+    <line x1="9" y1="7" x2="9" y2="11" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="13" y1="7" x2="13" y2="11" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" />
+    <text x="35" y="12" font-family="'Outfit', sans-serif" font-size="9.5" fill="#f8fafc" font-weight="bold">SMART PLUG</text>
+  </g>
 
-    <!-- Server Rack in IT Support -->
-    <polygon points="350,110 370,100 365,90 345,100" class="iso-desk" style="fill:#1e293b; stroke:#00ffcc;" />
-    <!-- 3D wall lines -->
-    <path d="M 345,100 L 345,75 M 365,90 L 365,65 M 370,100 L 370,75 M 350,110 L 350,85" stroke="#00ffcc" stroke-width="0.8" />
-    <polygon points="350,85 370,75 365,65 345,75" fill="#111" stroke="#00ffcc" stroke-width="0.8" />
+  <!-- ════════ MAIN VIEWPORT: 2.5D ISOMETRIC MAQUETTE ════════ -->
+  <g transform="translate(200, 40)">
 
-    <!-- ═══ 3D WALLS ═══ -->
-    <!-- Outer back wall -->
-    <path d="M 0,130 L 0,60 L 280,-80 L 580,50 L 580,120 M 280,-80 L 280,-10" stroke="#1e3a8a" stroke-width="1.5" fill="none" opacity="0.3" />
-    
-    <!-- Front Outer walls (lowered transparency to see inside) -->
-    <polygon points="0,130 300,260 300,190 0,60" class="iso-wall" />
-    <polygon points="300,260 580,120 580,50 300,190" class="iso-wall" />
-    
-    <!-- Wall tops (bright blue outline) -->
-    <path d="M 0,60 L 300,190 L 580,50" class="iso-wall-top" />
+    <!-- Isometric Coordinate Grid Base -->
+    <g opacity="0.15">
+      <path d="M 0,260 L 350,85 L 700,260 L 350,435 Z" fill="none" stroke="#3b82f6" stroke-width="1" />
+      <line x1="0" y1="260" x2="700" y2="260" stroke="#3b82f6" stroke-width="0.5" />
+      <line x1="350" y1="85" x2="350" y2="435" stroke="#3b82f6" stroke-width="0.5" />
+    </g>
+
+    <!-- ═══ FLOOR SLAB ═══ -->
+    <polygon points="30,280 340,435 670,270 360,115" class="iso-floor" />
+
+    <!-- ═══ ROOM FLOORS HIGHLIGHTS ═══ -->
+    <!-- Lab / Computo (Far Left Room) -->
+    <polygon points="30,280 170,350 250,310 110,240" id="floor-lab" class="room-highlight" />
+
+    <!-- Kitchen / Cocina -->
+    <polygon points="170,350 220,375 275,348 225,323" id="floor-kitchen" class="room-highlight" />
+
+    <!-- Corridor / Hallway -->
+    <polygon points="220,375 300,415 375,378 295,338" id="floor-corridor" class="room-highlight" />
+
+    <!-- IT Support Room (Pi 4 Server location) -->
+    <polygon points="300,415 450,340 375,302 295,338" id="floor-support" class="room-highlight" />
+
+    <!-- Meeting Room -->
+    <polygon points="450,340 600,265 525,227 375,302" id="floor-meetings" class="room-highlight" />
+
+    <!-- Warehouse / Storage (Far Right Room) -->
+    <polygon points="600,265 670,270 595,200 525,227" id="floor-warehouse" class="room-highlight" />
+
+
+    <!-- ═══ FURNITURE (High-fidelity matching slide layout) ═══ -->
+    <!-- Computer desks in Lab (Left) -->
+    <g transform="translate(60, 260)">
+      <!-- Desks Row 1 (Bottom Left) -->
+      <polygon points="10,20 30,30 20,40 0,30" class="iso-furniture" />
+      <polygon points="25,27 45,37 35,47 15,37" class="iso-furniture" />
+      <polygon points="40,35 60,45 50,55 30,45" class="iso-furniture" />
+      <!-- Laptops -->
+      <circle cx="15" cy="27" r="2" class="iso-pc" />
+      <circle cx="30" cy="37" r="2" class="iso-pc" />
+      <circle cx="45" cy="47" r="2" class="iso-pc" />
+
+      <!-- Desks Row 2 (Top Right in Lab) -->
+      <polygon points="35,-5 55,5 45,15 25,5" class="iso-furniture" />
+      <polygon points="50,2 70,12 60,22 40,12" class="iso-furniture" />
+      <polygon points="65,10 85,20 75,30 55,10" class="iso-furniture" />
+      <!-- Laptops -->
+      <circle cx="40" cy="2" r="2" class="iso-pc" />
+      <circle cx="55" cy="12" r="2" class="iso-pc" />
+      <circle cx="70" cy="22" r="2" class="iso-pc" />
+    </g>
+
+    <!-- Kitchen Furniture -->
+    <g transform="translate(190, 335)">
+      <polygon points="0,0 25,12 15,22 -10,10" class="iso-furniture" style="fill:#334155;" />
+      <rect x="5" y="3" width="8" height="6" fill="#f8fafc" opacity="0.7" /> <!-- Sink -->
+    </g>
+
+    <!-- Corridor Table & Chairs -->
+    <g transform="translate(260, 360)">
+      <polygon points="0,0 20,10 10,20 -10,10" class="iso-furniture" />
+      <circle cx="0" cy="15" r="2" class="iso-chair" />
+      <circle cx="10" cy="5" r="2" class="iso-chair" />
+    </g>
+
+    <!-- IT Support Desks & Rack -->
+    <g transform="translate(360, 340)">
+      <polygon points="0,0 40,-20 30,-30 -10,-10" class="iso-furniture" />
+      <rect x="15" y="-22" width="10" height="12" fill="#0d4e24" stroke="#10b981" /> <!-- Server Box -->
+    </g>
+
+    <!-- Meeting Table & Chairs -->
+    <g transform="translate(480, 270)">
+      <polygon points="0,0 60,-30 45,-45 -15,-15" class="iso-furniture" />
+      <!-- Blue chairs -->
+      <circle cx="-5" cy="-20" r="3.5" class="iso-chair" />
+      <circle cx="20" cy="-32" r="3.5" class="iso-chair" />
+      <circle cx="40" cy="-10" r="3.5" class="iso-chair" />
+    </g>
+
+    <!-- Storage Shelves (Far Right) -->
+    <g transform="translate(610, 225)">
+      <polygon points="0,0 30,15 15,30 -15,15" class="iso-furniture" />
+      <polygon points="0,-15 30,0 15,15 -15,0" class="iso-furniture" />
+      <!-- Post columns -->
+      <line x1="-15" y1="15" x2="-15" y2="-30" stroke="#475569" stroke-width="1.5" />
+      <line x1="15" y1="30" x2="15" y2="-15" stroke="#475569" stroke-width="1.5" />
+      <line x1="30" y1="15" x2="30" y2="-30" stroke="#475569" stroke-width="1.5" />
+    </g>
+
+    <!-- ═══ 3D WALLS (Isometric outlines) ═══ -->
+    <!-- Front/Bottom walls (opaque blue border) -->
+    <polygon points="30,280 340,435 340,380 30,225" class="iso-wall-outer" />
+    <polygon points="340,435 670,270 670,215 340,380" class="iso-wall-outer" />
 
     <!-- Inner division walls -->
-    <!-- Lab / Kitchen partition -->
-    <polygon points="120,180 120,110 210,65 210,135" class="iso-wall" />
-    <path d="M 120,110 L 210,65" class="iso-wall-top" />
-    
-    <!-- Corridor / Support partition -->
-    <polygon points="280,125 280,55 370,10 370,80" class="iso-wall" />
-    <path d="M 280,55 L 370,10" class="iso-wall-top" />
-  </g>
+    <!-- Lab partition -->
+    <polygon points="170,350 170,295 250,255 250,310" class="iso-wall-inner" fill="rgba(59, 130, 246, 0.03)" />
+    <!-- Kitchen partition -->
+    <polygon points="225,323 225,268 275,243 275,298" class="iso-wall-inner" fill="none" />
+    <!-- Support partition -->
+    <polygon points="300,415 300,360 375,322 375,378" class="iso-wall-inner" fill="none" />
+    <!-- Meetings partition -->
+    <polygon points="450,340 450,285 525,247 525,302" class="iso-wall-inner" fill="none" />
 
-  <!-- ════════ INTERACTIVE DEVICE NODES (FLOATING) ════════ -->
+    <!-- Wall Top Highlights (Cyan neon edge) -->
+    <path d="M 30,225 L 340,380 L 670,215" stroke="#00e5ff" stroke-width="1.8" fill="none" filter="url(#neonGlow)" />
 
-  <!-- 1. Raspberry Pi 4 Server Node -->
-  <g class="dev-group">
-    <!-- Highlight target on IT Server Rack (x=450, y=200) -->
-    <circle cx="450" cy="200" r="18" class="dev-target-glow" stroke="#ef4444" />
-    <circle cx="450" cy="200" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="450" y1="90" x2="450" y2="200" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="450" cy="90" r="18" class="dev-icon-bg" />
-      <!-- Stylized Raspberry Pi leaf/icon -->
-      <path d="M 446,84 C 446,84 450,80 454,84 C 458,80 462,84 462,84 C 462,84 458,94 454,90 C 450,94 446,84 446,84 Z" fill="#c084fc" class="dev-icon-symbol" />
-      <circle cx="454" cy="85" r="2.5" fill="#ef4444" />
-      <circle cx="454" cy="92" r="3.5" fill="#22c55e" />
-      <!-- Label -->
-      <text x="450" y="118" class="dev-label">Raspberry Pi 4</text>
+
+    <!-- ════════ INTERACTIVE DEVICE NODES & LINKS (Hoverable) ════════ -->
+
+    <!-- NODE 1: Regleta Lab (Far Left, points to Lab desks 1) -->
+    <g class="dev-group">
+      <!-- Target Highlight -->
+      <polygon points="40,290 85,312 60,335 15,312" class="room-highlight" />
+      <circle cx="85" cy="300" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <!-- Line -->
+      <line x1="85" y1="50" x2="85" y2="300" class="dev-line" />
+      <!-- Icon Node -->
+      <g transform="translate(85, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <!-- Strip icon -->
+        <rect x="-7" y="-4" width="14" height="8" rx="1" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <circle cx="-3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <circle cx="3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Regleta Wi-Fi</text>
+      </g>
+      <!-- Tooltip -->
+      <g class="tooltip-card" transform="translate(85, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta Lab Row 1</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Cuts standby power overnight</text>
+      </g>
     </g>
 
-    <!-- Tooltip Card -->
-    <g class="dev-tooltip" transform="translate(450, 50)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#00ffcc" font-weight="bold" text-anchor="middle">Central Server</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Raspberry Pi 4 (4GB RAM)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Home Assistant & MQTT Broker</text>
-    </g>
-  </g>
-
-  <!-- 2. Sonoff POW Elite Node -->
-  <g class="dev-group">
-    <!-- Highlight target on kitchen/corridor wall panel (x=300, y=210) -->
-    <circle cx="300" cy="210" r="15" class="dev-target-glow" />
-    <circle cx="300" cy="210" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="300" y1="110" x2="300" y2="210" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="300" cy="110" r="16" class="dev-icon-bg" />
-      <!-- POW Box icon -->
-      <rect x="294" y="103" width="12" height="14" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <line x1="297" y1="110" x2="303" y2="110" stroke="#60a5fa" stroke-width="1" class="dev-icon-symbol" />
-      <!-- Label -->
-      <text x="300" y="136" class="dev-label">Sonoff POW</text>
+    <!-- NODE 2: Sonoff R2 (Lab Row 2) -->
+    <g class="dev-group">
+      <polygon points="85,260 130,282 105,305 60,282" class="room-highlight" />
+      <circle cx="125" cy="275" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="135" y1="80" x2="125" y2="275" class="dev-line" />
+      <g transform="translate(135, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(135, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Lab</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Controls computer lab lights</text>
+      </g>
     </g>
 
-    <!-- Tooltip Card -->
-    <g class="dev-tooltip" transform="translate(300, 70)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Energy Meter</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff POW Elite (20A)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Office Real-time kWh Monitor</text>
-    </g>
-  </g>
-
-  <!-- 3. Sonoff R2 Relays (Lab/Computo) -->
-  <g class="dev-group">
-    <!-- Highlight target in Lab (x=210, y=240) -->
-    <circle cx="210" cy="240" r="15" class="dev-target-glow" />
-    <circle cx="210" cy="240" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="200" y1="130" x2="210" y2="240" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="200" cy="130" r="16" class="dev-icon-bg" />
-      <!-- Switch icon -->
-      <circle cx="200" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="200" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="200" y="156" class="dev-label">Sonoff R2 (L1)</text>
+    <!-- NODE 3: Sonoff R2 (Kitchen) -->
+    <g class="dev-group">
+      <polygon points="180,340 215,357 195,377 160,360" class="room-highlight" />
+      <circle cx="195" cy="355" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="205" y1="80" x2="195" y2="355" class="dev-line" />
+      <g transform="translate(205, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(205, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Cocina</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Controls ceiling light fixtures</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(200, 90)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Computer Lab Lights</text>
-    </g>
-  </g>
-
-  <!-- 4. Sonoff R2 Relays (Oficina Central) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=380, y=220) -->
-    <circle cx="380" cy="220" r="15" class="dev-target-glow" />
-    <circle cx="380" cy="220" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="370" y1="130" x2="380" y2="220" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="370" cy="130" r="16" class="dev-icon-bg" />
-      <circle cx="370" cy="130" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="370" cy="130" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="370" y="156" class="dev-label">Sonoff R2 (L2)</text>
+    <!-- NODE 4: Sonoff POW Elite (Corridor/Panel) -->
+    <g class="dev-group">
+      <circle cx="250" cy="360" r="12" class="room-highlight" />
+      <circle cx="250" cy="360" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="270" y1="50" x2="250" y2="360" class="dev-line" />
+      <g transform="translate(270, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <rect x="-5" y="-6" width="10" height="12" rx="1.5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <line x1="-3" y1="0" x2="3" y2="0" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff POW</text>
+      </g>
+      <g class="tooltip-card" transform="translate(270, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">POW Elite - Panel</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Measures general office kWh usage</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(370, 90)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Main Office Lights</text>
-    </g>
-  </g>
-
-  <!-- 5. Smart Power Strip Node (Regleta Lab) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=160, y=280) -->
-    <circle cx="160" cy="280" r="15" class="dev-target-glow" />
-    <circle cx="160" cy="280" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="120" y1="100" x2="160" y2="280" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="120" cy="100" r="16" class="dev-icon-bg" />
-      <!-- Power strip icon -->
-      <rect x="114" y="96" width="12" height="8" rx="1" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="117" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
-      <circle cx="121" cy="100" r="1" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="120" y="126" class="dev-label">Wi-Fi Strip</text>
+    <!-- NODE 5: Smart Plug (Corridor/Hallway) -->
+    <g class="dev-group">
+      <circle cx="310" cy="370" r="12" class="room-highlight" />
+      <circle cx="310" cy="370" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="330" y1="90" x2="310" y2="370" class="dev-line" />
+      <g transform="translate(330, 90)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="-2" y1="-2" x2="-2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="2" y1="-2" x2="2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Smart Plug</text>
+      </g>
+      <g class="tooltip-card" transform="translate(330, 60)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Enchufe Inteligente</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Controls A/C and fans</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(120, 60)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Smart Power Strip</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Smart Wi-Fi Strip with metering</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Shutdown PCs overnight</text>
-    </g>
-  </g>
-
-  <!-- 6. Smart Plug Node (Enchufe Central/Pasillo) -->
-  <g class="dev-group">
-    <!-- Highlight target (x=330, y=270) -->
-    <circle cx="330" cy="270" r="15" class="dev-target-glow" />
-    <circle cx="330" cy="270" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="250" y1="120" x2="330" y2="270" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="250" cy="120" r="16" class="dev-icon-bg" />
-      <!-- Plug icon -->
-      <circle cx="250" cy="120" r="6" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <line x1="248" y1="118" x2="248" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
-      <line x1="252" y1="118" x2="252" y2="122" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" class="dev-icon-symbol" />
-      <text x="250" y="146" class="dev-label">Wall Outlet</text>
+    <!-- NODE 6: Central Server (Raspberry Pi 4) -->
+    <g class="dev-group">
+      <circle cx="380" cy="325" r="18" class="room-highlight" />
+      <circle cx="380" cy="325" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="385" y1="40" x2="380" y2="325" class="dev-line" />
+      <g transform="translate(385, 40)">
+        <circle cx="0" cy="0" r="16" class="dev-node-bg" style="stroke:#10b981;" />
+        <!-- Micro-Pi logo -->
+        <circle cx="0" cy="0" r="4" fill="#ef4444" />
+        <path d="M-4,-4 L4,-4 L4,4 L-4,4 Z" fill="none" stroke="#10b981" stroke-width="0.8" />
+        <text x="0" y="-20" class="dev-node-label" style="fill:#10b981;">Servidor RPi 4</text>
+      </g>
+      <g class="tooltip-card" transform="translate(385, 10)">
+        <rect x="-80" y="-45" width="160" height="40" rx="4" fill="#0b1329" stroke="#10b981" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#10b981" font-weight="bold" text-anchor="middle">Raspberry Pi 4 Server</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Core Home Assistant & MQTT Broker</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(250, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Smart Plug</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Smart Wi-Fi wall plug</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls auxiliary A/C units</text>
-    </g>
-  </g>
-
-  <!-- 7. Sonoff R2 Relays (Reuniones/Meetings) -->
-  <g class="dev-group">
-    <!-- Highlight target in Meeting Room (x=600, y=210) -->
-    <circle cx="600" cy="210" r="15" class="dev-target-glow" />
-    <circle cx="600" cy="210" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="590" y1="120" x2="600" y2="210" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="590" cy="120" r="16" class="dev-icon-bg" />
-      <circle cx="590" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="590" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="590" y="146" class="dev-label">Sonoff R2 (L3)</text>
+    <!-- NODE 7: Sonoff R2 (Support Corridor Light) -->
+    <g class="dev-group">
+      <circle cx="440" cy="330" r="12" class="room-highlight" />
+      <circle cx="440" cy="330" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="450" y1="80" x2="440" y2="330" class="dev-line" />
+      <g transform="translate(450, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(450, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Pasillo</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Scheduled shutdown in reception</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(590, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls Meeting Room Lights</text>
-    </g>
-  </g>
-
-  <!-- 8. Sonoff R2 (Almacén 2 / TI) -->
-  <g class="dev-group">
-    <!-- Highlight target in Support area (x=520, y=180) -->
-    <circle cx="520" cy="180" r="15" class="dev-target-glow" />
-    <circle cx="520" cy="180" r="4" fill="#00ffcc" />
-    
-    <!-- Connection Line -->
-    <line x1="680" y1="120" x2="520" y2="180" class="dev-line" />
-    
-    <!-- Floating Icon Group -->
-    <g transform="translate(0, 0)">
-      <circle cx="680" cy="120" r="16" class="dev-icon-bg" />
-      <circle cx="680" cy="120" r="5" fill="none" stroke="#60a5fa" stroke-width="1.5" class="dev-icon-symbol" />
-      <circle cx="680" cy="120" r="2" fill="#60a5fa" class="dev-icon-symbol" />
-      <text x="680" y="146" class="dev-label">Sonoff R2 (L4)</text>
+    <!-- NODE 8: Smart Plug (Restroom area) -->
+    <g class="dev-group">
+      <circle cx="490" cy="310" r="12" class="room-highlight" />
+      <circle cx="490" cy="310" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="510" y1="90" x2="490" y2="310" class="dev-line" />
+      <g transform="translate(510, 90)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="-2" y1="-2" x2="-2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <line x1="2" y1="-2" x2="2" y2="2" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Smart Plug</text>
+      </g>
+      <g class="tooltip-card" transform="translate(510, 60)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Plug - Restrooms</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Shuts down water dispenser & exhaust fans</text>
+      </g>
     </g>
 
-    <!-- Tooltip -->
-    <g class="dev-tooltip" transform="translate(680, 80)">
-      <rect x="-85" y="-60" width="170" height="50" rx="6" fill="#0b1329" stroke="#3b82f6" stroke-width="1" />
-      <text x="0" y="-44" font-family="'Space Mono', monospace" font-size="9.5" fill="#3b82f6" font-weight="bold" text-anchor="middle">Lighting Relay</text>
-      <text x="0" y="-30" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Sonoff Basic R2 (Tasmota)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8.5" fill="#94a3b8" text-anchor="middle">Controls IT & Support Lights</text>
+    <!-- NODE 9: Sonoff R2 (Meetings Area) -->
+    <g class="dev-group">
+      <polygon points="410,290 460,265 425,235 375,260" class="room-highlight" />
+      <circle cx="420" cy="270" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="565" y1="80" x2="420" y2="270" class="dev-line" />
+      <g transform="translate(565, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(565, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - TV</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Power toggles TV screen</text>
+      </g>
+    </g>
+
+    <!-- NODE 10: Regleta Wifi (Meetings Table) -->
+    <g class="dev-group">
+      <polygon points="450,270 500,245 470,225 420,250" class="room-highlight" />
+      <circle cx="460" cy="250" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="620" y1="50" x2="460" y2="250" class="dev-line" />
+      <g transform="translate(620, 50)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <rect x="-7" y="-4" width="14" height="8" rx="1" fill="none" stroke="#3b82f6" stroke-width="1" class="dev-node-icon" />
+        <circle cx="-3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <circle cx="3" cy="0" r="1" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Regleta Wi-Fi</text>
+      </g>
+      <g class="tooltip-card" transform="translate(620, 20)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta - Reuniones</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Shuts down projectors & chargers</text>
+      </g>
+    </g>
+
+    <!-- NODE 11: Sonoff R2 (Warehouse Shelves) -->
+    <g class="dev-group">
+      <polygon points="560,250 620,220 590,200 530,230" class="room-highlight" />
+      <circle cx="580" cy="225" r="4" fill="#00ffcc" filter="url(#neonGlow)" />
+      <line x1="675" y1="80" x2="580" y2="225" class="dev-line" />
+      <g transform="translate(675, 80)">
+        <circle cx="0" cy="0" r="14" class="dev-node-bg" />
+        <circle cx="0" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="1.2" class="dev-node-icon" />
+        <circle cx="0" cy="0" r="2" fill="#3b82f6" class="dev-node-icon" />
+        <text x="0" y="-18" class="dev-node-label">Sonoff R2</text>
+      </g>
+      <g class="tooltip-card" transform="translate(675, 50)">
+        <rect x="-75" y="-45" width="150" height="40" rx="4" fill="#0b1329" stroke="#00ffcc" stroke-width="1" />
+        <text x="0" y="-32" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 - Almacén</text>
+        <text x="0" y="-20" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Controls lighting in shelf aisles</text>
+      </g>
+    </g>
+
+    <!-- ═══ LOGOS AND BRANDING ═══ -->
+    <!-- Home Assistant Logo (Top Right) -->
+    <g transform="translate(620, -10)" opacity="0.8">
+      <path d="M0,8 L16,0 L32,8 L32,24 L16,32 L0,24 Z" fill="#03a9f4" />
+      <path d="M16,5 L26,10 L26,20 L16,25 L6,20 L6,10 Z M16,10 L16,20 M12,14 C12,14 16,16 16,16 M20,14 C20,14 16,16 16,16" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+
+    <!-- Tuya/SmartLife Logo (Bottom Right) -->
+    <g transform="translate(620, 360)" opacity="0.85">
+      <rect x="0" y="0" width="30" height="30" rx="6" fill="#ff5722" />
+      <circle cx="15" cy="15" r="8" fill="none" stroke="#fff" stroke-width="2.5" />
+      <circle cx="15" cy="15" r="3" fill="#fff" />
     </g>
   </g>
 </svg>
