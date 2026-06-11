@@ -1,3 +1,13 @@
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// Initialize Lenis
+const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
 import { getAbreCursosSimulatorHTML } from './components/AbreCursosSimulator.js';
 import { modalData } from './data/modalData.js';
 import { translations } from './translations.js';
@@ -1028,30 +1038,58 @@ const initParticlesCanvas = () => {
   const particles = [];
   const maxParticles = 40;
   
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.35;
-      this.vy = (Math.random() - 0.5) * 0.35;
-      this.radius = Math.random() * 2 + 1;
-    }
-    
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
+  
+// Mouse position
+let mouse = { x: null, y: null };
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+window.addEventListener('mouseout', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * pCanvas.width;
+    this.y = Math.random() * pCanvas.height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.baseX = this.x;
+    this.baseY = this.y;
+    this.size = Math.random() * 2;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > pCanvas.width) this.vx *= -1;
+    if (this.y < 0 || this.y > pCanvas.height) this.vy *= -1;
+
+    // Interactive Repulsion
+    if (mouse.x != null && mouse.y != null) {
+      let dx = mouse.x - this.x;
+      let dy = mouse.y - this.y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+      let forceDirectionX = dx / distance;
+      let forceDirectionY = dy / distance;
+      let maxDistance = 150;
+      let force = (maxDistance - distance) / maxDistance;
       
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
-    }
-    
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(74, 158, 255, 0.35)';
-      ctx.fill();
+      if (distance < maxDistance) {
+        this.x -= forceDirectionX * force * 5;
+        this.y -= forceDirectionY * force * 5;
+      }
     }
   }
+  draw() {
+    pCtx.fillStyle = "rgba(74, 158, 255, 0.4)";
+    pCtx.beginPath();
+    pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    pCtx.fill();
+  }
+}
+
   
   for (let i = 0; i < maxParticles; i++) {
     particles.push(new Particle());
@@ -1090,3 +1128,42 @@ const initParticlesCanvas = () => {
 };
 
 initParticlesCanvas();
+
+
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const htmlEl = document.documentElement;
+const currentTheme = localStorage.getItem('theme') || 'dark';
+htmlEl.setAttribute('data-theme', currentTheme);
+themeToggle.innerText = currentTheme === 'dark' ? '☀️' : '🌙';
+
+themeToggle.addEventListener('click', () => {
+  const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  themeToggle.innerText = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
+
+// GSAP Animations
+document.addEventListener("DOMContentLoaded", () => {
+  // Hero Logo Scrubbing
+  gsap.to(".spin-slow", {
+    rotation: 360,
+    ease: "none",
+    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: 1 }
+  });
+  gsap.to(".spin-reverse", {
+    rotation: -360,
+    ease: "none",
+    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: 1 }
+  });
+
+  // Reveal Staggering
+  gsap.utils.toArray('section').forEach(section => {
+    gsap.from(section.querySelectorAll('.reveal'), {
+      y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out",
+      scrollTrigger: { trigger: section, start: "top 80%" }
+    });
+  });
+});

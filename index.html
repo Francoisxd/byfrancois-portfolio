@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,6 +78,10 @@
   
   <div class="nav-right-container">
     <!-- Language Switcher Toggle Buttons -->
+    
+    <div class="theme-toggle-wrapper" style="margin-right: 15px;">
+      <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle theme">☀️</button>
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn active" type="button" data-lang="es" aria-label="Cambiar idioma a espanol">ES</button>
       <button class="lang-btn" type="button" data-lang="en" aria-label="Switch language to English">EN</button>
@@ -498,8 +502,8 @@
 </footer>
 
 <!-- Project Detail Modal -->
-<div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle" aria-hidden="true">
-  <div class="modal-container" tabindex="-1">
+<div class="case-study-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle" aria-hidden="true">
+  <div class="case-study-container" tabindex="-1">
     <div class="modal-header">
       <h3 id="modalProjectTitle">Detalles del Proyecto</h3>
       <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Cerrar modal">✕</button>
