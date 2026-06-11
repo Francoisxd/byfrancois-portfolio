@@ -1,7 +1,16 @@
+import { getAbreCursosSimulatorHTML } from './components/AbreCursosSimulator.js';
+import { modalData } from './data/modalData.js';
 import { translations } from './translations.js';
+// Inject Abre Cursos Simulator
+const acContainer = document.getElementById('abreCursosContainer');
+if (acContainer) {
+  acContainer.innerHTML = getAbreCursosSimulatorHTML();
+}
+
 
 // Global variables for language state
 let currentLang = 'es';
+const CONTACT_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
 
 // --- Preloader Simulation ---
 const preloader = document.getElementById('preloader');
@@ -100,7 +109,11 @@ const changeLanguage = (lang) => {
         el.setAttribute('placeholder', translations[lang][placeholderKey] || translations['es'][placeholderKey]);
       }
     } else {
-      el.innerHTML = translation;
+      if (translation.includes('<')) {
+        el.innerHTML = translation;
+      } else {
+        el.textContent = translation;
+      }
     }
   });
 
@@ -431,11 +444,18 @@ const renderAcCourses = () => {
         <div class="ac-card-meta">${daysStr} • <span class="${badgeClass}">${badgeText}</span> ${urlClean}</div>
       </div>
       <div class="ac-card-right">
-        <button class="ctk-btn green" style="padding: 0.3rem 0.6rem; font-size: 10px;" onclick="window.acTriggerManualOpen('${c.id}')">${currentLang === 'es' ? 'Abrir' : 'Open'}</button>
-        <button class="ctk-btn red" style="padding: 0.3rem 0.6rem; font-size: 10px;" onclick="window.acTriggerDeleteCourse('${c.id}')">${currentLang === 'es' ? 'Borrar' : 'Delete'}</button>
+        <button class="ctk-btn green js-ac-open" type="button" data-course-id="${c.id}" style="padding: 0.3rem 0.6rem; font-size: 10px;">${currentLang === 'es' ? 'Abrir' : 'Open'}</button>
+        <button class="ctk-btn red js-ac-delete" type="button" data-course-id="${c.id}" style="padding: 0.3rem 0.6rem; font-size: 10px;">${currentLang === 'es' ? 'Borrar' : 'Delete'}</button>
       </div>
     `;
     acCardList.appendChild(card);
+  });
+
+  acCardList.querySelectorAll('.js-ac-open').forEach(btn => {
+    btn.addEventListener('click', () => acTriggerManualOpen(btn.dataset.courseId));
+  });
+  acCardList.querySelectorAll('.js-ac-delete').forEach(btn => {
+    btn.addEventListener('click', () => acTriggerDeleteCourse(btn.dataset.courseId));
   });
   
   if (window.updateCursorHoverHandlers) window.updateCursorHoverHandlers();
@@ -443,7 +463,7 @@ const renderAcCourses = () => {
 
 const addAcLog = (text) => {
   if (!acLogBox) return;
-  acLogBox.innerHTML += `[${new Date().toLocaleTimeString()}] ${text}\n`;
+  acLogBox.textContent += `[${new Date().toLocaleTimeString()}] ${text}\n`;
   acLogBox.scrollTop = acLogBox.scrollHeight;
 };
 
@@ -519,7 +539,7 @@ const runAcSchedulerCheck = () => {
       
       // Open simulated modal window in web
       const zoomOrTeams = c.url.toLowerCase().includes('zoom') || c.url.toLowerCase().includes('teams');
-      window.open(zoomOrTeams ? c.url : 'https://canvas.upn.edu.pe/', '_blank');
+      window.open(zoomOrTeams ? c.url : 'https://canvas.upn.edu.pe/', '_blank', 'noopener,noreferrer');
     }
   });
 };
@@ -544,22 +564,22 @@ const tickAcClock = (advanceMinutes = 1) => {
 };
 
 // Simulated time advancement controls
-const btnAcAdvance1 = document.getElementById('btnAcAdvance1');
-const btnAcAdvance10 = document.getElementById('btnAcAdvance10');
-const btnAcJumpClass = document.getElementById('btnAcJumpClass');
+const projectAbrecursosAdvance1Btn = document.getElementById('project-abrecursos-advance-1-btn');
+const projectAbrecursosAdvance10Btn = document.getElementById('project-abrecursos-advance-10-btn');
+const projectAbrecursosJumpBtn = document.getElementById('project-abrecursos-jump-btn');
 
-if (btnAcAdvance1) {
-  btnAcAdvance1.addEventListener('click', () => {
+if (projectAbrecursosAdvance1Btn) {
+  projectAbrecursosAdvance1Btn.addEventListener('click', () => {
     tickAcClock(1);
   });
 }
-if (btnAcAdvance10) {
-  btnAcAdvance10.addEventListener('click', () => {
+if (projectAbrecursosAdvance10Btn) {
+  projectAbrecursosAdvance10Btn.addEventListener('click', () => {
     tickAcClock(10);
   });
 }
-if (btnAcJumpClass) {
-  btnAcJumpClass.addEventListener('click', () => {
+if (projectAbrecursosJumpBtn) {
+  projectAbrecursosJumpBtn.addEventListener('click', () => {
     // Jump time to Sunday 19:29 (one minute before Probabilidad class starts)
     simDate.setHours(19, 29, 0);
     // Sunday is Day 0
@@ -654,7 +674,7 @@ if (acFormCourse) {
 }
 
 // Global hook triggers exposed for card actions
-window.acTriggerManualOpen = (cId) => {
+const acTriggerManualOpen = (cId) => {
   const c = acCourses.find(x => x.id === cId);
   if (!c) return;
   acStats.asistencias++;
@@ -664,10 +684,10 @@ window.acTriggerManualOpen = (cId) => {
     currentLang === 'es' ? "Clase abierta manualmente" : "Class manually opened", 
     currentLang === 'es' ? `Abriendo enlace de '${c.nombre}'` : `Opening link for '${c.nombre}'`
   );
-  window.open(c.url, '_blank');
+  window.open(c.url, '_blank', 'noopener,noreferrer');
 };
 
-window.acTriggerDeleteCourse = (cId) => {
+const acTriggerDeleteCourse = (cId) => {
   const c = acCourses.find(x => x.id === cId);
   if (!c) return;
   acCourses = acCourses.filter(x => x.id !== cId);
@@ -757,7 +777,7 @@ const fetchLatestRelease = async () => {
       latestRelease.tag_name = data.tag_name;
       const exeAsset = data.assets && data.assets.find(asset => asset.name.endsWith('.exe'));
       latestRelease.download_url = exeAsset ? exeAsset.browser_download_url : data.html_url;
-      console.log("Latest release fetched successfully from GitHub:", latestRelease);
+
     }
   } catch (err) {
     console.error("Failed to fetch latest GitHub release for Abre Cursos Pro:", err);
@@ -766,778 +786,7 @@ const fetchLatestRelease = async () => {
 // Trigger GitHub API Fetch
 fetchLatestRelease();
 
-const modalData = {
-  office: {
-    title: {
-      es: "Smart Office — Nanotechnology SAC (Detalles)",
-      en: "Smart Office — Nanotechnology SAC (Details)"
-    },
-    desc: {
-      es: `
-        <h4>Descripción del Proyecto</h4>
-        <p>Este sistema fue diseñado para la empresa <strong>Nanotechnology SAC</strong> en la ciudad de Trujillo, Perú. El objetivo principal es la automatización del consumo eléctrico y control climático en un entorno corporativo dinámico, logrando un balance óptimo entre comodidad para los colaboradores y ahorro para la organización.</p>
-        
-        <h4>Arquitectura del Sistema</h4>
-        <p>Se centralizó el ecosistema utilizando un servidor local de <strong>Home Assistant</strong> corriendo en una <strong>Raspberry Pi 4</strong> (4GB RAM). La comunicación con los dispositivos se realiza mediante protocolos locales (Wi-Fi/MQTT) para asegurar independencia y baja latencia.</p>
-        
-        <h4>Dispositivos Implementados</h4>
-        <ul>
-          <li><strong>Relés inteligentes Sonoff Basic R2:</strong> Con firmware libre <em>Tasmota</em>, instalados directamente en las luminarias de la oficina para permitir encendidos remotos, programados y vinculados a eventos.</li>
-          <li><strong>Sonoff POW Elite:</strong> Interruptor de alta potencia instalado en el cuadro general para monitorear el consumo de kWh de la oficina en tiempo real.</li>
-          <li><strong>Sensores de Movimiento PIR HC-SR501:</strong> Distribuidos estratégicamente por la oficina y conectados a las entradas GPIO.</li>
-          <li><strong>Emisor IR Broadlink:</strong> Para el control de encendido, apagado e histéresis del aire acondicionado según las lecturas de los sensores DHT22.</li>
-        </ul>
-        
-        <h4>Ahorro de Energía</h4>
-        <p>Al programar el apagado automático tras 5 minutos de inactividad detectada por los sensores PIR y el corte general fuera del horario de oficina, se estimó una reducción del 30% en el desperdicio energético, amortizando rápidamente la inversión inicial.</p>
-      `,
-      en: `
-        <h4>Project Description</h4>
-        <p>This system was designed for <strong>Nanotechnology SAC</strong> in Trujillo, Peru. The main goal is the automation of electrical consumption and climate control in a dynamic corporate environment, achieving an optimal balance between employee comfort and operational savings.</p>
-        
-        <h4>System Architecture</h4>
-        <p>The ecosystem was centralized using a local <strong>Home Assistant</strong> server running on a <strong>Raspberry Pi 4</strong> (4GB RAM). Communication with the devices is done via local protocols (Wi-Fi/MQTT) to ensure independence and low latency.</p>
-        
-        <h4>Implemented Devices</h4>
-        <ul>
-          <li><strong>Sonoff Basic R2 Smart Relays:</strong> Flashed with <em>Tasmota</em> open source firmware, installed directly on the office fixtures to enable remote, scheduled, and event-based triggers.</li>
-          <li><strong>Sonoff POW Elite:</strong> A high-power switch installed in the distribution board to monitor real-time kWh consumption.</li>
-          <li><strong>PIR Motion Sensors HC-SR501:</strong> Strategically distributed and wired to GPIO inputs to track presence.</li>
-          <li><strong>Broadlink IR Blaster:</strong> Integrated to automate AC power toggling and hysteresis based on DHT22 temperature sensors.</li>
-        </ul>
-        
-        <h4>Energy Savings</h4>
-        <p>By scheduling automatic shut-offs after 5 minutes of inactivity (PIR) and implementing hard cut-offs outside working hours, an estimated 30% reduction in energy waste was achieved, quickly returning the initial project cost.</p>
-      `
-    },
-    extra: {
-      es: `        <h4>Presupuesto y Lista de Materiales (SENATI)</h4>
-        <p>El presupuesto oficial extraído de las especificaciones del proyecto de innovación es el siguiente:</p>
-        <table class="modal-table">
-          <thead>
-            <tr>
-              <th>Componente / Ítem</th>
-              <th>Cant.</th>
-              <th>Costo Unitario</th>
-              <th>Total (S/.)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Servidor Raspberry Pi 4 Model B (4GB) + Fuente y Case</td>
-              <td>1</td>
-              <td>S/. 495.00</td>
-              <td>S/. 495.00</td>
-            </tr>
-            <tr>
-              <td>Interruptor inteligente SONOFF Basic R3 (Tasmota)</td>
-              <td>6</td>
-              <td>S/. 25.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>Interruptor con Monitoreo SONOFF POW Elite (20A)</td>
-              <td>1</td>
-              <td>S/. 85.00</td>
-              <td>S/. 85.00</td>
-            </tr>
-            <tr>
-              <td>Sensor de Movimiento PIR HC-SR501 (GPIO)</td>
-              <td>3</td>
-              <td>S/. 20.00</td>
-              <td>S/. 60.00</td>
-            </tr>
-            <tr>
-              <td>Canaletas plásticas, cables eléctricos y accesorios</td>
-              <td>-</td>
-              <td>S/. 120.00</td>
-              <td>S/. 120.00</td>
-            </tr>
-            <tr>
-              <td>Herramientas menores, fijaciones y fusibles</td>
-              <td>-</td>
-              <td>S/. 80.00</td>
-              <td>S/. 80.00</td>
-            </tr>
-            <tr>
-              <td>Paneles de Iluminación LED de alta eficiencia</td>
-              <td>4</td>
-              <td>S/. 95.00</td>
-              <td>S/. 380.00</td>
-            </tr>
-            <tr>
-              <td>Control de Aire Acondicionado IR Broadlink RM4 Mini</td>
-              <td>1</td>
-              <td>S/. 150.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>Regletas Inteligentes Wi-Fi (Protección de sobretensión)</td>
-              <td>2</td>
-              <td>S/. 180.00</td>
-              <td>S/. 360.00</td>
-            </tr>
-            <tr style="font-weight: bold; border-top: 2px solid var(--border);">
-              <td>Subtotal de Materiales y Equipos</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,720.00</td>
-            </tr>
-            <tr>
-              <td>Mano de Obra Calificada (Técnico TI, Electricista, Supervisor)</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,030.00</td>
-            </tr>
-            <tr style="font-weight: bold; background: var(--bg3); color: var(--blue-light);">
-              <td>TOTAL GENERAL DE INVERSIÓN</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 2,870.00</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <h4>Análisis de Retorno de Inversión (ROI)</h4>
-        <ul>
-          <li><strong>Consumo Eléctrico Inicial:</strong> 357 kWh mensuales (Equivalente aproximado a <strong>S/. 400.00</strong> al mes).</li>
-          <li><strong>Ahorro Estimado:</strong> Reducción de <strong>S/. 120.00 mensuales</strong> (Ahorro del 30% en consumo innecesario).</li>
-          <li><strong>Tiempo de Recuperación:</strong> ~24 meses de retorno de inversión por completo.</li>
-        </ul>
 
-        <h4 style="margin-top:2.5rem;">Plano de Distribución y Conectividad IoT (Nanotechnology SAC)</h4>
-        <p>Distribución de dispositivos inteligentes y sus conexiones al Router principal en la planta de la oficina:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 914 434" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-  <defs>
-    <!-- Glow filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </defs>
-
-  <style>
-    /* Hotspot Interactive Elements */
-    .hotspot { cursor: pointer; }
-    .hotspot-ring { fill: none; stroke: #3b82f6; stroke-width: 1.5; opacity: 0; transition: all 0.3s; }
-    .hotspot-pulse { fill: none; stroke: #3b82f6; stroke-width: 1.5; opacity: 0; transform-origin: center; transition: all 0.3s; }
-    .flow-line { fill: none; stroke: #00ffcc; stroke-width: 2; opacity: 0; stroke-linecap: round; stroke-dasharray: 6 4; transition: all 0.3s; }
-    .target-dot { fill: #00ffcc; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
-    .tooltip-bg { fill: #0b1329; stroke: #00ffcc; stroke-width: 1.2; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); }
-    .tooltip-card { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); }
-
-    /* Hover triggers */
-    .hotspot:hover .hotspot-ring { opacity: 1; stroke: #00ffcc; filter: url(#neonGlow); }
-    .hotspot:hover .hotspot-pulse { opacity: 1; stroke: #00ffcc; animation: pulseWave 1.2s infinite linear; }
-    .hotspot:hover .flow-line { opacity: 1; animation: flowDash 1s infinite linear; }
-    .hotspot:hover .target-dot { opacity: 1; animation: targetPulse 1.2s infinite ease-out; }
-    .hotspot:hover .tooltip-card { opacity: 1; transform: translateY(0); }
-
-    @keyframes pulseWave {
-      0% { r: 14; opacity: 1; stroke-width: 1.5; }
-      100% { r: 35; opacity: 0; stroke-width: 0.5; }
-    }
-    @keyframes flowDash {
-      to { stroke-dashoffset: -20; }
-    }
-    @keyframes targetPulse {
-      0% { r: 3; opacity: 1; }
-      100% { r: 12; opacity: 0; stroke: #00ffcc; stroke-width: 1; }
-    }
-  </style>
-
-  <!-- Slide Background Image -->
-  <image href="/images/plano_smart_office_3d.png" x="0" y="0" width="914" height="434" />
-
-  <!-- ════════ INTERACTIVE HOTSPOTS OVERLAY ════════ -->
-
-  <!-- NODE 1: Regleta Lab (Row 1) -->
-  <g class="hotspot">
-    <!-- Overlay Line -->
-    <line x1="288" y1="110" x2="288" y2="300" class="flow-line" />
-    <circle cx="288" cy="300" r="5" class="target-dot" />
-    <!-- Floating Circle Trigger -->
-    <circle cx="288" cy="110" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="288" cy="110" r="14" class="hotspot-ring" />
-    <circle cx="288" cy="110" r="14" class="hotspot-pulse" />
-    <!-- Tooltip -->
-    <g class="tooltip-card" transform="translate(288, 70)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta Smart (Lab)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Corta corriente de computadoras</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">de noche para evitar consumo fantasma.</text>
-    </g>
-  </g>
-
-  <!-- NODE 2: Sonoff R2 (Lab Row 2) -->
-  <g class="hotspot">
-    <line x1="317" y1="185" x2="317" y2="275" class="flow-line" />
-    <circle cx="317" cy="275" r="5" class="target-dot" />
-    <circle cx="317" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="317" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="317" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(317, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Computo)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controla encendido de luminarias</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">automático por presencia/inactividad.</text>
-    </g>
-  </g>
-
-  <!-- NODE 3: Sonoff R2 (Kitchen) -->
-  <g class="hotspot">
-    <line x1="385" y1="185" x2="385" y2="305" class="flow-line" />
-    <circle cx="385" cy="305" r="5" class="target-dot" />
-    <circle cx="385" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="385" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="385" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(385, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Cocina)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Control local y apagado automático</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">de iluminación en comedor de personal.</text>
-    </g>
-  </g>
-
-  <!-- NODE 4: Sonoff POW Elite -->
-  <g class="hotspot">
-    <line x1="420" y1="110" x2="420" y2="230" class="flow-line" />
-    <circle cx="420" cy="230" r="5" class="target-dot" />
-    <circle cx="420" cy="110" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="420" cy="110" r="14" class="hotspot-ring" />
-    <circle cx="420" cy="110" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(420, 70)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff POW Elite</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Medición de consumo general (20A)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">monitorea consumo de kWh en vivo.</text>
-    </g>
-  </g>
-
-  <!-- NODE 5: Enchufe Smart (Corridor) -->
-  <g class="hotspot">
-    <line x1="480" y1="195" x2="480" y2="280" class="flow-line" />
-    <circle cx="480" cy="280" r="5" class="target-dot" />
-    <circle cx="480" cy="195" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="480" cy="195" r="14" class="hotspot-ring" />
-    <circle cx="480" cy="195" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(480, 155)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Enchufe Smart (Lobby)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Control de climatizador auxiliar</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">y ventiladores en zona común.</text>
-    </g>
-  </g>
-
-  <!-- NODE 6: Servidor Central (Raspberry Pi 4) -->
-  <g class="hotspot">
-    <line x1="550" y1="60" x2="550" y2="310" class="flow-line" style="stroke:#10b981;" />
-    <circle cx="550" cy="310" r="5" class="target-dot" style="fill:#10b981;" />
-    <circle cx="550" cy="60" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="550" cy="60" r="14" class="hotspot-ring" style="stroke:#10b981;" />
-    <circle cx="550" cy="60" r="14" class="hotspot-pulse" style="stroke:#10b981;" />
-    <g class="tooltip-card" transform="translate(550, 20)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" style="stroke:#10b981;" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#10b981" font-weight="bold" text-anchor="middle">Servidor RPi 4 (HA)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Cerebro central del sistema IoT.</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Corre Home Assistant y MQTT local.</text>
-    </g>
-  </g>
-
-  <!-- NODE 7: Sonoff R2 (Restrooms) -->
-  <g class="hotspot">
-    <line x1="620" y1="185" x2="620" y2="310" class="flow-line" />
-    <circle cx="620" cy="310" r="5" class="target-dot" />
-    <circle cx="620" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="620" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="620" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(620, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Servicios)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Apagado automático de extractor</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">e iluminación en los servicios higiénicos.</text>
-    </g>
-  </g>
-
-  <!-- NODE 8: Enchufe Smart (IT Office / Support) -->
-  <g class="hotspot">
-    <line x1="670" y1="195" x2="670" y2="290" class="flow-line" />
-    <circle cx="670" cy="290" r="5" class="target-dot" />
-    <circle cx="670" cy="195" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="670" cy="195" r="14" class="hotspot-ring" />
-    <circle cx="670" cy="195" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(670, 155)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Enchufe Smart (Soporte)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Control de tomacorrientes de soporte</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">e impresoras fuera de oficina.</text>
-    </g>
-  </g>
-
-  <!-- NODE 9: Sonoff R2 (Meetings Screen) -->
-  <g class="hotspot">
-    <line x1="730" y1="140" x2="730" y2="320" class="flow-line" />
-    <circle cx="730" cy="320" r="5" class="target-dot" />
-    <circle cx="730" cy="140" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="730" cy="140" r="14" class="hotspot-ring" />
-    <circle cx="730" cy="140" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(730, 100)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Multimedia)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Corta corriente de pantalla de TV</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">y reproductores en sala de juntas.</text>
-    </g>
-  </g>
-
-  <!-- NODE 10: Regleta Wi-Fi (Meetings Table) -->
-  <g class="hotspot">
-    <line x1="790" y1="185" x2="790" y2="330" class="flow-line" />
-    <circle cx="790" cy="330" r="5" class="target-dot" />
-    <circle cx="790" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="790" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="790" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(790, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Regleta Smart (Reuniones)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Programa el corte de proyectores</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">y tomacorrientes de mesa principal.</text>
-    </g>
-  </g>
-
-  <!-- NODE 11: Sonoff R2 (Warehouse Shelves) -->
-  <g class="hotspot">
-    <line x1="845" y1="130" x2="845" y2="290" class="flow-line" />
-    <circle cx="845" cy="290" r="5" class="target-dot" />
-    <circle cx="845" cy="130" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="845" cy="130" r="14" class="hotspot-ring" />
-    <circle cx="845" cy="130" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(845, 90)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Almacén)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controla luminarias de pasillos</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">en estanterías de almacenamiento.</text>
-    </g>
-  </g>
-</svg>
-        </div>
-`,
-      en: `        <h4>Project Budget and Material Bill (SENATI)</h4>
-        <p>The official budget extracted from the innovation project technical specifications is listed below:</p>
-        <table class="modal-table">
-          <thead>
-            <tr>
-              <th>Component / Item</th>
-              <th>Qty</th>
-              <th>Unit Cost</th>
-              <th>Total (S/.)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Raspberry Pi 4 Model B Server (4GB) + Power & Case</td>
-              <td>1</td>
-              <td>S/. 495.00</td>
-              <td>S/. 495.00</td>
-            </tr>
-            <tr>
-              <td>SONOFF Basic R3 Smart Switch (Tasmota)</td>
-              <td>6</td>
-              <td>S/. 25.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>SONOFF POW Elite Energy Monitoring Switch (20A)</td>
-              <td>1</td>
-              <td>S/. 85.00</td>
-              <td>S/. 85.00</td>
-            </tr>
-            <tr>
-              <td>PIR Motion Sensor HC-SR501 (GPIO)</td>
-              <td>3</td>
-              <td>S/. 20.00</td>
-              <td>S/. 60.00</td>
-            </tr>
-            <tr>
-              <td>Plastic Conduits, Electrical Wiring and Accessories</td>
-              <td>-</td>
-              <td>S/. 120.00</td>
-              <td>S/. 120.00</td>
-            </tr>
-            <tr>
-              <td>Minor Tools, Fasteners and Fuses</td>
-              <td>-</td>
-              <td>S/. 80.00</td>
-              <td>S/. 80.00</td>
-            </tr>
-            <tr>
-              <td>High Efficiency LED Lighting Panels</td>
-              <td>4</td>
-              <td>S/. 95.00</td>
-              <td>S/. 380.00</td>
-            </tr>
-            <tr>
-              <td>Broadlink RM4 Mini IR Air Conditioning Control</td>
-              <td>1</td>
-              <td>S/. 150.00</td>
-              <td>S/. 150.00</td>
-            </tr>
-            <tr>
-              <td>Smart Wi-Fi Power Strips (Surge Protection)</td>
-              <td>2</td>
-              <td>S/. 180.00</td>
-              <td>S/. 360.00</td>
-            </tr>
-            <tr style="font-weight: bold; border-top: 2px solid var(--border);">
-              <td>Materials and Equipment Subtotal</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,720.00</td>
-            </tr>
-            <tr>
-              <td>Skilled Labor (IT Technician, Electrician, Supervisor)</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 1,030.00</td>
-            </tr>
-            <tr style="font-weight: bold; background: var(--bg3); color: var(--blue-light);">
-              <td>GRAND TOTAL OF INVESTMENT</td>
-              <td>-</td>
-              <td>-</td>
-              <td>S/. 2,870.00</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <h4>Return on Investment (ROI) Analysis</h4>
-        <ul>
-          <li><strong>Initial Electric Consumption:</strong> 357 kWh monthly (Approximately equivalent to <strong>S/. 400.00</strong> per month).</li>
-          <li><strong>Estimated Savings:</strong> Guaranteed reduction of <strong>S/. 120.00 monthly</strong> (30% savings by preventing waste).</li>
-          <li><strong>Payback Period:</strong> ~24 months to fully amortize the initial hardware cost.</li>
-        </ul>
-
-        <h4 style="margin-top:2.5rem;">IoT Distribution and Connectivity Plan (Nanotechnology SAC)</h4>
-        <p>Distribution of smart devices and their connectivity links to the main Router inside the office floor plan:</p>
-        <div style="margin: 1rem 0 2rem 0;">
-          <svg viewBox="0 0 914 434" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; border:1px solid var(--border); border-radius:12px; background:#060b18; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-  <defs>
-    <!-- Glow filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-  </defs>
-
-  <style>
-    /* Hotspot Interactive Elements */
-    .hotspot { cursor: pointer; }
-    .hotspot-ring { fill: none; stroke: #3b82f6; stroke-width: 1.5; opacity: 0; transition: all 0.3s; }
-    .hotspot-pulse { fill: none; stroke: #3b82f6; stroke-width: 1.5; opacity: 0; transform-origin: center; transition: all 0.3s; }
-    .flow-line { fill: none; stroke: #00ffcc; stroke-width: 2; opacity: 0; stroke-linecap: round; stroke-dasharray: 6 4; transition: all 0.3s; }
-    .target-dot { fill: #00ffcc; opacity: 0; transition: all 0.3s; filter: url(#neonGlow); }
-    .tooltip-bg { fill: #0b1329; stroke: #00ffcc; stroke-width: 1.2; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); }
-    .tooltip-card { opacity: 0; pointer-events: none; transition: all 0.3s; transform: translateY(5px); }
-
-    /* Hover triggers */
-    .hotspot:hover .hotspot-ring { opacity: 1; stroke: #00ffcc; filter: url(#neonGlow); }
-    .hotspot:hover .hotspot-pulse { opacity: 1; stroke: #00ffcc; animation: pulseWave 1.2s infinite linear; }
-    .hotspot:hover .flow-line { opacity: 1; animation: flowDash 1s infinite linear; }
-    .hotspot:hover .target-dot { opacity: 1; animation: targetPulse 1.2s infinite ease-out; }
-    .hotspot:hover .tooltip-card { opacity: 1; transform: translateY(0); }
-
-    @keyframes pulseWave {
-      0% { r: 14; opacity: 1; stroke-width: 1.5; }
-      100% { r: 35; opacity: 0; stroke-width: 0.5; }
-    }
-    @keyframes flowDash {
-      to { stroke-dashoffset: -20; }
-    }
-    @keyframes targetPulse {
-      0% { r: 3; opacity: 1; }
-      100% { r: 12; opacity: 0; stroke: #00ffcc; stroke-width: 1; }
-    }
-  </style>
-
-  <!-- Slide Background Image -->
-  <image href="/images/plano_smart_office_3d.png" x="0" y="0" width="914" height="434" />
-
-  <!-- ════════ INTERACTIVE HOTSPOTS OVERLAY ════════ -->
-
-  <!-- NODE 1: Regleta Lab (Row 1) -->
-  <g class="hotspot">
-    <!-- Overlay Line -->
-    <line x1="288" y1="110" x2="288" y2="300" class="flow-line" />
-    <circle cx="288" cy="300" r="5" class="target-dot" />
-    <!-- Floating Circle Trigger -->
-    <circle cx="288" cy="110" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="288" cy="110" r="14" class="hotspot-ring" />
-    <circle cx="288" cy="110" r="14" class="hotspot-pulse" />
-    <!-- Tooltip -->
-    <g class="tooltip-card" transform="translate(288, 70)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Smart Power Strip</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Cuts power to computers</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">overnight to prevent standby waste.</text>
-    </g>
-  </g>
-
-  <!-- NODE 2: Sonoff R2 (Lab Row 2) -->
-  <g class="hotspot">
-    <line x1="317" y1="185" x2="317" y2="275" class="flow-line" />
-    <circle cx="317" cy="275" r="5" class="target-dot" />
-    <circle cx="317" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="317" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="317" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(317, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Lab)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controls light fixtures status</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">automatically based on occupancy.</text>
-    </g>
-  </g>
-
-  <!-- NODE 3: Sonoff R2 (Kitchen) -->
-  <g class="hotspot">
-    <line x1="385" y1="185" x2="385" y2="305" class="flow-line" />
-    <circle cx="385" cy="305" r="5" class="target-dot" />
-    <circle cx="385" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="385" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="385" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(385, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Kitchen)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Local control and scheduled shutdown</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">of lights in employee cafeteria.</text>
-    </g>
-  </g>
-
-  <!-- NODE 4: Sonoff POW Elite -->
-  <g class="hotspot">
-    <line x1="420" y1="110" x2="420" y2="230" class="flow-line" />
-    <circle cx="420" cy="230" r="5" class="target-dot" />
-    <circle cx="420" cy="110" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="420" cy="110" r="14" class="hotspot-ring" />
-    <circle cx="420" cy="110" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(420, 70)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff POW Elite</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Main energy monitor (20A rating)</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">tracks live kWh usage dashboard.</text>
-    </g>
-  </g>
-
-  <!-- NODE 5: Enchufe Smart (Corridor) -->
-  <g class="hotspot">
-    <line x1="480" y1="195" x2="480" y2="280" class="flow-line" />
-    <circle cx="480" cy="280" r="5" class="target-dot" />
-    <circle cx="480" cy="195" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="480" cy="195" r="14" class="hotspot-ring" />
-    <circle cx="480" cy="195" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(480, 155)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Smart Plug (Lobby)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controls auxiliary air conditioning</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">and fan units in common hallway.</text>
-    </g>
-  </g>
-
-  <!-- NODE 6: Servidor Central (Raspberry Pi 4) -->
-  <g class="hotspot">
-    <line x1="550" y1="60" x2="550" y2="310" class="flow-line" style="stroke:#10b981;" />
-    <circle cx="550" cy="310" r="5" class="target-dot" style="fill:#10b981;" />
-    <circle cx="550" cy="60" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="550" cy="60" r="14" class="hotspot-ring" style="stroke:#10b981;" />
-    <circle cx="550" cy="60" r="14" class="hotspot-pulse" style="stroke:#10b981;" />
-    <g class="tooltip-card" transform="translate(550, 20)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" style="stroke:#10b981;" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#10b981" font-weight="bold" text-anchor="middle">RPi 4 Server (HA)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Core brain of local IoT system.</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Runs Home Assistant & MQTT Broker.</text>
-    </g>
-  </g>
-
-  <!-- NODE 7: Sonoff R2 (Restrooms) -->
-  <g class="hotspot">
-    <line x1="620" y1="185" x2="620" y2="310" class="flow-line" />
-    <circle cx="620" cy="310" r="5" class="target-dot" />
-    <circle cx="620" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="620" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="620" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(620, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Restrooms)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Automatic shutdown of exhaust fans</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">and light fixtures inside restrooms.</text>
-    </g>
-  </g>
-
-  <!-- NODE 8: Enchufe Smart (IT Office / Support) -->
-  <g class="hotspot">
-    <line x1="670" y1="195" x2="670" y2="290" class="flow-line" />
-    <circle cx="670" cy="290" r="5" class="target-dot" />
-    <circle cx="670" cy="195" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="670" cy="195" r="14" class="hotspot-ring" />
-    <circle cx="670" cy="195" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(670, 155)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Smart Plug (Support)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controls office charger sockets</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">and printer devices overnight.</text>
-    </g>
-  </g>
-
-  <!-- NODE 9: Sonoff R2 (Meetings Screen) -->
-  <g class="hotspot">
-    <line x1="730" y1="140" x2="730" y2="320" class="flow-line" />
-    <circle cx="730" cy="320" r="5" class="target-dot" />
-    <circle cx="730" cy="140" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="730" cy="140" r="14" class="hotspot-ring" />
-    <circle cx="730" cy="140" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(730, 100)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Media)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Cuts standby power to TV screen</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">and video board in meeting room.</text>
-    </g>
-  </g>
-
-  <!-- NODE 10: Regleta Wi-Fi (Meetings Table) -->
-  <g class="hotspot">
-    <line x1="790" y1="185" x2="790" y2="330" class="flow-line" />
-    <circle cx="790" cy="330" r="5" class="target-dot" />
-    <circle cx="790" cy="185" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="790" cy="185" r="14" class="hotspot-ring" />
-    <circle cx="790" cy="185" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(790, 145)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Smart Strip (Meetings)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Schedules shutdown of projector</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">and main conference desk outlets.</text>
-    </g>
-  </g>
-
-  <!-- NODE 11: Sonoff R2 (Warehouse Shelves) -->
-  <g class="hotspot">
-    <line x1="845" y1="130" x2="845" y2="290" class="flow-line" />
-    <circle cx="845" cy="290" r="5" class="target-dot" />
-    <circle cx="845" cy="130" r="14" fill="rgba(0,255,204,0.01)" />
-    <circle cx="845" cy="130" r="14" class="hotspot-ring" />
-    <circle cx="845" cy="130" r="14" class="hotspot-pulse" />
-    <g class="tooltip-card" transform="translate(845, 90)">
-      <rect x="-85" y="-55" width="170" height="45" rx="5" class="tooltip-bg" />
-      <text x="0" y="-40" font-family="'Space Mono', monospace" font-size="9" fill="#00ffcc" font-weight="bold" text-anchor="middle">Sonoff R2 (Warehouse)</text>
-      <text x="0" y="-28" font-family="'Outfit', sans-serif" font-size="8" fill="#e2e8f0" text-anchor="middle">Controls lighting in aisle racks</text>
-      <text x="0" y="-18" font-family="'Outfit', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">inside the warehouse storage area.</text>
-    </g>
-  </g>
-</svg>
-        </div>
-`
-    }
-  },
-  cursos: {
-    title: {
-      es: "Abre Cursos Pro (Guía & Recursos)",
-      en: "Abre Cursos Pro (Guide & Resources)"
-    },
-    desc: {
-      es: `
-        <h4>Características y Flujo del Programa</h4>
-        <p><strong>Abre Cursos Pro</strong> es una utilidad de escritorio desarrollada completamente en <strong>Python</strong> utilizando <strong>CustomTkinter</strong> para dotarle de un diseño cyberpunk premium similar a las herramientas industriales.</p>
-        <p>Su función principal consiste en monitorear los horarios configurados a nivel de sistema e iniciar enlaces en navegadores de forma síncrona. Además de páginas web genéricas, se conecta a protocolos de inicio automático como:</p>
-        <ul>
-          <li><strong>Zoom Links:</strong> Lanza la app local omitiendo diálogos utilizando el URI scheme <code>zoommtg://</code>.</li>
-          <li><strong>MS Teams:</strong> Lanza la aplicación mediante <code>msteams://</code> para garantizar accesos veloces.</li>
-          <li><strong>LMS Canvas:</strong> Abre el navegador en la pestaña exacta del curso correspondiente.</li>
-        </ul>
-        
-        <h4>Ventajas del Software</h4>
-        <ul>
-          <li><strong>Bajo Consumo de Memoria:</strong> Funciona discretamente minimizado en la bandeja del sistema consumiendo menos de 25MB de RAM.</li>
-          <li><strong>Notificaciones Avanzadas:</strong> Se conecta con los Toast de Windows para alertarte antes de cada apertura.</li>
-          <li><strong>Base de Datos Portátil:</strong> Guarda los datos de configuración en un archivo JSON local encriptado opcionalmente.</li>
-        </ul>
-      `,
-      en: `
-        <h4>Features and Program Flow</h4>
-        <p><strong>Abre Cursos Pro</strong> is a desktop utility programmed entirely in <strong>Python</strong> utilizing <strong>CustomTkinter</strong> to yield a sleek dark-themed interface matching professional tools.</p>
-        <p>Its primary goal is to run a local scheduler to launch classes in web browsers or desktop applications at the designated time. It supports launch protocols for:</p>
-        <ul>
-          <li><strong>Zoom Links:</strong> Launches the local app skipping prompts using the <code>zoommtg://</code> URI scheme.</li>
-          <li><strong>MS Teams:</strong> Launches the app with the native protocol <code>msteams://</code>.</li>
-          <li><strong>LMS Canvas:</strong> Automatically redirects the default browser to your course dashboard page.</li>
-        </ul>
-        
-        <h4>Software Advantages</h4>
-        <ul>
-          <li><strong>Low Footprint:</strong> Runs quietly minimized to the system tray utilizing under 25MB of RAM.</li>
-          <li><strong>Advanced Notifications:</strong> Seamlessly hooks with Windows native Action Center toast system.</li>
-          <li><strong>Portable Storage:</strong> Persists data into local lightweight JSON structures.</li>
-        </ul>
-      `
-    },
-    extra: {
-      es: `
-        <!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->
-
-        <h4>Guía de Instalación y Requisitos</h4>
-        <p>Sigue las siguientes instrucciones para configurar y compilar el proyecto en tu entorno local:</p>
-        
-        <h4>1. Prerrequisitos</h4>
-        <p>Asegúrate de contar con Python 3.10 o superior instalado en tu sistema de Windows.</p>
-        
-        <h4>2. Clonar y Configurar Dependencias</h4>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-git clone https://github.com/Francoisxd/abre-cursos.git
-cd abre-cursos
-pip install -r requirements.txt</pre>
-        
-        <h4>3. Ejecutar la Aplicación</h4>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-python main.py</pre>
-        
-        <h4>4. Compilar a Ejecutable (.EXE)</h4>
-        <p>Para crear un ejecutable autónomo y portable que no requiera Python en otras máquinas, compílalo usando PyInstaller:</p>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-pip install pyinstaller
-pyinstaller --noconsole --onefile --icon=resources/logo.ico --add-data "resources;resources" main.py</pre>
-        <p>El ejecutable se generará en la carpeta <code>dist/</code> de tu directorio raíz y está listo para ser programado al inicio de Windows.</p>
-      `,
-      en: `
-        <!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->
-
-        <h4>Installation Guide and Requirements</h4>
-        <p>Follow these steps to download, install, and compile the desktop client locally:</p>
-        
-        <h4>1. Prerequisites</h4>
-        <p>Ensure Python 3.10+ is installed on your Windows machine.</p>
-        
-        <h4>2. Clone and Install Dependencies</h4>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-git clone https://github.com/Francoisxd/abre-cursos.git
-cd abre-cursos
-pip install -r requirements.txt</pre>
-        
-        <h4>3. Run the Development Client</h4>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-python main.py</pre>
-        
-        <h4>4. Compile to Standalone Executable (.EXE)</h4>
-        <p>To produce a standalone portable executable package that runs without python setup:</p>
-        <pre style="background:var(--bg3); padding:0.8rem; border-radius:4px; font-family:monospace; font-size:11px; overflow-x:auto; color:#fff; border:1px solid var(--border);">
-pip install pyinstaller
-pyinstaller --noconsole --onefile --icon=resources/logo.ico --add-data "resources;resources" main.py</pre>
-        <p>The compiled asset will be placed within the <code>dist/</code> subdirectory.</p>
-      `
-    }
-  }
-};
 
 const renderModalContent = () => {
   if (!activeProjectId) return;
@@ -1556,7 +805,7 @@ const renderModalContent = () => {
     const dynamicBtnHtml = `
       <div style="background: rgba(26, 106, 255, 0.05); border: 1px solid rgba(26, 106, 255, 0.2); padding: 1.25rem; border-radius: 6px; margin-bottom: 2rem; text-align: center;">
         <p style="margin-bottom: 0.75rem; font-size: 13px; font-family: 'Space Mono', monospace;">${releaseText}</p>
-        <a href="${latestRelease.download_url}" target="_blank" class="ctk-btn green" style="display: inline-block; text-decoration: none; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px;">🚀 ${downloadLabel}</a>
+        <a href="${latestRelease.download_url}" target="_blank" rel="noopener noreferrer" class="ctk-btn green" style="display: inline-block; text-decoration: none; text-align: center; font-family: 'Space Mono', monospace; font-size: 11px;">${downloadLabel}</a>
       </div>
     `;
     html = html.replace('<!-- {{GITHUB_RELEASE_DOWNLOAD_PLACEHOLDER}} -->', dynamicBtnHtml);
@@ -1600,14 +849,14 @@ window.updateModalTranslation = () => {
 };
 
 // Bind Modal Open triggers
-const btnOpenOfficeModal = document.getElementById('btnOpenOfficeModal');
-const btnOpenCursosModal = document.getElementById('btnOpenCursosModal');
+const projectOfficeModalBtn = document.getElementById('project-office-modal-btn');
+const projectAbrecursosModalBtn = document.getElementById('project-abrecursos-modal-btn');
 
-if (btnOpenOfficeModal) {
-  btnOpenOfficeModal.addEventListener('click', () => openModal('office'));
+if (projectOfficeModalBtn) {
+  projectOfficeModalBtn.addEventListener('click', () => openModal('office'));
 }
-if (btnOpenCursosModal) {
-  btnOpenCursosModal.addEventListener('click', () => openModal('cursos'));
+if (projectAbrecursosModalBtn) {
+  projectAbrecursosModalBtn.addEventListener('click', () => openModal('cursos'));
 }
 
 // Bind Modal Tab buttons
@@ -1653,10 +902,10 @@ let cardCursos = null;
 if (projectCards.length >= 2) {
   // Locate by presence of the unique buttons
   projectCards.forEach(card => {
-    if (card.querySelector('#btnOpenOfficeModal')) {
+    if (card.querySelector('#project-office-modal-btn')) {
       cardOffice = card;
     }
-    if (card.querySelector('#btnOpenCursosModal')) {
+    if (card.querySelector('#project-abrecursos-modal-btn')) {
       cardCursos = card;
     }
   });
@@ -1701,6 +950,11 @@ skillTags.forEach(tag => {
 
 
 // --- Scrollspy Navigation Highlighter ---
+const toastClose = document.getElementById('winToastClose');
+if (toastClose && winToast) {
+  toastClose.addEventListener('click', () => winToast.classList.remove('show'));
+}
+
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 
