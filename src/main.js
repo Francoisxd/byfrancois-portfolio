@@ -1195,11 +1195,11 @@ const initAbreCursosLogic = () => {
 
   // 1. Initial State (Obfuscated URLs for privacy)
   let courses = [
-    { id: "73d991d1", nombre: "PROBABILIDAD Y ESTADÍSTICA", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [1], activo: true },
-    { id: "41fd1bfa", nombre: "CÁLCULO 1", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [2], activo: true },
-    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [3], activo: true },
-    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/********", hora: "21", minuto: "10", dias: [5], activo: true },
-    { id: "95036a59", nombre: "PROYECTO SOCIAL", url: "https://upn.class.com/class/********", hora: "17", minuto: "50", dias: [6], activo: true }
+    { id: "73d991d1", nombre: "PROBABILIDAD Y ESTADÍSTICA", url: "https://upn.class.com/class/2b048859-7fa2-444b-8a0d-bd541a033f6a", hora: "19", minuto: "30", dias: [1], activo: true },
+    { id: "41fd1bfa", nombre: "CÁLCULO 1", url: "https://upn.class.com/class/578cbf4b-8068-4b94-aadf-e0a767c4704f", hora: "19", minuto: "30", dias: [2], activo: true },
+    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d", hora: "19", minuto: "30", dias: [3], activo: true },
+    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d", hora: "21", minuto: "10", dias: [5], activo: true },
+    { id: "95036a59", nombre: "PROYECTO SOCIAL", url: "https://upn.class.com/class/8499fc46-cddb-4f57-8d59-bcbb45f6230b", hora: "17", minuto: "50", dias: [6], activo: true }
   ];
 
   const daysMap = {1: 'Lun', 2: 'Mar', 3: 'Mie', 4: 'Jue', 5: 'Vie', 6: 'Sab', 7: 'Dom'};
@@ -1245,7 +1245,7 @@ const initAbreCursosLogic = () => {
           <div class="ac-course-meta">
             <span class="ac-meta-day">${daysStr}</span>
             <span class="ac-meta-tag">Web</span>
-            <span class="ac-meta-url" style="color:var(--ctk-blue)">${c.url}</span>
+            <span class="ac-meta-url" style="color:var(--ctk-blue)">[Enlace Privado]</span>
           </div>
         </div>
         <div class="ac-course-actions">
@@ -1322,6 +1322,7 @@ const initAbreCursosLogic = () => {
             if (lastOpenedId !== c.id) {
               lastOpenedId = c.id;
               showSimToast(`Abre Cursos: Es hora! Abriendo automáticamente ${c.nombre}...`);
+              window.open(c.url, '_blank');
             }
           }
         });
@@ -1390,7 +1391,10 @@ const initAbreCursosLogic = () => {
       if (e.target.classList.contains('btn-abrir')) {
         const id = e.target.getAttribute('data-id');
         const course = courses.find(c => c.id === id);
-        if (course) showSimToast(`Simulación: Forzando apertura de ${course.nombre}...`);
+        if (course) {
+          showSimToast(`Abre Cursos: Abriendo ${course.nombre} en una nueva pestaña...`);
+          window.open(course.url, '_blank');
+        }
       }
       // Editar
       if (e.target.classList.contains('btn-editar')) {
@@ -1416,7 +1420,11 @@ const initAbreCursosLogic = () => {
   // Initial render
   renderCourses();
 };
-// Call logic after DOM load
-document.addEventListener('DOMContentLoaded', () => {
+// Call logic safely
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initAbreCursosLogic, 500);
+  });
+} else {
   setTimeout(initAbreCursosLogic, 500);
-});
+}
