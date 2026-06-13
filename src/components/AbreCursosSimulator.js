@@ -7,8 +7,8 @@ export const getAbreCursosSimulatorHTML = () => `
     <div class="ctk-topbar-left">
       <span class="ctk-app-title">Abre-Cursos Pro</span>
       <span class="ctk-version-badge">v2.5.4</span>
-      <span class="ctk-proxima-label" id="acNextClassBadge"></span>
     </div>
+    <div class="ctk-proxima-label" id="acNextClassBadge"></div>
     <div class="ctk-clock-capsule" id="acClock">--:--:--</div>
   </div>
 
@@ -30,19 +30,17 @@ export const getAbreCursosSimulatorHTML = () => `
       <!-- Form Panel -->
       <div class="ctk-form-panel">
         <form id="acForm">
-          <div class="ctk-form-row-top">
-            <div class="ctk-fg">
-              <label class="ctk-lbl">Nombre del Curso</label>
-              <input type="text" id="acInNombre" class="ctk-inp" placeholder="Ej: CÁLCULO 1" required>
-            </div>
-            <div class="ctk-fg">
-              <label class="ctk-lbl">URL de la Clase</label>
-              <input type="url" id="acInUrl" class="ctk-inp" placeholder="https://upn.class.com/..." required>
-            </div>
+          <div class="ctk-form-field">
+            <label class="ctk-lbl">Nombre de Asignatura</label>
+            <input type="text" id="acInNombre" class="ctk-inp" placeholder="Ej: CÁLCULO 1" required>
           </div>
-          <div class="ctk-form-row-bot">
+          <div class="ctk-form-field">
+            <label class="ctk-lbl">Enlace de Clase (URL)</label>
+            <input type="url" id="acInUrl" class="ctk-inp" placeholder="https://upn.class.com/..." required>
+          </div>
+          <div class="ctk-form-row-bot ctk-form-row-align">
             <div class="ctk-fg ctk-fg-sm">
-              <label class="ctk-lbl">Hora</label>
+              <label class="ctk-lbl">Hora de Programación (24h)</label>
               <select id="acInHora" class="ctk-sel">
                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
                 <option value="09">09</option><option value="10">10</option><option value="11">11</option>
@@ -53,7 +51,7 @@ export const getAbreCursosSimulatorHTML = () => `
               </select>
             </div>
             <div class="ctk-fg ctk-fg-sm">
-              <label class="ctk-lbl">Min</label>
+              <label class="ctk-lbl">&nbsp;</label>
               <select id="acInMin" class="ctk-sel">
                 <option value="00">00</option><option value="10">10</option><option value="20">20</option>
                 <option value="30" selected>30</option><option value="40">40</option><option value="50">50</option>
@@ -82,9 +80,12 @@ export const getAbreCursosSimulatorHTML = () => `
       <!-- List Header -->
       <div class="ctk-list-header">
         <span>Cursos Programados</span>
+        <span style="color:#666">Estado / Acciones</span>
+      </div>
+      <div class="ctk-search-bar-row">
         <div class="ctk-search-wrap">
           <span class="ctk-search-icon">🔍</span>
-          <input type="text" class="ctk-search-inp" id="acSearch" placeholder="Buscar curso...">
+          <input type="text" class="ctk-search-inp" id="acSearch" placeholder="Buscar curso por nombre...">
         </div>
       </div>
 

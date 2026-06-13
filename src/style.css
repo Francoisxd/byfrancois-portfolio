@@ -1899,11 +1899,13 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
 }
 .ctk-proxima-label {
   color: #9ca3af;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-style: italic;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-left: auto;
+  padding-right: 16px;
 }
 /* Clock Capsule - exactly as in Python: border_color="#2563eb", fg_color="#121212" */
 .ctk-clock-capsule {
@@ -1926,6 +1928,7 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
   padding: 0 20px;
   border-bottom: 1px solid #2d2d30;
   gap: 2px;
+  justify-content: center;
 }
 .ctk-tab-btn {
   background: transparent;
@@ -1962,7 +1965,7 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
 .ctk-fg { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 120px; }
 .ctk-fg-sm { flex: 0 0 70px; min-width: 60px; }
 .ctk-fg-btn { flex: 0 0 auto; }
-.ctk-lbl { color: #888; font-size: 0.72rem; letter-spacing: 0.3px; }
+.ctk-lbl { color: #ccc; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.2px; margin-bottom: 2px; }
 .ctk-inp {
   background: #2d2d30;
   border: 1px solid #3a3a3d;
@@ -2009,19 +2012,23 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 2px;
+  padding: 8px 12px;
   flex-wrap: wrap;
   gap: 8px;
   color: #aaa;
   font-size: 0.82rem;
   font-weight: 600;
+  background: #1c1c1e;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #2d2d30;
+  border-bottom: none;
 }
-.ctk-search-wrap { display: flex; align-items: center; gap: 6px; background: #1c1c1e; border: 1px solid #2d2d30; border-radius: 7px; padding: 5px 12px; }
+.ctk-search-wrap { display: flex; align-items: center; gap: 6px; background: #1c1c1e; border: 1px solid #2d2d30; border-radius: 7px; padding: 6px 12px; width: 100%; }
 .ctk-search-icon { font-size: 0.75rem; }
 .ctk-search-inp { background: transparent; border: none; outline: none; color: #ccc; font-size: 0.78rem; width: 160px; }
 
 /* Scrollable list */
-.ctk-scroll-area { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; padding-right: 4px; }
+.ctk-scroll-area { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; padding: 8px 8px 8px 8px; background: #161618; border: 1px solid #2d2d30; border-radius: 0 0 6px 6px; }
 .ctk-scroll-area::-webkit-scrollbar { width: 4px; }
 .ctk-scroll-area::-webkit-scrollbar-thumb { background: #2d2d30; border-radius: 4px; }
 .ctk-empty-list { color: #555; text-align: center; padding: 30px 0; font-size: 0.82rem; }
@@ -2066,7 +2073,7 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
 .ctk-card-days { color: #666; }
 .ctk-card-sep { color: #444; }
 .ctk-card-platform { color: white; padding: 2px 6px; border-radius: 5px; font-size: 0.68rem; font-weight: 700; }
-.ctk-card-url { color: #3b82f6; font-size: 0.72rem; overflow: hidden; text-overflow: ellipsis; max-width: 300px; white-space: nowrap; }
+.ctk-card-url { color: #3b82f6; font-size: 0.72rem; overflow: hidden; text-overflow: ellipsis; max-width: 420px; white-space: nowrap; cursor: pointer; text-decoration: underline; }
 
 /* Card Actions */
 .ctk-card-actions { display: flex; align-items: center; gap: 6px; }
@@ -2117,3 +2124,14 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
 .ctk-empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
 .ctk-empty-title { color: #ccc; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
 .ctk-empty-sub { color: #555; font-size: 0.82rem; }
+
+/* Form field full width rows (stacked like real program) */
+.ctk-form-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
+.ctk-form-field .ctk-inp { width: 100%; box-sizing: border-box; }
+.ctk-form-row-align { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+/* Search bar full width row */
+.ctk-search-bar-row { margin-bottom: 6px; }
+.ctk-search-bar-row .ctk-search-wrap { width: 100%; box-sizing: border-box; }
+.ctk-search-bar-row .ctk-search-inp { flex: 1; width: 100%; }
+/* Proxima label center of topbar */
+.ctk-proxima-label { flex: 1; text-align: right; color: #9ca3af; font-size: 0.82rem; font-style: italic; padding-right: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
