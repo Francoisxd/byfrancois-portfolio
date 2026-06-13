@@ -378,13 +378,13 @@ const initAbreCursosLogic = () => {
   const root = document.getElementById('abreCursosContainer');
   if (!root) return;
 
-  // ── State (from cursos.json) ─────────────────────────────────────────────
+  // ── State (Example Data) ──────────────────────────────────────────────────
   let courses = [
-    { id: "73d991d1", nombre: "PROBABILIDAD Y ESTADÍSTICA", url: "https://upn.class.com/class/2b048859-7fa2-444b-8a0d-bd541a033f6a", hora: "19", minuto: "30", dias: [1], activo: true },
-    { id: "41fd1bfa", nombre: "CÁLCULO 1",                  url: "https://upn.class.com/class/578cbf4b-8068-4b94-aadf-e0a767c4704f", hora: "19", minuto: "30", dias: [2], activo: true },
-    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d?is_lti=true", hora: "19", minuto: "30", dias: [3], activo: true },
-    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d?is_lti=true", hora: "21", minuto: "10", dias: [5], activo: true },
-    { id: "95036a59", nombre: "PROYECTO SOCIAL",            url: "https://upn.class.com/class/8499fc46-cddb-4f57-8d59-bcbb45f6230b", hora: "17", minuto: "50", dias: [6], activo: true }
+    { id: "1a2b3c4d", nombre: "MATEMÁTICAS BÁSICAS", url: "https://zoom.us/j/1234567890?pwd=abc", hora: "08", minuto: "30", dias: [1, 3], activo: true },
+    { id: "5e6f7g8h", nombre: "HISTORIA UNIVERSAL", url: "https://teams.microsoft.com/l/meetup-join/19%3ameeting_xyz", hora: "10", minuto: "00", dias: [2, 4], activo: true },
+    { id: "9i0j1k2l", nombre: "PROGRAMACIÓN WEB", url: "https://canvas.instructure.com/courses/12345", hora: "14", minuto: "15", dias: [1, 5], activo: true },
+    { id: "3m4n5o6p", nombre: "INGLÉS INTERMEDIO", url: "https://zoom.us/j/0987654321?pwd=def", hora: "16", minuto: "00", dias: [3, 5], activo: true },
+    { id: "7q8r9s0t", nombre: "PROYECTO INTEGRADOR", url: "https://meet.google.com/abc-defg-hij", hora: "19", minuto: "30", dias: [6], activo: true }
   ];
 
   const dMap = {1:'Lun',2:'Mar',3:'Mié',4:'Jue',5:'Vie',6:'Sáb',7:'Dom'};
@@ -449,7 +449,7 @@ const initAbreCursosLogic = () => {
       else if (u.includes('teams')) { plat = 'Teams'; platBg = '#d9534f'; }
       else if (u.includes('web'))   { plat = 'Web';   platBg = '#0275d8'; }
 
-      const displayUrl = "Enlace privado (Oculto por seguridad)";
+      const maxUrl = c.url.length > 45 ? c.url.substring(0, 43) + '...' : c.url;
 
       const card = document.createElement('div');
       card.className = 'acCard' + (c.activo ? '' : ' acCardOff');
@@ -462,7 +462,7 @@ const initAbreCursosLogic = () => {
           <div class="acCardBot">
             <span class="acCardDays">${days} •</span>
             <span class="acCardPlat" style="background:${c.activo ? platBg : '#333'}">${plat}</span>
-            <span class="acCardUrl" data-url="${c.url}">${displayUrl}</span>
+            <span class="acCardUrl" data-url="${c.url}">${maxUrl}</span>
           </div>
         </div>
         <div class="acCardRight">
