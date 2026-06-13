@@ -428,6 +428,18 @@ const initAbreCursosLogic = () => {
   };
 
   // ── Render cards ─────────────────────────────────────────────────────────
+  const escapeHTML = (str) => {
+    return str.replace(/[&<>'"]/g, 
+      tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag])
+    );
+  };
+
   const render = (filter = '') => {
     if (!cardList) return;
     cardList.innerHTML = '';
@@ -456,7 +468,7 @@ const initAbreCursosLogic = () => {
       card.innerHTML = `
         <div class="acCardLeft">
           <div class="acCardTop">
-            <span class="acCardName">${c.nombre}</span>
+            <span class="acCardName">${escapeHTML(c.nombre)}</span>
             <span class="acCardTime">${c.hora}:${c.minuto}</span>
           </div>
           <div class="acCardBot">
