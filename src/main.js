@@ -1188,23 +1188,218 @@ if (btnDownloadAC) {
   });
 }
 
-// Abre Cursos Pro Interactive Logic
+// Abre Cursos Pro Full JS Engine
 const initAbreCursosLogic = () => {
   const container = document.getElementById('abreCursosContainer');
   if (!container) return;
 
-  // Clock
+  // 1. Initial State (Obfuscated URLs for privacy)
+  let courses = [
+    { id: "73d991d1", nombre: "PROBABILIDAD Y ESTADÍSTICA", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [1], activo: true },
+    { id: "41fd1bfa", nombre: "CÁLCULO 1", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [2], activo: true },
+    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/********", hora: "19", minuto: "30", dias: [3], activo: true },
+    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/********", hora: "21", minuto: "10", dias: [5], activo: true },
+    { id: "95036a59", nombre: "PROYECTO SOCIAL", url: "https://upn.class.com/class/********", hora: "17", minuto: "50", dias: [6], activo: true }
+  ];
+
+  const daysMap = {1: 'Lun', 2: 'Mar', 3: 'Mie', 4: 'Jue', 5: 'Vie', 6: 'Sab', 7: 'Dom'};
+  let lastOpenedId = null;
+
+  const cardList = container.querySelector('#acCardList');
   const clockEl = container.querySelector('.ac-app-clock');
+  const badgeNext = container.querySelector('#acNextClassBadge');
+
+  // Helper: Show Toast
+  const showSimToast = (msg) => {
+    const toast = document.getElementById('winToast');
+    const toastMsg = document.getElementById('winToastMsg');
+    if (toast && toastMsg) {
+      toastMsg.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    } else {
+      alert(msg);
+    }
+  };
+
+  // 2. Render Engine
+  const renderCourses = () => {
+    if (!cardList) return;
+    cardList.innerHTML = '';
+    
+    if (courses.length === 0) {
+      cardList.innerHTML = '<div style="color:#666; text-align:center; padding: 20px;">No hay cursos programados</div>';
+      return;
+    }
+
+    courses.forEach(c => {
+      const daysStr = c.dias.map(d => daysMap[d]).join(', ');
+      
+      const card = document.createElement('div');
+      card.className = 'ac-course-card';
+      card.innerHTML = `
+        <div class="ac-course-info">
+          <div class="ac-course-title">
+            ${c.nombre} <span class="ac-time-badge">${c.hora}:${c.minuto}</span>
+          </div>
+          <div class="ac-course-meta">
+            <span class="ac-meta-day">${daysStr}</span>
+            <span class="ac-meta-tag">Web</span>
+            <span class="ac-meta-url" style="color:var(--ctk-blue)">${c.url}</span>
+          </div>
+        </div>
+        <div class="ac-course-actions">
+          <div class="ac-toggle ${c.activo ? 'on' : ''}" data-id="${c.id}"></div>
+          <button class="ac-btn-mini green btn-abrir" data-id="${c.id}">Abrir</button>
+          <button class="ac-btn-mini orange btn-editar" data-id="${c.id}">Editar</button>
+          <button class="ac-btn-mini red btn-borrar" data-id="${c.id}">Borrar</button>
+        </div>
+      `;
+      cardList.appendChild(card);
+    });
+
+    calculateNextClass();
+  };
+
+  // 3. Next Class Algorithm
+  const calculateNextClass = () => {
+    if (!badgeNext) return;
+    const now = new Date();
+    // In JS, getDay() returns 0=Sunday, 1=Monday. The python uses 1=Monday...7=Sunday.
+    let currentDayPython = now.getDay() === 0 ? 7 : now.getDay();
+    const currentMins = now.getHours() * 60 + now.getMinutes();
+
+    let upcoming = [];
+    
+    courses.filter(c => c.activo).forEach(c => {
+      const cTime = parseInt(c.hora) * 60 + parseInt(c.minuto);
+      c.dias.forEach(d => {
+        let dayDiff = d - currentDayPython;
+        if (dayDiff < 0 || (dayDiff === 0 && cTime <= currentMins)) {
+          dayDiff += 7; // Next week
+        }
+        const totalWaitMins = (dayDiff * 24 * 60) + (cTime - currentMins);
+        upcoming.push({ ...c, waitMins: totalWaitMins, dayDiff });
+      });
+    });
+
+    if (upcoming.length === 0) {
+      badgeNext.innerText = "No hay clases programadas activas";
+      return;
+    }
+
+    upcoming.sort((a, b) => a.waitMins - b.waitMins);
+    const next = upcoming[0];
+    
+    const h = Math.floor(next.waitMins / 60);
+    const m = next.waitMins % 60;
+    
+    if (next.dayDiff === 0) {
+       badgeNext.innerText = `Próxima: ${next.nombre} (en ${h}h ${m}m)`;
+    } else {
+       badgeNext.innerText = `Próxima: ${next.nombre} (en ${next.dayDiff} días)`;
+    }
+  };
+
+  // 4. Background Clock & Auto-Launcher
   if (clockEl) {
     setInterval(() => {
       const now = new Date();
-      const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const daysStr = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
       const timeStr = now.toLocaleTimeString('es-PE', { hour12: false });
-      clockEl.innerText = `${days[now.getDay()]} ${timeStr}`;
+      clockEl.innerText = `${daysStr[now.getDay()]} ${timeStr}`;
+
+      // Simulate automatic opening
+      let currentDayPython = now.getDay() === 0 ? 7 : now.getDay();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = now.getSeconds();
+
+      if (ss === 0) { // Check every minute start
+        courses.forEach(c => {
+          if (c.activo && c.hora === hh && c.minuto === mm && c.dias.includes(currentDayPython)) {
+            // Prevent multiple opens for the same class
+            if (lastOpenedId !== c.id) {
+              lastOpenedId = c.id;
+              showSimToast(`Abre Cursos: Es hora! Abriendo automáticamente ${c.nombre}...`);
+            }
+          }
+        });
+        calculateNextClass(); // Update countdown every minute
+      }
+
     }, 1000);
   }
 
-  // Tabs
+  // 5. Form Submit (Add)
+  const form = container.querySelector('#acForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = container.querySelector('#acInNombre').value;
+      const url = container.querySelector('#acInUrl').value;
+      const hora = container.querySelector('#acInHora').value.slice(0, 2);
+      const minuto = container.querySelector('#acInMin').value.slice(0, 2);
+      
+      const dayChecks = container.querySelectorAll('.ac-day-check:checked');
+      let dias = [];
+      dayChecks.forEach(cb => dias.push(parseInt(cb.value)));
+
+      if (dias.length === 0) {
+        showSimToast("Error: Seleccione al menos un día");
+        return;
+      }
+
+      const newCourse = {
+        id: Math.random().toString(36).substring(2, 10),
+        nombre: nombre.toUpperCase(),
+        url: url,
+        hora: hora,
+        minuto: minuto,
+        dias: dias,
+        activo: true
+      };
+
+      courses.push(newCourse);
+      renderCourses();
+      form.reset();
+      showSimToast(`Curso agregado: ${newCourse.nombre}`);
+    });
+  }
+
+  // 6. Delegated Event Listeners (Toggles & Action Buttons)
+  if (cardList) {
+    cardList.addEventListener('click', (e) => {
+      // Toggle
+      if (e.target.classList.contains('ac-toggle')) {
+        const id = e.target.getAttribute('data-id');
+        const course = courses.find(c => c.id === id);
+        if (course) {
+          course.activo = !course.activo;
+          renderCourses();
+        }
+      }
+      // Borrar
+      if (e.target.classList.contains('btn-borrar')) {
+        const id = e.target.getAttribute('data-id');
+        courses = courses.filter(c => c.id !== id);
+        renderCourses();
+        showSimToast("Curso eliminado del registro.");
+      }
+      // Abrir
+      if (e.target.classList.contains('btn-abrir')) {
+        const id = e.target.getAttribute('data-id');
+        const course = courses.find(c => c.id === id);
+        if (course) showSimToast(`Simulación: Forzando apertura de ${course.nombre}...`);
+      }
+      // Editar
+      if (e.target.classList.contains('btn-editar')) {
+        showSimToast(`Simulación: Panel de edición no implementado en la maqueta web.`);
+      }
+    });
+  }
+
+  // 7. Tabs logic
   const tabs = container.querySelectorAll('.ac-tab');
   const tabContents = container.querySelectorAll('.ac-tab-content');
   tabs.forEach(tab => {
@@ -1218,57 +1413,9 @@ const initAbreCursosLogic = () => {
     });
   });
 
-  // Toggles
-  const toggles = container.querySelectorAll('.ac-toggle');
-  toggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('on');
-    });
-  });
-
-  // Helper for Toasts
-  const showSimToast = (msg) => {
-    const toast = document.getElementById('winToast');
-    const toastMsg = document.getElementById('winToastMsg');
-    if (toast && toastMsg) {
-      toastMsg.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    } else {
-      alert(msg);
-    }
-  };
-
-  // Add Course Button
-  const btnAdd = container.querySelector('.ac-btn-green');
-  if (btnAdd) {
-    btnAdd.addEventListener('click', () => {
-      showSimToast("Simulación: Curso programado y guardado en la base de datos local.");
-      const inputs = container.querySelectorAll('.ac-input-v2');
-      inputs.forEach(i => i.value = '');
-    });
-  }
-
-  // Action Buttons
-  const miniBtns = container.querySelectorAll('.ac-btn-mini');
-  miniBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const action = e.target.innerText;
-      const card = e.target.closest('.ac-course-card');
-      const courseName = card ? card.querySelector('.ac-course-title').childNodes[0].nodeValue.trim() : 'Curso';
-      
-      if (action === 'Abrir') {
-        showSimToast(`Simulación: Ejecutando apertura automática para ${courseName}...`);
-      } else if (action === 'Editar') {
-        showSimToast(`Simulación: Abriendo panel de edición para ${courseName}...`);
-      } else if (action === 'Borrar') {
-        showSimToast(`Simulación: ${courseName} ha sido eliminado del registro.`);
-        if (card) card.style.opacity = '0.3';
-      }
-    });
-  });
+  // Initial render
+  renderCourses();
 };
-
 // Call logic after DOM load
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(initAbreCursosLogic, 500);

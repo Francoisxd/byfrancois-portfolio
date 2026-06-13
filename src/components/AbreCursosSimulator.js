@@ -7,7 +7,7 @@ export const getAbreCursosSimulatorHTML = () => `
       Abre-Cursos Pro <span class="ac-badge">v2.5.4</span>
     </div>
     <div class="ac-header-right">
-      <span class="ac-next-class">Próxima: PROGRAMACIÓN ORIENTADA A OBJETOS (en 2h 7m)</span>
+      <span class="ac-next-class" id="acNextClassBadge">Calculando próxima clase...</span>
     </div>
   </div>
 
@@ -20,142 +20,96 @@ export const getAbreCursosSimulatorHTML = () => `
       <button class="ac-tab" type="button" data-target="tab-historial">Historial</button>
       <button class="ac-tab" type="button" data-target="tab-ajustes">Ajustes</button>
     </div>
-    <div class="ac-app-clock">Viernes 19:02:24</div>
+    <div class="ac-app-clock">Calculando...</div>
   </div>
 
   <!-- CTk Body Area -->
   <div class="ac-body">
-    <!-- Form Area -->
+    <!-- HORARIO TAB -->
     <div class="ac-tab-content active" id="tab-horario">
-    <div class="ac-form-container">
-      <div class="ac-field">
-        <label>Nombre de Asignatura</label>
-        <input type="text" class="ac-input-v2" placeholder="">
-      </div>
-      
-      <div class="ac-field">
-        <label>Enlace de Clase (URL)</label>
-        <input type="text" class="ac-input-v2" placeholder="">
-      </div>
+      <form id="acForm" class="ac-form-container">
+        <div class="ac-field">
+          <label>Nombre de Asignatura</label>
+          <input type="text" id="acInNombre" class="ac-input-v2" placeholder="Ej: MATEMÁTICAS BÁSICAS" required>
+        </div>
+        
+        <div class="ac-field">
+          <label>Enlace de Clase (URL)</label>
+          <input type="url" id="acInUrl" class="ac-input-v2" placeholder="https://zoom.us/j/..." required>
+        </div>
 
-      <div class="ac-form-row">
-        <div class="ac-field-inline">
-          <label>Hora de Programación (24h)</label>
-          <div class="ac-time-flex">
-            <div class="ac-select-v2">08 <span class="arr">▼</span></div>
-            <span>:</span>
-            <div class="ac-select-v2">00 <span class="arr">▼</span></div>
+        <div class="ac-form-row">
+          <div class="ac-field-inline">
+            <label>Hora de Programación (24h)</label>
+            <div class="ac-time-flex">
+              <select id="acInHora" class="ac-select-v2" style="appearance: none; -webkit-appearance: none; outline:none; border:none; color:white;">
+                <option value="07">07 ▼</option><option value="08">08 ▼</option><option value="09">09 ▼</option>
+                <option value="10">10 ▼</option><option value="11">11 ▼</option><option value="12">12 ▼</option>
+                <option value="13">13 ▼</option><option value="14">14 ▼</option><option value="15">15 ▼</option>
+                <option value="16">16 ▼</option><option value="17">17 ▼</option><option value="18">18 ▼</option>
+                <option value="19" selected>19 ▼</option><option value="20">20 ▼</option><option value="21">21 ▼</option>
+                <option value="22">22 ▼</option>
+              </select>
+              <span>:</span>
+              <select id="acInMin" class="ac-select-v2" style="appearance: none; -webkit-appearance: none; outline:none; border:none; color:white;">
+                <option value="00">00 ▼</option><option value="10">10 ▼</option><option value="20">20 ▼</option>
+                <option value="30" selected>30 ▼</option><option value="40">40 ▼</option><option value="50">50 ▼</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ac-field-inline">
+            <label>Días de Clase</label>
+            <div class="ac-days-group">
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="1"> Lun</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="2"> Mar</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="3"> Mie</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="4"> Jue</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="5"> Vie</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="6"> Sab</label>
+              <label class="ac-checkbox"><input type="checkbox" class="ac-day-check" value="7"> Dom</label>
+            </div>
+          </div>
+
+          <div class="ac-btn-container">
+            <button type="submit" class="ac-btn-green" id="acBtnAdd">Agregar Curso</button>
           </div>
         </div>
+      </form>
 
-        <div class="ac-field-inline">
-          <label>Días de Clase</label>
-          <div class="ac-days-group">
-            <label class="ac-checkbox"><input type="checkbox"> Lun</label>
-            <label class="ac-checkbox"><input type="checkbox"> Mar</label>
-            <label class="ac-checkbox"><input type="checkbox"> Mie</label>
-            <label class="ac-checkbox"><input type="checkbox"> Jue</label>
-            <label class="ac-checkbox"><input type="checkbox"> Vie</label>
-            <label class="ac-checkbox"><input type="checkbox"> Sab</label>
-            <label class="ac-checkbox"><input type="checkbox"> Dom</label>
-          </div>
-        </div>
+      <!-- Course List Area -->
+      <div class="ac-list-header">
+        <span class="bold">Cursos Programados</span>
+        <span class="bold">Estado / Acciones</span>
+      </div>
+      <div class="ac-search-bar">
+        <span>🔍</span>
+        <input type="text" class="ac-search-input" placeholder="Buscar curso por nombre...">
+      </div>
 
-        <div class="ac-btn-container">
-          <button class="ac-btn-green" type="button">Agregar Curso</button>
-        </div>
+      <!-- Course Cards Container (Dynamic) -->
+      <div class="ac-cards-wrapper" id="acCardList">
+        <!-- JS will inject courses here -->
       </div>
     </div>
 
-    <!-- Course List Area -->
-    <div class="ac-list-header">
-      <span class="bold">Cursos Programados</span>
-      <span class="bold">Estado / Acciones</span>
+    <!-- MOCK TABS -->
+    <div class="ac-tab-content" id="tab-launchpad" style="display:none; text-align:center; padding: 40px;">
+      <h3 style="color:#aaa">🚀 Launchpad</h3>
+      <p style="color:#666; margin-top:10px;">En este panel se visualiza el inicio forzado de las clases.</p>
     </div>
-    <div class="ac-search-bar">
-      <span>🔍</span>
-      <input type="text" class="ac-search-input" placeholder="Buscar curso por nombre...">
+    <div class="ac-tab-content" id="tab-tareas" style="display:none; text-align:center; padding: 40px;">
+      <h3 style="color:#aaa">📝 Tareas Pendientes</h3>
+      <p style="color:#666; margin-top:10px;">Integración con Canvas LMS (Próximamente)</p>
     </div>
-
-    <!-- Course Cards -->
-    <div class="ac-cards-wrapper">
-      
-      <div class="ac-course-card">
-        <div class="ac-course-info">
-          <div class="ac-course-title">
-            PROBABILIDAD Y ESTADÍSTICA <span class="ac-time-badge">19:30</span>
-          </div>
-          <div class="ac-course-meta">
-            <span class="ac-meta-day">Lun</span>
-            <span class="ac-meta-tag">Web</span>
-            <span class="ac-meta-url">https://upn.class.com/class/********</span>
-          </div>
-        </div>
-        <div class="ac-course-actions">
-          <div class="ac-toggle on"></div>
-          <button class="ac-btn-mini green">Abrir</button>
-          <button class="ac-btn-mini orange">Editar</button>
-          <button class="ac-btn-mini red">Borrar</button>
-        </div>
-      </div>
-
-      <div class="ac-course-card">
-        <div class="ac-course-info">
-          <div class="ac-course-title">
-            CÁLCULO 1 <span class="ac-time-badge">19:30</span>
-          </div>
-          <div class="ac-course-meta">
-            <span class="ac-meta-day">Mar</span>
-            <span class="ac-meta-tag">Web</span>
-            <span class="ac-meta-url">https://upn.class.com/class/********</span>
-          </div>
-        </div>
-        <div class="ac-course-actions">
-          <div class="ac-toggle on"></div>
-          <button class="ac-btn-mini green">Abrir</button>
-          <button class="ac-btn-mini orange">Editar</button>
-          <button class="ac-btn-mini red">Borrar</button>
-        </div>
-      </div>
-
-      <div class="ac-course-card">
-        <div class="ac-course-info">
-          <div class="ac-course-title">
-            PROGRAMACIÓN ORIENTADA A OBJETOS <span class="ac-time-badge">19:30</span>
-          </div>
-          <div class="ac-course-meta">
-            <span class="ac-meta-day">Mie</span>
-            <span class="ac-meta-tag">Web</span>
-            <span class="ac-meta-url">https://upn.class.com/class/********</span>
-          </div>
-        </div>
-        <div class="ac-course-actions">
-          <div class="ac-toggle on"></div>
-          <button class="ac-btn-mini green">Abrir</button>
-          <button class="ac-btn-mini orange">Editar</button>
-          <button class="ac-btn-mini red">Borrar</button>
-        </div>
-      </div>
-
+    <div class="ac-tab-content" id="tab-historial" style="display:none; text-align:center; padding: 40px;">
+      <h3 style="color:#aaa">📊 Historial de Conexiones</h3>
+      <p style="color:#666; margin-top:10px;">No hay registros recientes.</p>
     </div>
-  </div>
-
-  <div class="ac-tab-content" id="tab-launchpad" style="display:none; text-align:center; padding: 40px;">
-    <h3 style="color:#aaa">🚀 Launchpad</h3>
-    <p style="color:#666; margin-top:10px;">En este panel se visualiza el inicio forzado de las clases.</p>
-  </div>
-  <div class="ac-tab-content" id="tab-tareas" style="display:none; text-align:center; padding: 40px;">
-    <h3 style="color:#aaa">📝 Tareas Pendientes</h3>
-    <p style="color:#666; margin-top:10px;">Integración con Canvas LMS (Próximamente)</p>
-  </div>
-  <div class="ac-tab-content" id="tab-historial" style="display:none; text-align:center; padding: 40px;">
-    <h3 style="color:#aaa">📊 Historial de Conexiones</h3>
-    <p style="color:#666; margin-top:10px;">No hay registros recientes.</p>
-  </div>
-  <div class="ac-tab-content" id="tab-ajustes" style="display:none; text-align:center; padding: 40px;">
-    <h3 style="color:#aaa">⚙️ Ajustes del Sistema</h3>
-    <p style="color:#666; margin-top:10px;">Opciones de navegador, notificaciones y tolerancia.</p>
-  </div>
+    <div class="ac-tab-content" id="tab-ajustes" style="display:none; text-align:center; padding: 40px;">
+      <h3 style="color:#aaa">⚙️ Ajustes del Sistema</h3>
+      <p style="color:#666; margin-top:10px;">Opciones de navegador, notificaciones y tolerancia.</p>
+    </div>
 
   </div>
 </div>
