@@ -1235,23 +1235,35 @@ const initAbreCursosLogic = () => {
     courses.forEach(c => {
       const daysStr = c.dias.map(d => daysMap[d]).join(', ');
       
+      // Determine platform tag based on URL
+      let platform = 'Web';
+      let tagColor = '#1a6aff'; // blue
+      if (c.url.includes('zoom.us')) {
+        platform = 'Zoom';
+        tagColor = '#198754'; // green
+      } else if (c.url.includes('teams.microsoft')) {
+        platform = 'Teams';
+        tagColor = '#fd7e14'; // orange
+      }
+      
+      // Truncate URL
+      let displayUrl = c.url.length > 30 ? c.url.substring(0, 30) + '...' : c.url;
+
       const card = document.createElement('div');
-      card.className = 'ac-course-card';
+      card.className = 'ac-course-card-classic';
       card.innerHTML = `
-        <div class="ac-course-info">
-          <div class="ac-course-title">
-            ${c.nombre} <span class="ac-time-badge">${c.hora}:${c.minuto}</span>
+        <div class="ac-course-info-classic">
+          <div class="ac-course-title-classic">
+            ${c.nombre} <span class="ac-time-badge-classic">${c.hora}:${c.minuto}</span>
           </div>
-          <div class="ac-course-meta">
-            <span class="ac-meta-day">${daysStr}</span>
-            <span class="ac-meta-tag">Web</span>
-            <span class="ac-meta-url" style="color:var(--ctk-blue)">[Enlace Privado]</span>
+          <div class="ac-course-meta-classic">
+            <span class="ac-meta-day-classic">${daysStr} • </span>
+            <span class="ac-meta-tag-classic" style="background-color: ${tagColor};">${platform}</span>
+            <span class="ac-meta-url-classic">${displayUrl}</span>
           </div>
         </div>
-        <div class="ac-course-actions">
-          <div class="ac-toggle ${c.activo ? 'on' : ''}" data-id="${c.id}"></div>
+        <div class="ac-course-actions-classic">
           <button class="ac-btn-mini green btn-abrir" data-id="${c.id}">Abrir</button>
-          <button class="ac-btn-mini orange btn-editar" data-id="${c.id}">Editar</button>
           <button class="ac-btn-mini red btn-borrar" data-id="${c.id}">Borrar</button>
         </div>
       `;
