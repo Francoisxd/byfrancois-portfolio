@@ -1228,39 +1228,48 @@ const initAbreCursosLogic = () => {
     cardList.innerHTML = '';
 
     if (courses.length === 0) {
-      cardList.innerHTML = '<div class="ctk-empty">Sin cursos programados.</div>';
+      cardList.innerHTML = '<div class="ctk-empty-list">Sin cursos programados. Usa el formulario de arriba para agregar uno.</div>';
       return;
     }
 
     courses.forEach(c => {
-      const daysMap2 = {1:'Lun',2:'Mar',3:'Mie',4:'Jue',5:'Vie',6:'Sab',7:'Dom'};
-      const daysStr = c.dias.map(d => daysMap2[d]).join(', ');
+      const dMap = {1:'Lun',2:'Mar',3:'Mié',4:'Jue',5:'Vie',6:'Sáb',7:'Dom'};
+      const daysStr = c.dias.map(d => dMap[d]).join(', ');
 
-      let platform = 'Web', tagColor = '#1f6aa5';
-      if (c.url.includes('zoom.us'))           { platform = 'Zoom';  tagColor = '#198754'; }
-      else if (c.url.includes('teams'))        { platform = 'Teams'; tagColor = '#e06c00'; }
-      else if (c.url.includes('canvas'))       { platform = 'Canvas'; tagColor = '#7c3aed'; }
+      // Platform detection (same logic as Python source)
+      let platText = ' Web ', platBg = '#0275d8';
+      const urlLow = c.url.toLowerCase();
+      if (urlLow.includes('zoom'))   { platText = ' Zoom ';  platBg = '#1e7e34'; }
+      else if (urlLow.includes('teams')) { platText = ' Teams '; platBg = '#d9534f'; }
+      else if (urlLow.includes('upn'))   { platText = ' UPN ';  platBg = '#5c2d91'; }
 
-      let displayUrl = c.url.length > 38 ? c.url.substring(0, 38) + '...' : c.url;
+      let displayUrl = c.url.length > 50 ? c.url.substring(0, 47) + '...' : c.url;
 
+      const isActive = c.activo;
       const card = document.createElement('div');
-      card.className = 'ctk-course-row' + (c.activo ? '' : ' inactive');
+      card.className = 'ctk-card' + (isActive ? '' : ' ctk-card-inactive');
       card.innerHTML = `
-        <div class="ctk-row-left">
-          <div class="ctk-row-name">${c.nombre} <span class="ctk-time-pill">${c.hora}:${c.minuto}</span></div>
-          <div class="ctk-row-meta">
-            <span class="ctk-days-text">${daysStr} •</span>
-            <span class="ctk-platform-tag" style="background:${tagColor}">${platform}</span>
-            <span class="ctk-url-text">${displayUrl}</span>
+        <div class="ctk-card-details">
+          <div class="ctk-card-top">
+            <span class="ctk-card-name">${c.nombre.toUpperCase()}</span>
+            <span class="ctk-card-time">${c.hora}:${c.minuto}</span>
+          </div>
+          <div class="ctk-card-bottom">
+            <span class="ctk-card-days">${daysStr}</span>
+            <span class="ctk-card-sep"> • </span>
+            <span class="ctk-card-platform" style="background:${isActive ? platBg : '#27272a'}">${platText}</span>
+            <span class="ctk-card-sep"> • </span>
+            <span class="ctk-card-url">${displayUrl}</span>
           </div>
         </div>
-        <div class="ctk-row-actions">
-          <label class="ctk-switch-wrap" title="${c.activo ? 'Activo' : 'Inactivo'}">
-            <input type="checkbox" class="ctk-toggle-input" data-id="${c.id}" ${c.activo ? 'checked' : ''}>
-            <span class="ctk-switch-slider"></span>
+        <div class="ctk-card-actions">
+          <label class="ctk-sw-wrap" title="${isActive ? 'Activo' : 'Inactivo'}">
+            <input type="checkbox" class="ctk-toggle-input" data-id="${c.id}" ${isActive ? 'checked' : ''}>
+            <span class="ctk-sw-track"></span>
           </label>
-          <button class="ctk-action-btn open btn-abrir" data-id="${c.id}">▶ Abrir</button>
-          <button class="ctk-action-btn del btn-borrar" data-id="${c.id}">✕ Borrar</button>
+          <button class="ctk-card-btn open btn-abrir" data-id="${c.id}">Abrir</button>
+          <button class="ctk-card-btn edit btn-editar" data-id="${c.id}">Editar</button>
+          <button class="ctk-card-btn del btn-borrar" data-id="${c.id}">Borrar</button>
         </div>
       `;
       cardList.appendChild(card);
@@ -1405,16 +1414,34 @@ const initAbreCursosLogic = () => {
           window.open(course.url, '_blank');
         }
       }
-      // Editar
+      // Editar (load values into form)
       if (e.target.classList.contains('btn-editar')) {
-        showSimToast(`Simulación: Panel de edición no implementado en la maqueta web.`);
+        const id = e.target.getAttribute('data-id');
+        const course = courses.find(c => c.id === id);
+        if (course) {
+          const nm = container.querySelector('#acInNombre');
+          const ur = container.querySelector('#acInUrl');
+          const hr = container.querySelector('#acInHora');
+          const mn = container.querySelector('#acInMin');
+          if (nm) nm.value = course.nombre;
+          if (ur) ur.value = course.url;
+          if (hr) hr.value = course.hora;
+          if (mn) mn.value = course.minuto;
+          // Uncheck all, then re-check
+          container.querySelectorAll('.ac-day-check').forEach(cb => {
+            cb.checked = course.dias.includes(parseInt(cb.value));
+          });
+          courses = courses.filter(c => c.id !== id);
+          renderCourses();
+          showSimToast(`Editando: ${course.nombre} — modifica y vuelve a agregar.`);
+        }
       }
     });
   }
 
   // 7. Tabs logic
-  const tabs = container.querySelectorAll('.ctk-nav-btn');
-  const tabContents = container.querySelectorAll('.ctk-tab');
+  const tabs = container.querySelectorAll('.ctk-tab-btn');
+  const tabContents = container.querySelectorAll('.ctk-tab-pane');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
