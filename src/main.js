@@ -449,7 +449,7 @@ const initAbreCursosLogic = () => {
       else if (u.includes('teams')) { plat = 'Teams'; platBg = '#d9534f'; }
       else if (u.includes('web'))   { plat = 'Web';   platBg = '#0275d8'; }
 
-      const maxUrl = c.url.length > 45 ? c.url.substring(0, 43) + '...' : c.url;
+      const displayUrl = "Enlace privado (Oculto por seguridad)";
 
       const card = document.createElement('div');
       card.className = 'acCard' + (c.activo ? '' : ' acCardOff');
@@ -462,7 +462,7 @@ const initAbreCursosLogic = () => {
           <div class="acCardBot">
             <span class="acCardDays">${days} •</span>
             <span class="acCardPlat" style="background:${c.activo ? platBg : '#333'}">${plat}</span>
-            <span class="acCardUrl" data-url="${c.url}">${maxUrl}</span>
+            <span class="acCardUrl" data-url="${c.url}">${displayUrl}</span>
           </div>
         </div>
         <div class="acCardRight">
