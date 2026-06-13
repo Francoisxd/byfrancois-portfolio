@@ -1190,272 +1190,222 @@ if (btnDownloadAC) {
 
 // Abre Cursos Pro Full JS Engine
 const initAbreCursosLogic = () => {
-  const container = document.getElementById('abreCursosContainer');
-  if (!container) return;
+  const root = document.getElementById('abreCursosContainer');
+  if (!root) return;
 
-  // 1. Initial State (Obfuscated URLs for privacy)
+  // ── State (from cursos.json) ─────────────────────────────────────────────
   let courses = [
     { id: "73d991d1", nombre: "PROBABILIDAD Y ESTADÍSTICA", url: "https://upn.class.com/class/2b048859-7fa2-444b-8a0d-bd541a033f6a", hora: "19", minuto: "30", dias: [1], activo: true },
-    { id: "41fd1bfa", nombre: "CÁLCULO 1", url: "https://upn.class.com/class/578cbf4b-8068-4b94-aadf-e0a767c4704f", hora: "19", minuto: "30", dias: [2], activo: true },
-    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d", hora: "19", minuto: "30", dias: [3], activo: true },
-    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d", hora: "21", minuto: "10", dias: [5], activo: true },
-    { id: "95036a59", nombre: "PROYECTO SOCIAL", url: "https://upn.class.com/class/8499fc46-cddb-4f57-8d59-bcbb45f6230b", hora: "17", minuto: "50", dias: [6], activo: true }
+    { id: "41fd1bfa", nombre: "CÁLCULO 1",                  url: "https://upn.class.com/class/578cbf4b-8068-4b94-aadf-e0a767c4704f", hora: "19", minuto: "30", dias: [2], activo: true },
+    { id: "9a118daf", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d?is_lti=true", hora: "19", minuto: "30", dias: [3], activo: true },
+    { id: "5171c36b", nombre: "PROGRAMACIÓN ORIENTADA A OBJETOS", url: "https://upn.class.com/class/acacca56-481d-4253-8405-10c1b08a676d?is_lti=true", hora: "21", minuto: "10", dias: [5], activo: true },
+    { id: "95036a59", nombre: "PROYECTO SOCIAL",            url: "https://upn.class.com/class/8499fc46-cddb-4f57-8d59-bcbb45f6230b", hora: "17", minuto: "50", dias: [6], activo: true }
   ];
 
-  const daysMap = {1: 'Lun', 2: 'Mar', 3: 'Mie', 4: 'Jue', 5: 'Vie', 6: 'Sab', 7: 'Dom'};
-  let lastOpenedId = null;
+  const dMap = {1:'Lun',2:'Mar',3:'Mié',4:'Jue',5:'Vie',6:'Sáb',7:'Dom'};
+  let lastAuto = null;
 
-  const cardList = container.querySelector('#acCardList');
-  const clockEl = container.querySelector('#acClock');
-  const badgeNext = container.querySelector('#acNextClassBadge');
-
-  // Helper: Show Toast
-  const showSimToast = (msg) => {
-    const toast = document.getElementById('winToast');
-    const toastMsg = document.getElementById('winToastMsg');
-    if (toast && toastMsg) {
-      toastMsg.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    } else {
-      alert(msg);
-    }
+  // ── Toast ────────────────────────────────────────────────────────────────
+  const toast = (msg) => {
+    let t = document.getElementById('winToast');
+    let m = document.getElementById('winToastMsg');
+    if (t && m) { m.innerText = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 3500); }
   };
 
-  // 2. Render Engine
-  const renderCourses = () => {
+  // ── Refs ──────────────────────────────────────────────────────────────────
+  const cardList  = root.querySelector('#acCardList');
+  const clockEl   = root.querySelector('#acClock');
+  const proxEl    = root.querySelector('#acProxima');
+  const form      = root.querySelector('#acForm');
+  const searchInp = root.querySelector('#acSearch');
+
+  // ── Next class algorithm (same as Python) ────────────────────────────────
+  const calcNext = () => {
+    if (!proxEl) return;
+    const now = new Date();
+    const todayPy = now.getDay() === 0 ? 7 : now.getDay();
+    const nowMins = now.getHours() * 60 + now.getMinutes();
+    let best = null;
+    courses.filter(c => c.activo).forEach(c => {
+      const cMins = parseInt(c.hora) * 60 + parseInt(c.minuto);
+      c.dias.forEach(d => {
+        let diff = d - todayPy;
+        if (diff < 0 || (diff === 0 && cMins <= nowMins)) diff += 7;
+        const wait = diff * 1440 + (cMins - nowMins);
+        if (!best || wait < best.wait) best = { ...c, wait, diff };
+      });
+    });
+    if (!best) { proxEl.textContent = ''; return; }
+    const h = Math.floor(best.wait / 60), m = best.wait % 60;
+    proxEl.textContent = best.diff === 0
+      ? `Próxima: ${best.nombre} (en ${h}h ${m}m)`
+      : `Próxima: ${best.nombre} (en ${best.diff} día${best.diff > 1 ? 's' : ''})`;
+  };
+
+  // ── Render cards ─────────────────────────────────────────────────────────
+  const render = (filter = '') => {
     if (!cardList) return;
     cardList.innerHTML = '';
+    const filtered = filter
+      ? courses.filter(c => c.nombre.toLowerCase().includes(filter.toLowerCase()))
+      : courses;
 
-    if (courses.length === 0) {
-      cardList.innerHTML = '<div class="ctk-empty-list">Sin cursos programados. Usa el formulario de arriba para agregar uno.</div>';
+    if (filtered.length === 0) {
+      cardList.innerHTML = '<div class="acEmpty">Sin cursos programados.</div>';
       return;
     }
 
-    courses.forEach(c => {
-      const dMap = {1:'Lun',2:'Mar',3:'Mié',4:'Jue',5:'Vie',6:'Sáb',7:'Dom'};
-      const daysStr = c.dias.map(d => dMap[d]).join(', ');
+    filtered.forEach(c => {
+      const days = c.dias.map(d => dMap[d]).join(', ');
 
-      // Platform detection (same logic as Python source)
-      let platText = ' Web ', platBg = '#0275d8';
-      const urlLow = c.url.toLowerCase();
-      if (urlLow.includes('zoom'))   { platText = ' Zoom ';  platBg = '#1e7e34'; }
-      else if (urlLow.includes('teams')) { platText = ' Teams '; platBg = '#d9534f'; }
-      else if (urlLow.includes('upn'))   { platText = ' UPN ';  platBg = '#5c2d91'; }
+      let plat = 'UPN', platBg = '#5c2d91';
+      const u = c.url.toLowerCase();
+      if (u.includes('zoom'))   { plat = 'Zoom';  platBg = '#1e7e34'; }
+      else if (u.includes('teams')) { plat = 'Teams'; platBg = '#d9534f'; }
+      else if (u.includes('web'))   { plat = 'Web';   platBg = '#0275d8'; }
 
-      let displayUrl = c.url.length > 50 ? c.url.substring(0, 47) + '...' : c.url;
+      const maxUrl = c.url.length > 45 ? c.url.substring(0, 43) + '...' : c.url;
 
-      const isActive = c.activo;
       const card = document.createElement('div');
-      card.className = 'ctk-card' + (isActive ? '' : ' ctk-card-inactive');
+      card.className = 'acCard' + (c.activo ? '' : ' acCardOff');
       card.innerHTML = `
-        <div class="ctk-card-details">
-          <div class="ctk-card-top">
-            <span class="ctk-card-name">${c.nombre.toUpperCase()}</span>
-            <span class="ctk-card-time">${c.hora}:${c.minuto}</span>
+        <div class="acCardLeft">
+          <div class="acCardTop">
+            <span class="acCardName">${c.nombre}</span>
+            <span class="acCardTime">${c.hora}:${c.minuto}</span>
           </div>
-          <div class="ctk-card-bottom">
-            <span class="ctk-card-days">${daysStr}</span>
-            <span class="ctk-card-sep"> • </span>
-            <span class="ctk-card-platform" style="background:${isActive ? platBg : '#27272a'}">${platText}</span>
-            <span class="ctk-card-sep"> • </span>
-            <span class="ctk-card-url">${displayUrl}</span>
+          <div class="acCardBot">
+            <span class="acCardDays">${days} •</span>
+            <span class="acCardPlat" style="background:${c.activo ? platBg : '#333'}">${plat}</span>
+            <span class="acCardUrl" data-url="${c.url}">${maxUrl}</span>
           </div>
         </div>
-        <div class="ctk-card-actions">
-          <label class="ctk-sw-wrap" title="${isActive ? 'Activo' : 'Inactivo'}">
-            <input type="checkbox" class="ctk-toggle-input" data-id="${c.id}" ${isActive ? 'checked' : ''}>
-            <span class="ctk-sw-track"></span>
+        <div class="acCardRight">
+          <label class="acSwitch">
+            <input type="checkbox" class="acToggle" data-id="${c.id}" ${c.activo ? 'checked' : ''}>
+            <span class="acSlider"></span>
           </label>
-          <button class="ctk-card-btn open btn-abrir" data-id="${c.id}">Abrir</button>
-          <button class="ctk-card-btn edit btn-editar" data-id="${c.id}">Editar</button>
-          <button class="ctk-card-btn del btn-borrar" data-id="${c.id}">Borrar</button>
+          <button class="acBtn acBtnGreen acBtnOpen" data-id="${c.id}">Abrir</button>
+          <button class="acBtn acBtnOrange acBtnEdit" data-id="${c.id}">Editar</button>
+          <button class="acBtn acBtnRed acBtnDel" data-id="${c.id}">Borrar</button>
         </div>
       `;
       cardList.appendChild(card);
     });
 
-    calculateNextClass();
+    calcNext();
   };
 
-  // 3. Next Class Algorithm
-  const calculateNextClass = () => {
-    if (!badgeNext) return;
-    const now = new Date();
-    // In JS, getDay() returns 0=Sunday, 1=Monday. The python uses 1=Monday...7=Sunday.
-    let currentDayPython = now.getDay() === 0 ? 7 : now.getDay();
-    const currentMins = now.getHours() * 60 + now.getMinutes();
-
-    let upcoming = [];
-    
-    courses.filter(c => c.activo).forEach(c => {
-      const cTime = parseInt(c.hora) * 60 + parseInt(c.minuto);
-      c.dias.forEach(d => {
-        let dayDiff = d - currentDayPython;
-        if (dayDiff < 0 || (dayDiff === 0 && cTime <= currentMins)) {
-          dayDiff += 7; // Next week
-        }
-        const totalWaitMins = (dayDiff * 24 * 60) + (cTime - currentMins);
-        upcoming.push({ ...c, waitMins: totalWaitMins, dayDiff });
-      });
-    });
-
-    if (upcoming.length === 0) {
-      badgeNext.innerText = "No hay clases programadas activas";
-      return;
-    }
-
-    upcoming.sort((a, b) => a.waitMins - b.waitMins);
-    const next = upcoming[0];
-    
-    const h = Math.floor(next.waitMins / 60);
-    const m = next.waitMins % 60;
-    
-    if (next.dayDiff === 0) {
-       badgeNext.innerText = `Próxima: ${next.nombre} (en ${h}h ${m}m)`;
-    } else {
-       badgeNext.innerText = `Próxima: ${next.nombre} (en ${next.dayDiff} días)`;
-    }
-  };
-
-  // 4. Background Clock & Auto-Launcher
+  // ── Clock & auto-launch loop ─────────────────────────────────────────────
   if (clockEl) {
     setInterval(() => {
       const now = new Date();
-      const daysStr = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-      const timeStr = now.toLocaleTimeString('es-PE', { hour12: false });
-      clockEl.innerText = `${daysStr[now.getDay()]} ${timeStr}`;
+      const days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+      clockEl.textContent = `${days[now.getDay()]} ${now.toLocaleTimeString('es-PE', { hour12: false })}`;
 
-      // Simulate automatic opening
-      let currentDayPython = now.getDay() === 0 ? 7 : now.getDay();
-      const hh = String(now.getHours()).padStart(2, '0');
-      const mm = String(now.getMinutes()).padStart(2, '0');
-      const ss = now.getSeconds();
-
-      if (ss === 0) { // Check every minute start
+      if (now.getSeconds() === 0) {
+        const todayPy = now.getDay() === 0 ? 7 : now.getDay();
+        const hh = String(now.getHours()).padStart(2,'0');
+        const mm = String(now.getMinutes()).padStart(2,'0');
         courses.forEach(c => {
-          if (c.activo && c.hora === hh && c.minuto === mm && c.dias.includes(currentDayPython)) {
-            // Prevent multiple opens for the same class
-            if (lastOpenedId !== c.id) {
-              lastOpenedId = c.id;
-              showSimToast(`Abre Cursos: Es hora! Abriendo automáticamente ${c.nombre}...`);
+          if (c.activo && c.hora === hh && c.minuto === mm && c.dias.includes(todayPy)) {
+            if (lastAuto !== c.id) {
+              lastAuto = c.id;
+              toast(`⏰ Abre Cursos: Abriendo ${c.nombre}...`);
               window.open(c.url, '_blank');
             }
           }
         });
-        calculateNextClass(); // Update countdown every minute
+        calcNext();
       }
-
     }, 1000);
   }
 
-  // 5. Form Submit (Add)
-  const form = container.querySelector('#acForm');
+  // ── Form submit ──────────────────────────────────────────────────────────
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const nombre = container.querySelector('#acInNombre').value;
-      const url = container.querySelector('#acInUrl').value;
-      const hora = container.querySelector('#acInHora').value.slice(0, 2);
-      const minuto = container.querySelector('#acInMin').value.slice(0, 2);
-      
-      const dayChecks = container.querySelectorAll('.ac-day-check:checked');
-      let dias = [];
-      dayChecks.forEach(cb => dias.push(parseInt(cb.value)));
-
-      if (dias.length === 0) {
-        showSimToast("Error: Seleccione al menos un día");
-        return;
-      }
-
-      const newCourse = {
-        id: Math.random().toString(36).substring(2, 10),
-        nombre: nombre.toUpperCase(),
-        url: url,
-        hora: hora,
-        minuto: minuto,
-        dias: dias,
-        activo: true
-      };
-
-      courses.push(newCourse);
-      renderCourses();
+      const nombre  = root.querySelector('#acInNombre').value.trim().toUpperCase();
+      const url     = root.querySelector('#acInUrl').value.trim();
+      const hora    = root.querySelector('#acInHora').value;
+      const minuto  = root.querySelector('#acInMin').value;
+      const checked = [...root.querySelectorAll('.ac-day-check:checked')].map(cb => parseInt(cb.value));
+      if (!checked.length) { toast('Selecciona al menos un día'); return; }
+      courses.push({ id: Math.random().toString(36).slice(2,10), nombre, url, hora, minuto, dias: checked, activo: true });
+      render();
       form.reset();
-      showSimToast(`Curso agregado: ${newCourse.nombre}`);
+      toast(`✅ Curso agregado: ${nombre}`);
     });
   }
 
-  // 6. Delegated Event Listeners (Toggles & Action Buttons)
+  // ── Delegated events on card list ────────────────────────────────────────
   if (cardList) {
-    cardList.addEventListener('click', (e) => {
-      // Toggle switch
-      if (e.target.classList.contains('ctk-toggle-input')) {
-        const id = e.target.getAttribute('data-id');
-        const course = courses.find(c => c.id === id);
-        if (course) {
-          course.activo = e.target.checked;
-          renderCourses();
-          showSimToast(course.activo ? `${course.nombre}: Activado` : `${course.nombre}: Desactivado`);
+    cardList.addEventListener('click', e => {
+      // Toggle
+      if (e.target.classList.contains('acToggle')) {
+        const c = courses.find(x => x.id === e.target.dataset.id);
+        if (c) { c.activo = e.target.checked; render(searchInp ? searchInp.value : ''); }
+      }
+      // Open
+      if (e.target.classList.contains('acBtnOpen')) {
+        const c = courses.find(x => x.id === e.target.dataset.id);
+        if (c) { toast(`🚀 Abriendo ${c.nombre}...`); window.open(c.url, '_blank'); }
+      }
+      // Edit
+      if (e.target.classList.contains('acBtnEdit')) {
+        const c = courses.find(x => x.id === e.target.dataset.id);
+        if (c) {
+          root.querySelector('#acInNombre').value = c.nombre;
+          root.querySelector('#acInUrl').value    = c.url;
+          root.querySelector('#acInHora').value   = c.hora;
+          root.querySelector('#acInMin').value    = c.minuto;
+          root.querySelectorAll('.ac-day-check').forEach(cb => { cb.checked = c.dias.includes(parseInt(cb.value)); });
+          courses = courses.filter(x => x.id !== c.id);
+          render();
+          toast(`✏️ Editando: ${c.nombre}`);
         }
       }
-      // Borrar
-      if (e.target.classList.contains('btn-borrar')) {
-        const id = e.target.getAttribute('data-id');
-        courses = courses.filter(c => c.id !== id);
-        renderCourses();
-        showSimToast("Curso eliminado del registro.");
+      // Delete
+      if (e.target.classList.contains('acBtnDel')) {
+        const c = courses.find(x => x.id === e.target.dataset.id);
+        if (c) { courses = courses.filter(x => x.id !== c.id); render(searchInp ? searchInp.value : ''); toast(`🗑️ Eliminado: ${c.nombre}`); }
       }
-      // Abrir
-      if (e.target.classList.contains('btn-abrir')) {
-        const id = e.target.getAttribute('data-id');
-        const course = courses.find(c => c.id === id);
-        if (course) {
-          showSimToast(`Abre Cursos: Abriendo ${course.nombre} en una nueva pestaña...`);
-          window.open(course.url, '_blank');
-        }
-      }
-      // Editar (load values into form)
-      if (e.target.classList.contains('btn-editar')) {
-        const id = e.target.getAttribute('data-id');
-        const course = courses.find(c => c.id === id);
-        if (course) {
-          const nm = container.querySelector('#acInNombre');
-          const ur = container.querySelector('#acInUrl');
-          const hr = container.querySelector('#acInHora');
-          const mn = container.querySelector('#acInMin');
-          if (nm) nm.value = course.nombre;
-          if (ur) ur.value = course.url;
-          if (hr) hr.value = course.hora;
-          if (mn) mn.value = course.minuto;
-          // Uncheck all, then re-check
-          container.querySelectorAll('.ac-day-check').forEach(cb => {
-            cb.checked = course.dias.includes(parseInt(cb.value));
-          });
-          courses = courses.filter(c => c.id !== id);
-          renderCourses();
-          showSimToast(`Editando: ${course.nombre} — modifica y vuelve a agregar.`);
-        }
+      // Click URL
+      if (e.target.classList.contains('acCardUrl')) {
+        const url = e.target.dataset.url;
+        if (url) window.open(url, '_blank');
       }
     });
   }
 
-  // 7. Tabs logic
-  const tabs = container.querySelectorAll('.ctk-tab-btn');
-  const tabContents = container.querySelectorAll('.ctk-tab-pane');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const targetId = tab.getAttribute('data-target');
-      tabContents.forEach(tc => {
-        tc.style.display = tc.id === targetId ? 'block' : 'none';
+  // ── Search ────────────────────────────────────────────────────────────────
+  if (searchInp) {
+    searchInp.addEventListener('input', () => render(searchInp.value));
+  }
+
+  // ── Tab switching ─────────────────────────────────────────────────────────
+  root.querySelectorAll('.acTabBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      root.querySelectorAll('.acTabBtn').forEach(b => b.classList.remove('acActive'));
+      btn.classList.add('acActive');
+      root.querySelectorAll('.acTabPane').forEach(p => {
+        p.classList.toggle('acHidden', p.id !== btn.dataset.target);
       });
     });
   });
 
-  // Initial render
-  renderCourses();
+  // ── Init ─────────────────────────────────────────────────────────────────
+  render();
 };
+
+// Safe init
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(initAbreCursosLogic, 300));
+} else {
+  setTimeout(initAbreCursosLogic, 300);
+}
+
+
 // Call logic safely
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {

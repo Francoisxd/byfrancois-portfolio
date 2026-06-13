@@ -1859,279 +1859,348 @@ html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
 .ac-btn-mini.orange { background: #fd7e14; }
 .ac-btn-mini.red { background: #dc3545; }
 
+/* ================================================================
+   ABRE-CURSOS PRO v2.5.4 — Web Simulator
+   Colors from abre_cursos.py source: bg=#121212, frame=#1c1c1e,
+   border=#2d2d30, accent=#2563eb, text=white
+   ================================================================ */
 
-/* ============================================================
-   ABRE-CURSOS PRO v2.5.4 - Exact CTkinter Replica
-   Colors sourced directly from abre_cursos.py source code
-   bg_app:#121212 | bg_frame:#1c1c1e | border:#2d2d30 | accent:#2563eb
-   ============================================================ */
-
-/* Outer Window */
-.ctk-window {
+#acSim {
   background: #121212;
-  border-radius: 12px;
   border: 1px solid #2d2d30;
+  border-radius: 12px;
   overflow: hidden;
   font-family: 'Segoe UI', system-ui, sans-serif;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
-  margin: 24px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  margin: 20px 0;
+  color: #f0f0f0;
 }
 
 /* Top Bar */
-.ctk-topbar {
-  background: #121212;
-  padding: 14px 20px 10px;
+#acTopBar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #121212;
   border-bottom: 1px solid #2d2d30;
 }
-.ctk-topbar-left { display: flex; align-items: center; gap: 10px; flex: 1; overflow: hidden; }
-.ctk-app-title { color: #ffffff; font-size: 1.1rem; font-weight: 700; }
-.ctk-version-badge {
-  background: #2563eb;
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
+#acTitle { font-size: 1.05rem; font-weight: 700; color: #fff; }
+#acVerBadge {
+  background: #2563eb; color: #fff; font-size: 0.68rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 5px;
 }
-.ctk-proxima-label {
+#acProxima {
+  flex: 1;
   color: #9ca3af;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-style: italic;
+  text-align: right;
+  padding-right: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-left: auto;
-  padding-right: 16px;
 }
-/* Clock Capsule - exactly as in Python: border_color="#2563eb", fg_color="#121212" */
-.ctk-clock-capsule {
+#acClock {
   background: #121212;
   border: 2px solid #2563eb;
-  border-radius: 15px;
   color: #60a5fa;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  padding: 3px 16px;
-  font-family: 'Segoe UI', monospace;
+  padding: 3px 14px;
+  border-radius: 14px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* Horizontal Tab Bar - CTkTabview style */
-.ctk-tabbar {
+/* Tab Nav */
+#acTabNav {
   display: flex;
-  background: #121212;
-  padding: 0 20px;
-  border-bottom: 1px solid #2d2d30;
-  gap: 2px;
   justify-content: center;
+  background: #121212;
+  border-bottom: 1px solid #2d2d30;
+  padding: 0 16px;
+  gap: 2px;
 }
-.ctk-tab-btn {
+#acTabNav .acTabBtn {
   background: transparent;
   border: none;
+  border-bottom: 2px solid transparent;
   color: #666;
   padding: 10px 18px;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
   margin-bottom: -1px;
-  transition: 0.15s;
+  transition: color 0.15s;
 }
-.ctk-tab-btn:hover { color: #aaa; }
-.ctk-tab-btn.active {
+#acTabNav .acTabBtn:hover { color: #aaa; }
+#acTabNav .acTabBtn.acActive {
   color: #fff;
   background: #1c1c1e;
-  border-bottom: 2px solid #2563eb;
+  border-bottom-color: #2563eb;
 }
 
-/* Content Area */
-.ctk-content { background: #121212; padding: 16px 20px; }
-.ctk-tab-pane { display: flex; flex-direction: column; gap: 14px; }
+/* Tab Pane */
+.acTabPane { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+.acHidden { display: none !important; }
 
-/* Form Panel - fg_color="#1c1c1e", corner_radius=12 */
-.ctk-form-panel {
+/* Panel (form container) */
+#acSim .acPanel {
   background: #1c1c1e;
-  border-radius: 12px;
-  padding: 16px 18px;
   border: 1px solid #2d2d30;
+  border-radius: 10px;
+  padding: 16px 18px;
 }
-.ctk-form-row-top { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
-.ctk-form-row-bot { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
-.ctk-fg { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 120px; }
-.ctk-fg-sm { flex: 0 0 70px; min-width: 60px; }
-.ctk-fg-btn { flex: 0 0 auto; }
-.ctk-lbl { color: #ccc; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.2px; margin-bottom: 2px; }
-.ctk-inp {
+
+/* Form fields */
+#acSim .acFormField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+#acSim .acLabel {
+  font-size: 0.8rem;
+  color: #ccc;
+  font-weight: 500;
+}
+#acSim .acInput {
+  width: 100%;
   background: #2d2d30;
   border: 1px solid #3a3a3d;
-  border-radius: 7px;
+  border-radius: 6px;
   color: #f0f0f0;
   padding: 8px 12px;
-  font-size: 0.82rem;
+  font-size: 0.83rem;
   outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
   box-sizing: border-box;
+  transition: border-color 0.2s;
 }
-.ctk-inp:focus { border-color: #2563eb; }
-.ctk-sel {
+#acSim .acInput:focus { border-color: #2563eb; }
+#acSim .acInput::placeholder { color: #555; }
+
+/* Form bottom row */
+#acSim .acFormRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+#acSim .acFormGroup { display: flex; flex-direction: column; gap: 4px; }
+#acSim .acFormGroupDays { flex: 1; min-width: 200px; }
+#acSim .acTimeRow { display: flex; align-items: center; gap: 6px; }
+#acSim .acTimeSep { color: #888; font-weight: 700; }
+#acSim .acSelect {
   background: #2d2d30;
   border: 1px solid #3a3a3d;
-  border-radius: 7px;
+  border-radius: 6px;
   color: #f0f0f0;
-  padding: 8px 8px;
+  padding: 7px 10px;
   font-size: 0.82rem;
   outline: none;
-  width: 100%;
+  cursor: pointer;
+  min-width: 62px;
+}
+#acSim .acDaysRow { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding-top: 2px; }
+#acSim .acDay {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #bbb;
   cursor: pointer;
 }
-.ctk-day-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; padding-top: 2px; }
-.ctk-day { display: flex; align-items: center; gap: 4px; cursor: pointer; font-size: 0.78rem; color: #aaa; }
-.ctk-day input { accent-color: #2563eb; width: 13px; height: 13px; cursor: pointer; }
-.ctk-add-btn {
+#acSim .acDay input[type="checkbox"] {
+  accent-color: #2563eb;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+#acSim .acFormGroupBtn { flex-shrink: 0; }
+#acSim #acBtnAdd {
   background: #2563eb;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 7px;
-  padding: 9px 18px;
-  font-size: 0.82rem;
+  padding: 9px 20px;
+  font-size: 0.83rem;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s;
 }
-.ctk-add-btn:hover { background: #1d4ed8; }
+#acSim #acBtnAdd:hover { background: #1d4ed8; }
 
 /* List Header */
-.ctk-list-header {
+#acListHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  flex-wrap: wrap;
-  gap: 8px;
-  color: #aaa;
-  font-size: 0.82rem;
-  font-weight: 600;
   background: #1c1c1e;
-  border-radius: 6px 6px 0 0;
   border: 1px solid #2d2d30;
   border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #aaa;
 }
-.ctk-search-wrap { display: flex; align-items: center; gap: 6px; background: #1c1c1e; border: 1px solid #2d2d30; border-radius: 7px; padding: 6px 12px; width: 100%; }
-.ctk-search-icon { font-size: 0.75rem; }
-.ctk-search-inp { background: transparent; border: none; outline: none; color: #ccc; font-size: 0.78rem; width: 160px; }
+#acListRight { color: #555; }
 
-/* Scrollable list */
-.ctk-scroll-area { display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; padding: 8px 8px 8px 8px; background: #161618; border: 1px solid #2d2d30; border-radius: 0 0 6px 6px; }
-.ctk-scroll-area::-webkit-scrollbar { width: 4px; }
-.ctk-scroll-area::-webkit-scrollbar-thumb { background: #2d2d30; border-radius: 4px; }
-.ctk-empty-list { color: #555; text-align: center; padding: 30px 0; font-size: 0.82rem; }
+/* Search */
+#acSearchWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #161618;
+  border: 1px solid #2d2d30;
+  border-top: none;
+  border-bottom: none;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  color: #555;
+}
+#acSearch {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  font-size: 0.78rem;
+}
+#acSearch::placeholder { color: #444; }
 
-/* Course Card - fg_color="#1c1c1e", border_color="#2d2d30" */
-.ctk-card {
+/* Card list */
+#acCardList {
+  background: #161618;
+  border: 1px solid #2d2d30;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 6px 8px;
+}
+#acCardList::-webkit-scrollbar { width: 4px; }
+#acCardList::-webkit-scrollbar-thumb { background: #2d2d30; border-radius: 4px; }
+
+/* Empty state */
+#acSim .acEmpty { color: #444; text-align: center; padding: 28px; font-size: 0.82rem; }
+
+/* Course Card - bg=#1c1c1e, border=#2d2d30 */
+#acSim .acCard {
   background: #1c1c1e;
   border: 1px solid #2d2d30;
-  border-radius: 8px;
+  border-radius: 7px;
   padding: 10px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   transition: border-color 0.15s;
 }
-.ctk-card:hover { border-color: #3a3a3d; }
-.ctk-card-inactive { opacity: 0.45; }
+#acSim .acCard:hover { border-color: #3a3a3d; }
+#acSim .acCardOff { opacity: 0.4; }
 
-/* Card Left (details) */
-.ctk-card-details { display: flex; flex-direction: column; gap: 5px; }
-.ctk-card-top { display: flex; align-items: center; gap: 10px; }
-.ctk-card-name {
-  color: white;
+/* Card details */
+#acSim .acCardLeft { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 0; }
+#acSim .acCardTop { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+#acSim .acCardName {
+  color: #fff;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.87rem;
+  text-transform: uppercase;
   letter-spacing: 0.3px;
 }
-/* Time pill: fg_color="#121212", border_color="#2563eb", text_color="#3b82f6" */
-.ctk-card-time {
+/* Time pill: exactly from source - border_color="#2563eb", text_color="#3b82f6", fg_color="#121212" */
+#acSim .acCardTime {
   background: #121212;
-  border: 1px solid #2563eb;
+  border: 2px solid #2563eb;
   color: #3b82f6;
-  font-weight: 700;
-  font-size: 0.8rem;
+  font-weight: 800;
+  font-size: 0.85rem;
   padding: 2px 10px;
-  border-radius: 6px;
-  font-family: 'Segoe UI', monospace;
+  border-radius: 7px;
+  white-space: nowrap;
 }
-.ctk-card-bottom { display: flex; align-items: center; gap: 5px; font-size: 0.74rem; }
-.ctk-card-days { color: #666; }
-.ctk-card-sep { color: #444; }
-.ctk-card-platform { color: white; padding: 2px 6px; border-radius: 5px; font-size: 0.68rem; font-weight: 700; }
-.ctk-card-url { color: #3b82f6; font-size: 0.72rem; overflow: hidden; text-overflow: ellipsis; max-width: 420px; white-space: nowrap; cursor: pointer; text-decoration: underline; }
+#acSim .acCardBot { display: flex; align-items: center; gap: 6px; font-size: 0.73rem; flex-wrap: wrap; }
+#acSim .acCardDays { color: #666; }
+#acSim .acCardPlat {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+#acSim .acCardUrl {
+  color: #3b82f6;
+  font-size: 0.72rem;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 340px;
+}
+#acSim .acCardUrl:hover { text-decoration: underline; }
 
-/* Card Actions */
-.ctk-card-actions { display: flex; align-items: center; gap: 6px; }
-.ctk-card-btn {
-  padding: 5px 12px;
+/* Card actions */
+#acSim .acCardRight { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+#acSim .acBtn {
   border: none;
   border-radius: 5px;
+  padding: 5px 12px;
   font-size: 0.75rem;
   font-weight: 700;
+  color: #fff;
   cursor: pointer;
-  color: white;
-  transition: 0.15s;
+  transition: filter 0.15s;
 }
-/* fg_color="#218838", hover_color="#1e7e34" */
-.ctk-card-btn.open { background: #218838; }
-.ctk-card-btn.open:hover { background: #1e7e34; }
-/* fg_color="#d97706", hover_color="#b45309" */
-.ctk-card-btn.edit { background: #d97706; }
-.ctk-card-btn.edit:hover { background: #b45309; }
-/* fg_color="#c82333", hover_color="#bd2130" */
-.ctk-card-btn.del { background: #c82333; }
-.ctk-card-btn.del:hover { background: #bd2130; }
+#acSim .acBtn:hover { filter: brightness(0.85); }
+/* Exact colors from source: fg_color="#218838", "#d97706", "#c82333" */
+#acSim .acBtnGreen  { background: #218838; }
+#acSim .acBtnOrange { background: #d97706; }
+#acSim .acBtnRed    { background: #c82333; }
 
-/* Toggle Switch: fg_color="#2d2d30", progress_color="#2563eb" */
-.ctk-sw-wrap { position: relative; display: inline-block; width: 38px; height: 20px; cursor: pointer; flex-shrink: 0; }
-.ctk-toggle-input { opacity: 0; width: 0; height: 0; position: absolute; }
-.ctk-sw-track {
+/* Toggle switch: fg_color="#2d2d30", progress_color="#2563eb" */
+#acSim .acSwitch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+#acSim .acToggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#acSim .acSlider {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: #2d2d30;
-  border-radius: 20px;
-  transition: 0.2s;
+  border-radius: 22px;
+  transition: background 0.2s;
 }
-.ctk-sw-track:before {
+#acSim .acSlider::before {
   content: '';
   position: absolute;
-  width: 14px; height: 14px;
+  width: 16px; height: 16px;
   left: 3px; top: 3px;
-  background: #888;
+  background: #777;
   border-radius: 50%;
-  transition: 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
-.ctk-toggle-input:checked + .ctk-sw-track { background: #2563eb; }
-.ctk-toggle-input:checked + .ctk-sw-track:before { transform: translateX(18px); background: white; }
+#acSim .acToggle:checked + .acSlider { background: #2563eb; }
+#acSim .acToggle:checked + .acSlider::before { transform: translateX(18px); background: #fff; }
 
-/* Empty tab placeholder */
-.ctk-empty-tab { text-align: center; padding: 60px 20px; }
-.ctk-empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
-.ctk-empty-title { color: #ccc; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-.ctk-empty-sub { color: #555; font-size: 0.82rem; }
-
-/* Form field full width rows (stacked like real program) */
-.ctk-form-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
-.ctk-form-field .ctk-inp { width: 100%; box-sizing: border-box; }
-.ctk-form-row-align { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
-/* Search bar full width row */
-.ctk-search-bar-row { margin-bottom: 6px; }
-.ctk-search-bar-row .ctk-search-wrap { width: 100%; box-sizing: border-box; }
-.ctk-search-bar-row .ctk-search-inp { flex: 1; width: 100%; }
-/* Proxima label center of topbar */
-.ctk-proxima-label { flex: 1; text-align: right; color: #9ca3af; font-size: 0.82rem; font-style: italic; padding-right: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Empty tab */
+#acSim .acEmptyTab { text-align: center; padding: 60px 20px; }
+#acSim .acEmptyIcon { font-size: 2.5rem; }
+#acSim .acEmptyTitle { color: #ccc; font-size: 1rem; font-weight: 700; margin: 10px 0 6px; }
+#acSim .acEmptyTab p { color: #555; font-size: 0.82rem; }

@@ -1,47 +1,46 @@
 
 export const getAbreCursosSimulatorHTML = () => `
-<div class="ctk-window">
+<div id="acSim">
 
-  <!-- Top Bar: Title + Clock -->
-  <div class="ctk-topbar">
-    <div class="ctk-topbar-left">
-      <span class="ctk-app-title">Abre-Cursos Pro</span>
-      <span class="ctk-version-badge">v2.5.4</span>
-    </div>
-    <div class="ctk-proxima-label" id="acNextClassBadge"></div>
-    <div class="ctk-clock-capsule" id="acClock">--:--:--</div>
+  <!-- TOP BAR -->
+  <div id="acTopBar">
+    <span id="acTitle">Abre-Cursos Pro</span>
+    <span id="acVerBadge">v2.5.4</span>
+    <span id="acProxima"></span>
+    <span id="acClock">--:--:--</span>
   </div>
 
-  <!-- Tab Navigation (horizontal, like CTkTabview) -->
-  <div class="ctk-tabbar">
-    <button class="ctk-tab-btn active" data-target="tab-horario">Horario</button>
-    <button class="ctk-tab-btn" data-target="tab-launchpad">Launchpad</button>
-    <button class="ctk-tab-btn" data-target="tab-tareas">Tareas</button>
-    <button class="ctk-tab-btn" data-target="tab-historial">Historial</button>
-    <button class="ctk-tab-btn" data-target="tab-ajustes">Ajustes</button>
+  <!-- TAB NAV -->
+  <div id="acTabNav">
+    <button class="acTabBtn acActive" data-target="acTabHorario">Horario</button>
+    <button class="acTabBtn" data-target="acTabLaunchpad">Launchpad</button>
+    <button class="acTabBtn" data-target="acTabTareas">Tareas</button>
+    <button class="acTabBtn" data-target="acTabHistorial">Historial</button>
+    <button class="acTabBtn" data-target="acTabAjustes">Ajustes</button>
   </div>
 
-  <!-- Tab Content Area -->
-  <div class="ctk-content">
+  <!-- TAB: HORARIO -->
+  <div id="acTabHorario" class="acTabPane">
 
-    <!-- TAB: HORARIO -->
-    <div class="ctk-tab-pane active" id="tab-horario">
+    <!-- Form Panel -->
+    <div class="acPanel">
+      <form id="acForm">
 
-      <!-- Form Panel -->
-      <div class="ctk-form-panel">
-        <form id="acForm">
-          <div class="ctk-form-field">
-            <label class="ctk-lbl">Nombre de Asignatura</label>
-            <input type="text" id="acInNombre" class="ctk-inp" placeholder="Ej: CÁLCULO 1" required>
-          </div>
-          <div class="ctk-form-field">
-            <label class="ctk-lbl">Enlace de Clase (URL)</label>
-            <input type="url" id="acInUrl" class="ctk-inp" placeholder="https://upn.class.com/..." required>
-          </div>
-          <div class="ctk-form-row-bot ctk-form-row-align">
-            <div class="ctk-fg ctk-fg-sm">
-              <label class="ctk-lbl">Hora de Programación (24h)</label>
-              <select id="acInHora" class="ctk-sel">
+        <div class="acFormField">
+          <label class="acLabel">Nombre de Asignatura</label>
+          <input type="text" id="acInNombre" class="acInput" placeholder="Ej: CÁLCULO 1" required>
+        </div>
+
+        <div class="acFormField">
+          <label class="acLabel">Enlace de Clase (URL)</label>
+          <input type="url" id="acInUrl" class="acInput" placeholder="https://upn.class.com/..." required>
+        </div>
+
+        <div class="acFormRow">
+          <div class="acFormGroup">
+            <label class="acLabel">Hora de Programación (24h)</label>
+            <div class="acTimeRow">
+              <select id="acInHora" class="acSelect">
                 <option value="06">06</option><option value="07">07</option><option value="08">08</option>
                 <option value="09">09</option><option value="10">10</option><option value="11">11</option>
                 <option value="12">12</option><option value="13">13</option><option value="14">14</option>
@@ -49,87 +48,71 @@ export const getAbreCursosSimulatorHTML = () => `
                 <option value="18">18</option><option value="19" selected>19</option><option value="20">20</option>
                 <option value="21">21</option><option value="22">22</option>
               </select>
-            </div>
-            <div class="ctk-fg ctk-fg-sm">
-              <label class="ctk-lbl">&nbsp;</label>
-              <select id="acInMin" class="ctk-sel">
+              <span class="acTimeSep">:</span>
+              <select id="acInMin" class="acSelect">
                 <option value="00">00</option><option value="10">10</option><option value="20">20</option>
                 <option value="30" selected>30</option><option value="40">40</option><option value="50">50</option>
               </select>
             </div>
-            <div class="ctk-fg">
-              <label class="ctk-lbl">Días de Clase</label>
-              <div class="ctk-day-row">
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="1"><span>Lun</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="2"><span>Mar</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="3"><span>Mié</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="4"><span>Jue</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="5"><span>Vie</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="6"><span>Sáb</span></label>
-                <label class="ctk-day"><input type="checkbox" class="ac-day-check" value="7"><span>Dom</span></label>
-              </div>
-            </div>
-            <div class="ctk-fg ctk-fg-btn">
-              <label class="ctk-lbl">&nbsp;</label>
-              <button type="submit" class="ctk-add-btn">Agregar Curso</button>
+          </div>
+
+          <div class="acFormGroup acFormGroupDays">
+            <label class="acLabel">Días de Clase</label>
+            <div class="acDaysRow">
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="1"> Lun</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="2"> Mar</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="3"> Mié</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="4"> Jue</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="5"> Vie</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="6"> Sáb</label>
+              <label class="acDay"><input type="checkbox" class="ac-day-check" value="7"> Dom</label>
             </div>
           </div>
-        </form>
-      </div>
 
-      <!-- List Header -->
-      <div class="ctk-list-header">
-        <span>Cursos Programados</span>
-        <span style="color:#666">Estado / Acciones</span>
-      </div>
-      <div class="ctk-search-bar-row">
-        <div class="ctk-search-wrap">
-          <span class="ctk-search-icon">🔍</span>
-          <input type="text" class="ctk-search-inp" id="acSearch" placeholder="Buscar curso por nombre...">
+          <div class="acFormGroupBtn">
+            <button type="submit" id="acBtnAdd">Agregar Curso</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Scrollable course list -->
-      <div class="ctk-scroll-area" id="acCardList"></div>
-
+      </form>
     </div>
 
-    <!-- TAB: LAUNCHPAD -->
-    <div class="ctk-tab-pane" id="tab-launchpad" style="display:none">
-      <div class="ctk-empty-tab">
-        <div class="ctk-empty-icon">🚀</div>
-        <div class="ctk-empty-title">Launchpad</div>
-        <div class="ctk-empty-sub">Fuerza la apertura de cualquier curso sin esperar su hora.</div>
-      </div>
+    <!-- List Header -->
+    <div id="acListHeader">
+      <span>Cursos Programados</span>
+      <span id="acListRight">Estado / Acciones</span>
     </div>
 
-    <!-- TAB: TAREAS -->
-    <div class="ctk-tab-pane" id="tab-tareas" style="display:none">
-      <div class="ctk-empty-tab">
-        <div class="ctk-empty-icon">📝</div>
-        <div class="ctk-empty-title">Tareas Pendientes</div>
-        <div class="ctk-empty-sub">Integración con Canvas LMS — Próximamente.</div>
-      </div>
+    <!-- Search -->
+    <div id="acSearchWrap">
+      <span>🔍</span>
+      <input type="text" id="acSearch" placeholder="Buscar curso por nombre...">
     </div>
 
-    <!-- TAB: HISTORIAL -->
-    <div class="ctk-tab-pane" id="tab-historial" style="display:none">
-      <div class="ctk-empty-tab">
-        <div class="ctk-empty-icon">📊</div>
-        <div class="ctk-empty-title">Historial de Sesiones</div>
-        <div class="ctk-empty-sub">Registros de clases abiertas automaticamente.</div>
-      </div>
-    </div>
-
-    <!-- TAB: AJUSTES -->
-    <div class="ctk-tab-pane" id="tab-ajustes" style="display:none">
-      <div class="ctk-empty-tab">
-        <div class="ctk-empty-icon">⚙️</div>
-        <div class="ctk-empty-title">Ajustes</div>
-        <div class="ctk-empty-sub">Navegador, tolerancia de tiempo, notificaciones y temas.</div>
-      </div>
-    </div>
+    <!-- Course Cards -->
+    <div id="acCardList"></div>
 
   </div>
+
+  <!-- TAB: LAUNCHPAD -->
+  <div id="acTabLaunchpad" class="acTabPane acHidden">
+    <div class="acEmptyTab"><div class="acEmptyIcon">🚀</div><div class="acEmptyTitle">Launchpad</div><p>Fuerza la apertura de cualquier curso sin esperar su hora programada.</p></div>
+  </div>
+
+  <!-- TAB: TAREAS -->
+  <div id="acTabTareas" class="acTabPane acHidden">
+    <div class="acEmptyTab"><div class="acEmptyIcon">📝</div><div class="acEmptyTitle">Tareas Pendientes</div><p>Integración con Canvas LMS — Próximamente.</p></div>
+  </div>
+
+  <!-- TAB: HISTORIAL -->
+  <div id="acTabHistorial" class="acTabPane acHidden">
+    <div class="acEmptyTab"><div class="acEmptyIcon">📊</div><div class="acEmptyTitle">Historial de Sesiones</div><p>Registros de clases abiertas automáticamente.</p></div>
+  </div>
+
+  <!-- TAB: AJUSTES -->
+  <div id="acTabAjustes" class="acTabPane acHidden">
+    <div class="acEmptyTab"><div class="acEmptyIcon">⚙️</div><div class="acEmptyTitle">Ajustes</div><p>Navegador, tolerancia de tiempo, notificaciones y temas de color.</p></div>
+  </div>
+
 </div>
 `;
