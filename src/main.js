@@ -1206,7 +1206,7 @@ const initAbreCursosLogic = () => {
   let lastOpenedId = null;
 
   const cardList = container.querySelector('#acCardList');
-  const clockEl = container.querySelector('.ac-app-clock');
+  const clockEl = container.querySelector('#acClock');
   const badgeNext = container.querySelector('#acNextClassBadge');
 
   // Helper: Show Toast
@@ -1226,45 +1226,41 @@ const initAbreCursosLogic = () => {
   const renderCourses = () => {
     if (!cardList) return;
     cardList.innerHTML = '';
-    
+
     if (courses.length === 0) {
-      cardList.innerHTML = '<div style="color:#666; text-align:center; padding: 20px;">No hay cursos programados</div>';
+      cardList.innerHTML = '<div class="ctk-empty">Sin cursos programados.</div>';
       return;
     }
 
     courses.forEach(c => {
-      const daysStr = c.dias.map(d => daysMap[d]).join(', ');
-      
-      // Determine platform tag based on URL
-      let platform = 'Web';
-      let tagColor = '#1a6aff'; // blue
-      if (c.url.includes('zoom.us')) {
-        platform = 'Zoom';
-        tagColor = '#198754'; // green
-      } else if (c.url.includes('teams.microsoft')) {
-        platform = 'Teams';
-        tagColor = '#fd7e14'; // orange
-      }
-      
-      // Truncate URL
-      let displayUrl = c.url.length > 30 ? c.url.substring(0, 30) + '...' : c.url;
+      const daysMap2 = {1:'Lun',2:'Mar',3:'Mie',4:'Jue',5:'Vie',6:'Sab',7:'Dom'};
+      const daysStr = c.dias.map(d => daysMap2[d]).join(', ');
+
+      let platform = 'Web', tagColor = '#1f6aa5';
+      if (c.url.includes('zoom.us'))           { platform = 'Zoom';  tagColor = '#198754'; }
+      else if (c.url.includes('teams'))        { platform = 'Teams'; tagColor = '#e06c00'; }
+      else if (c.url.includes('canvas'))       { platform = 'Canvas'; tagColor = '#7c3aed'; }
+
+      let displayUrl = c.url.length > 38 ? c.url.substring(0, 38) + '...' : c.url;
 
       const card = document.createElement('div');
-      card.className = 'ac-course-card-classic';
+      card.className = 'ctk-course-row' + (c.activo ? '' : ' inactive');
       card.innerHTML = `
-        <div class="ac-course-info-classic">
-          <div class="ac-course-title-classic">
-            ${c.nombre} <span class="ac-time-badge-classic">${c.hora}:${c.minuto}</span>
-          </div>
-          <div class="ac-course-meta-classic">
-            <span class="ac-meta-day-classic">${daysStr} • </span>
-            <span class="ac-meta-tag-classic" style="background-color: ${tagColor};">${platform}</span>
-            <span class="ac-meta-url-classic">${displayUrl}</span>
+        <div class="ctk-row-left">
+          <div class="ctk-row-name">${c.nombre} <span class="ctk-time-pill">${c.hora}:${c.minuto}</span></div>
+          <div class="ctk-row-meta">
+            <span class="ctk-days-text">${daysStr} •</span>
+            <span class="ctk-platform-tag" style="background:${tagColor}">${platform}</span>
+            <span class="ctk-url-text">${displayUrl}</span>
           </div>
         </div>
-        <div class="ac-course-actions-classic">
-          <button class="ac-btn-mini green btn-abrir" data-id="${c.id}">Abrir</button>
-          <button class="ac-btn-mini red btn-borrar" data-id="${c.id}">Borrar</button>
+        <div class="ctk-row-actions">
+          <label class="ctk-switch-wrap" title="${c.activo ? 'Activo' : 'Inactivo'}">
+            <input type="checkbox" class="ctk-toggle-input" data-id="${c.id}" ${c.activo ? 'checked' : ''}>
+            <span class="ctk-switch-slider"></span>
+          </label>
+          <button class="ctk-action-btn open btn-abrir" data-id="${c.id}">▶ Abrir</button>
+          <button class="ctk-action-btn del btn-borrar" data-id="${c.id}">✕ Borrar</button>
         </div>
       `;
       cardList.appendChild(card);
@@ -1383,13 +1379,14 @@ const initAbreCursosLogic = () => {
   // 6. Delegated Event Listeners (Toggles & Action Buttons)
   if (cardList) {
     cardList.addEventListener('click', (e) => {
-      // Toggle
-      if (e.target.classList.contains('ac-toggle')) {
+      // Toggle switch
+      if (e.target.classList.contains('ctk-toggle-input')) {
         const id = e.target.getAttribute('data-id');
         const course = courses.find(c => c.id === id);
         if (course) {
-          course.activo = !course.activo;
+          course.activo = e.target.checked;
           renderCourses();
+          showSimToast(course.activo ? `${course.nombre}: Activado` : `${course.nombre}: Desactivado`);
         }
       }
       // Borrar
@@ -1416,8 +1413,8 @@ const initAbreCursosLogic = () => {
   }
 
   // 7. Tabs logic
-  const tabs = container.querySelectorAll('.ac-tab');
-  const tabContents = container.querySelectorAll('.ac-tab-content');
+  const tabs = container.querySelectorAll('.ctk-nav-btn');
+  const tabContents = container.querySelectorAll('.ctk-tab');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
