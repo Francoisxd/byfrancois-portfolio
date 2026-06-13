@@ -28,12 +28,12 @@ export const getAbreCursosSimulatorHTML = () => `
 
         <div class="acFormField">
           <label class="acLabel">Nombre de Asignatura</label>
-          <input type="text" id="acInNombre" class="acInput" placeholder="Ej: CÁLCULO 1" required>
+          <input type="text" id="acInNombre" class="acInput" placeholder="Ej: MATEMÁTICAS 1" required>
         </div>
 
         <div class="acFormField">
           <label class="acLabel">Enlace de Clase (URL)</label>
-          <input type="url" id="acInUrl" class="acInput" placeholder="https://upn.class.com/..." required>
+          <input type="url" id="acInUrl" class="acInput" placeholder="https://zoom.us/j/..." required>
         </div>
 
         <div class="acFormRow">
