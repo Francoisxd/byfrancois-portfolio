@@ -1167,3 +1167,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Download Permission Logic
+const btnDownloadAC = document.getElementById('btnDownloadAC');
+if (btnDownloadAC) {
+  btnDownloadAC.addEventListener('click', (e) => {
+    e.preventDefault();
+    const password = prompt("El ejecutable está protegido. Ingrese la clave de autorización:");
+    if (password === "francois2026") {
+      alert("Acceso concedido. Iniciando descarga...");
+      const link = document.createElement('a');
+      link.href = "/downloads/Instalador_AbreCursos_v2.5.4.exe";
+      link.download = "Instalador_AbreCursos_v2.5.4.exe";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else if (password !== null) {
+      alert("Clave incorrecta. Acceso denegado.");
+    }
+  });
+}
