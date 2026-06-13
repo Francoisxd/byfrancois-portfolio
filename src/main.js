@@ -1187,3 +1187,89 @@ if (btnDownloadAC) {
     }
   });
 }
+
+// Abre Cursos Pro Interactive Logic
+const initAbreCursosLogic = () => {
+  const container = document.getElementById('abreCursosContainer');
+  if (!container) return;
+
+  // Clock
+  const clockEl = container.querySelector('.ac-app-clock');
+  if (clockEl) {
+    setInterval(() => {
+      const now = new Date();
+      const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const timeStr = now.toLocaleTimeString('es-PE', { hour12: false });
+      clockEl.innerText = `${days[now.getDay()]} ${timeStr}`;
+    }, 1000);
+  }
+
+  // Tabs
+  const tabs = container.querySelectorAll('.ac-tab');
+  const tabContents = container.querySelectorAll('.ac-tab-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const targetId = tab.getAttribute('data-target');
+      tabContents.forEach(tc => {
+        tc.style.display = tc.id === targetId ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Toggles
+  const toggles = container.querySelectorAll('.ac-toggle');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('on');
+    });
+  });
+
+  // Helper for Toasts
+  const showSimToast = (msg) => {
+    const toast = document.getElementById('winToast');
+    const toastMsg = document.getElementById('winToastMsg');
+    if (toast && toastMsg) {
+      toastMsg.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    } else {
+      alert(msg);
+    }
+  };
+
+  // Add Course Button
+  const btnAdd = container.querySelector('.ac-btn-green');
+  if (btnAdd) {
+    btnAdd.addEventListener('click', () => {
+      showSimToast("Simulación: Curso programado y guardado en la base de datos local.");
+      const inputs = container.querySelectorAll('.ac-input-v2');
+      inputs.forEach(i => i.value = '');
+    });
+  }
+
+  // Action Buttons
+  const miniBtns = container.querySelectorAll('.ac-btn-mini');
+  miniBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const action = e.target.innerText;
+      const card = e.target.closest('.ac-course-card');
+      const courseName = card ? card.querySelector('.ac-course-title').childNodes[0].nodeValue.trim() : 'Curso';
+      
+      if (action === 'Abrir') {
+        showSimToast(`Simulación: Ejecutando apertura automática para ${courseName}...`);
+      } else if (action === 'Editar') {
+        showSimToast(`Simulación: Abriendo panel de edición para ${courseName}...`);
+      } else if (action === 'Borrar') {
+        showSimToast(`Simulación: ${courseName} ha sido eliminado del registro.`);
+        if (card) card.style.opacity = '0.3';
+      }
+    });
+  });
+};
+
+// Call logic after DOM load
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(initAbreCursosLogic, 500);
+});
